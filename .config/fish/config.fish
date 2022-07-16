@@ -20,9 +20,10 @@ abbr -a tunconnect 'osascript ~/.tunnelblick/tunnelconnect.scpt'
 abbr -a tunstop 'osascript ~/.tunnelblick/tunnelstop.scpt'
 abbr -a src 'source $HOME/.config/fish/config.fish'
 
-alias vi=nvim
+alias readlink='/usr/local/bin/greadlink'
+alias vi='nvim'
+alias vim='nvim'
 alias vic='nvim $HOME/.config/fish/config.fish'
-alias vim=nvim
 alias findinpath="echo $PATH | sed 's/:/\n/g' | xargs -I % sh -c 'ls -ldhA —color %/* 2>/dev/null;' | fzf"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
