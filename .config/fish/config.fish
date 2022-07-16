@@ -18,6 +18,7 @@ abbr -a lzgc 'lazygit --git-dir=$HOME/.cfg --work-tree=$HOME'
 abbr -a lzd 'lazydocker'
 abbr -a tunconnect 'osascript ~/.tunnelblick/tunnelconnect.scpt'
 abbr -a tunstop 'osascript ~/.tunnelblick/tunnelstop.scpt'
+abbr -a src 'source $HOME/.config/fish/config.fish'
 
 alias vi=nvim
 alias vic='nvim $HOME/.config/fish/config.fish'
