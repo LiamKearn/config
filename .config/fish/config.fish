@@ -27,6 +27,7 @@ alias vim='nvim'
 alias vic='nvim $HOME/.config/fish/config.fish'
 alias findinpath="echo $PATH | sed 's/:/\n/g' | xargs -I % sh -c 'ls -ldhA —color %/* 2>/dev/null;' | fzf"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias rg='rg --no-messages'
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
