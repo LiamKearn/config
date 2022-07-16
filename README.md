@@ -8,26 +8,26 @@ I use a mix of a Macbook and a Ubuntu (pop-os) machine for development.
 # Primary software
  - Code (Would use VIM or jIDEs but code's remote support is the only viable option really)
  - Chrome
-  - Vimium plugin
-  - Refined GH
-  - Select2 Anywhere
-  - Tampermonkey
-  - UBlock Origin
+   - Vimium plugin
+   - Refined GH
+   - Select2 Anywhere
+   - Tampermonkey
+   - UBlock Origin
  - Rectangle
  - Easy Move+Resize
  - Alt-tab
  - Alacritty
-  - TMUX
-  - NVIM
-  - Lazygit
-  - Lazydocker
-  - Bat
-  - RipGrep
+   - TMUX
+   - NVIM
+   - Lazygit
+   - Lazydocker
+   - Bat
+   - RipGrep
  - Tunnelblick VPN client
  - Alfred
  - Limelight active window border
-  - Dock disabled
-  - Menubar on autohide with KB shortcut
+   - Dock disabled
+   - Menubar on autohide with KB shortcut
 
 # Install
 ```fish
