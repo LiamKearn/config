@@ -8,6 +8,7 @@ set -Ux TZ Australia/Hobart
 set -Ux LESS "-R"
 
 fish_add_path /usr/local/bin/nvim-osx64/bin
+fish_add_path $HOME/.bin
 
 abbr -a l 'ls -1sha'
 abbr -a ll 'ls -lsha'
