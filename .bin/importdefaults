@@ -1,0 +1,36 @@
+#!/usr/bin/env fish
+#
+# Simple script to import OSX "citizen" application plists and kickstart the application.
+# Makes a lot of assumptions.
+
+function getPIDSFromDomain
+    #                                                                                               Note that xargs runs echo by default.
+    echo (launchctl list | grep "$argv[1]" | awk '{print $1}' | awk '/^[[:digit:].]+$/{print $0}' | xargs)
+end
+
+set import_dir "$HOME/.config/defaults"
+
+# Still learning fish shell, this works for now.
+for file in $import_dir/*
+    if not test -f $file
+        continue
+    end
+
+    # com.lwouis.alt-tab-macos.plist -> com.lwouis.alt-tab-macos
+    set fileparts (string split . -- (basename $file))
+    set -e fileparts[(count $fileparts)]
+    set domain (string join . $fileparts)
+
+    # Just make an assumption that the service is running under the default EUID in the gui layer
+    # we could do `launchctl kickstart -k pid/31331` and parse that but it's too much of a PIA and
+    # the manpage notes that Apple does not consider this an API and may chop it at any point.
+    # PID code is now redundant
+    defaults import $domain $file
+    set pids (getPIDSFromDomain $domain)
+
+    if launchctl kickstart -k gui/501/$domain #> /dev/null 2>&1
+        printf "Just kickstarted application(s) from domain: %s with PID(s): %s\n" $domain $pids
+    else
+        printf "Didn't find anything to kickstart\n"
+    end
+end
