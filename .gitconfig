@@ -1,1 +1,7 @@
-Dotfiles/git/.gitconfig
+[credential]
+	helper = store
+[user]
+	name = LiamKearn
+    email = 76269376+LiamKearn@users.noreply.github.com
+[alias]
+    update = add -u
