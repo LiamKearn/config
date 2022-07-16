@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSStatusItem Preferred Position Item-0</key>
+	<real>629</real>
+	<key>NSStatusItem Visible Item-0</key>
+	<true/>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>946 94 445 232 0 0 1440 900 </string>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>1080 978 400 135 0 0 2560 1440 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>370 204 700 628 0 0 1440 900 </string>
+	<key>PMPrintingExpandedStateForPrint2</key>
+	<false/>
+	<key>SUHasLaunchedBefore</key>
+	<true/>
+	<key>SULastCheckTime</key>
+	<date>2022-07-16T10:01:56Z</date>
+	<key>SUUpdateGroupIdentifier</key>
+	<integer>3804272111</integer>
+	<key>SUUpdateRelaunchingMarker</key>
+	<false/>
+	<key>alignThumbnails</key>
+	<string>1</string>
+	<key>appsToShow</key>
+	<string>0</string>
+	<key>appsToShow2</key>
+	<string>1</string>
+	<key>crashPolicy</key>
+	<string>1</string>
+	<key>cursorFollowFocusEnabled</key>
+	<string>true</string>
+	<key>fadeOutAnimation</key>
+	<string>true</string>
+	<key>hideAppBadges</key>
+	<string>true</string>
+	<key>hideColoredCircles</key>
+	<string>false</string>
+	<key>hideSpaceNumberLabels</key>
+	<string>true</string>
+	<key>hideStatusIcons</key>
+	<string>true</string>
+	<key>hideThumbnails</key>
+	<string>false</string>
+	<key>hideWindowlessApps</key>
+	<string>true</string>
+	<key>holdShortcut</key>
+	<string>⌘</string>
+	<key>holdShortcut2</key>
+	<string>⌥</string>
+	<key>iconSize</key>
+	<string>43</string>
+	<key>maxHeightOnScreen</key>
+	<string>90</string>
+	<key>maxWidthOnScreen</key>
+	<string>90</string>
+	<key>menubarIcon</key>
+	<string>0</string>
+	<key>mouseHoverEnabled</key>
+	<string>true</string>
+	<key>nextWindowShortcut2</key>
+	<string>⇥</string>
+	<key>preferencesVersion</key>
+	<string>6.46.1</string>
+	<key>screensToShow</key>
+	<string>0</string>
+	<key>showFullscreenWindows</key>
+	<string>0</string>
+	<key>showHiddenWindows</key>
+	<string>1</string>
+	<key>showMinimizedWindows</key>
+	<string>0</string>
+	<key>showOnScreen</key>
+	<string>2</string>
+	<key>showTabsAsWindows</key>
+	<string>false</string>
+	<key>spacesToShow</key>
+	<string>0</string>
+	<key>theme</key>
+	<string>0</string>
+	<key>titleTruncation</key>
+	<string>1</string>
+	<key>updatePolicy</key>
+	<string>1</string>
+	<key>windowDisplayDelay</key>
+	<string>0</string>
+	<key>windowMaxWidthInRow</key>
+	<string>78</string>
+	<key>windowMinWidthInRow</key>
+	<string>10</string>
+</dict>
+</plist>
