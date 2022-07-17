@@ -1,3 +1,4 @@
+source $HOME/.config/fish/private_env.fish
 set -Ux EDITOR nvim
 set -Ux BROWSER chrome
 set -Ux NAME "Liam Kearney"
@@ -10,8 +11,8 @@ set -Ux LESS "-R"
 fish_add_path /usr/local/bin/nvim-osx64/bin
 fish_add_path $HOME/.bin
 
-abbr -a l 'ls -1sha'
-abbr -a ll 'ls -lsha'
+abbr -a l 'ls -1'
+abbr -a ll 'ls -la'
 abbr -a shi 'ssh imprint'
 abbr -a shit 'ssh imprint -t "tmux a; bash -l"'
 abbr -a lzg 'lazygit'
