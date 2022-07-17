@@ -1,4 +1,6 @@
+source $HOME/.config/fish/public_env.fish
 source $HOME/.config/fish/private_env.fish
+
 set -Ux EDITOR nvim
 set -Ux BROWSER chrome
 set -Ux NAME "Liam Kearney"
@@ -26,6 +28,8 @@ alias readlink='/usr/local/bin/greadlink'
 alias vi='nvim'
 alias vim='nvim'
 alias vic='nvim $HOME/.config/fish/config.fish'
+alias vie='nvim $HOME/.config/fish/public_env.fish'
+alias viep='nvim $HOME/.config/fish/private_env.fish'
 alias findinpath="echo $PATH | sed 's/:/\n/g' | xargs -I % sh -c 'ls -ldhA —color %/* 2>/dev/null;' | fzf"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias rg='rg --no-messages'
