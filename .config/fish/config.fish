@@ -1,15 +1,6 @@
 source $HOME/.config/fish/public_env.fish
 source $HOME/.config/fish/private_env.fish
 
-set -Ux EDITOR nvim
-set -Ux BROWSER chrome
-set -Ux NAME "Liam Kearney"
-set -Ux EMAIL liam@sproutlabs.com.au
-set -Ux TZ Australia/Hobart
-# I don't use -F because if I want cat I'll use cat. :-)
-# I don't use -X because if I want cat I'll use cat. :-)
-set -Ux LESS "-R"
-
 fish_add_path /usr/local/bin/nvim-osx64/bin
 fish_add_path $HOME/.bin
 
