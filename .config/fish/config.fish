@@ -1,5 +1,6 @@
 source $HOME/.config/fish/public_env.fish
 source $HOME/.config/fish/private_env.fish
+source $HOME/.config/fish/bindings.fish
 
 fish_add_path /usr/local/bin/nvim-osx64/bin
 fish_add_path $HOME/.bin
