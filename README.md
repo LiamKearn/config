@@ -23,6 +23,7 @@ I use a mix of a Macbook and a Ubuntu (pop-os) machine for development.
    - Lazydocker
    - Bat
    - RipGrep
+   - Delta as my git pager (Normal pager in lazygit)
  - Tunnelblick VPN client
  - Alfred
  - Limelight active window border

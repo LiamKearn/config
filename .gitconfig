@@ -5,3 +5,17 @@
     email = 76269376+LiamKearn@users.noreply.github.com
 [alias]
     update = add -u
+[core]
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[add.interactive]
+    useBuiltin = false
+[delta]
+    navigate = true
+    light = false
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
+
