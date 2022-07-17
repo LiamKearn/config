@@ -23,7 +23,7 @@ alias vi='nvim'
 alias vim='nvim'
 alias vic='nvim $HOME/.config/fish/config.fish'
 alias vie='nvim $HOME/.config/fish/public_env.fish'
-alias viep='nvim $HOME/.config/fish/private_env.fish'
+alias fic='cd $HOME/.config/fish'
 alias findinpath="echo $PATH | sed 's/:/\n/g' | xargs -I % sh -c 'ls -ldhA —color %/* 2>/dev/null;' | fzf"
 alias findinstash="git stash list | awk '{print \$1}' | sed 's/stash@{//g' | sed 's/}://g' | xargs -t -I '{}' git stash show {} | rg"
 alias findinhistory="history | fzf | awk '{\$1=\"\"; print \$0}' | xargs -i{} -p sh -c {}"
