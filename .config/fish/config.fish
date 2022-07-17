@@ -30,6 +30,8 @@ alias findinhistory="history | fzf | awk '{\$1=\"\"; print \$0}' | xargs -i{} -p
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias rg='rg --no-messages'
 
+set fish_greeting
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
