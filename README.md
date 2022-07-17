@@ -32,6 +32,6 @@ I use a mix of a Macbook and a Ubuntu (pop-os) machine for development.
 
 # Install
 ```fish
-git clone --separate-git-dir=$HOME/.cfg git@github.com:LiamKearn/config.git ~
+git clone --separate-git-dir=$HOME/.cfg git@github.com:LiamKearn/config.git $HOME
 ```
 
