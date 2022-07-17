@@ -22,7 +22,7 @@ for file in $import_dir/*
     set domain (string join . $fileparts)
 
     # Just make an assumption that the service is running under the default EUID in the gui layer
-    # we could do `launchctl kickstart -k pid/31331` and parse that but it's too much of a PIA and
+    # we could do `launchctl print pid/22264` and parse that but it's too much of a PIA and
     # the manpage notes that Apple does not consider this an API and may chop it at any point.
     # PID code is now redundant
     defaults import $domain $file
