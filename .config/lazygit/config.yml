@@ -37,7 +37,6 @@ git:
   paging:
     colorArg: always
     useConfig: false
-    pager: delta --dark --paging=never
   commit:
     signOff: false
   merging:
@@ -62,9 +61,9 @@ git:
   parseEmoji: false
   diffContextSize: 3 # how many lines of context are shown around a change in diffs
 os:
-  editCommand: '' # see 'Configuring File Editing' section
-  editCommandTemplate: '{{editor}} {{filename}}'
-  openCommand: ''
+  editCommand: 'nvim' # see 'Configuring File Editing' section
+  editCommandTemplate: '{{editor}} +{{line}} -- {{filename}}'
+  openCommand: 'nvim'
 refresher:
   refreshInterval: 10 # file/submodule refresh interval in seconds
   fetchInterval: 60 # re-fetch interval in seconds
