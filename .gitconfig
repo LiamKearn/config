@@ -5,6 +5,7 @@
     email = 76269376+LiamKearn@users.noreply.github.com
 [alias]
     update = add -u
+    sync = !fish -c 'config checkout -p origin/$OTHER --'
 [core]
     pager = delta
 [interactive]

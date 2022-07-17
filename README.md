@@ -35,3 +35,8 @@ I use a mix of a Macbook and a Ubuntu (pop-os) machine for development.
 git clone --separate-git-dir=$HOME/.cfg git@github.com:LiamKearn/config.git $HOME
 ```
 
+# Sync
+```fish
+config sync <Path to sync>
+```
+
