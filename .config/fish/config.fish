@@ -29,9 +29,15 @@ alias findinstash="git stash list | awk '{print \$1}' | sed 's/stash@{//g' | sed
 alias findinhistory="history | fzf | awk '{\$1=\"\"; print \$0}' | xargs -i{} -p sh -c {}"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias rg='rg --no-messages'
+alias dostopall='docker stop $(docker ps -q)'
+alias dops="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Names}}' | awk '{if (NR!=1) {print}}' | nl -w2 -s'  '"
+alias dopd="docker-compose up -d"
 
 set fish_greeting
 
 if status is-interactive
+    function doexec
+        docker ps | sed '1d' | fzf | awk '{print $1}' | xargs -pI{} docker exec -i {} /bin/bash
+    end
     # Commands to run in interactive sessions can go here
 end
