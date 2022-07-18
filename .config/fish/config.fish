@@ -8,7 +8,7 @@ fish_add_path $HOME/.bin
 abbr -a l 'ls -1'
 abbr -a ll 'ls -la'
 abbr -a shi 'ssh imprint'
-abbr -a shit 'ssh imprint -t "tmux a; bash -l"'
+abbr -a shit 'ssh imprint -t "tmux a; fish -l"'
 abbr -a lzg 'lazygit'
 abbr -a lzgc 'lazygit --git-dir=$HOME/.cfg --work-tree=$HOME'
 abbr -a lzd 'lazydocker'
