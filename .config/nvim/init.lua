@@ -40,6 +40,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'dag/vim-fish'
+Plug 'nvim-lua/plenary.nvim'
 
 call plug#end()
 
@@ -59,5 +60,10 @@ let g:gruvbox_material_background = 'hard'
 colorscheme gruvbox-material
 
  nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep     for > ")})<CR>
+
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 ]])
 
