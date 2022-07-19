@@ -22,6 +22,7 @@ alias cat='bat'
 alias vi='nvim'
 alias vim='nvim'
 alias vic='nvim $HOME/.config/fish/config.fish'
+alias cf='cd $HOME/.config'
 alias vie='nvim $HOME/.config/fish/public_env.fish'
 alias fic='cd $HOME/.config/fish'
 alias findinpath="echo $PATH | sed 's/:/\n/g' | xargs -I % sh -c 'ls -ldhA —color %/* 2>/dev/null;' | fzf"
