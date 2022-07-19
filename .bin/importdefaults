@@ -3,14 +3,17 @@
 # Simple script to import OSX "citizen" application plists and kickstart the application.
 # Makes a lot of assumptions.
 
-function getPIDSFromDomain
-    #                                                                                               Note that xargs runs echo by default.
-    echo (launchctl list | grep "$argv[1]" | awk '{print $1}' | awk '/^[[:digit:].]+$/{print $0}' | xargs)
-end
-
 set import_dir "$HOME/.config/defaults"
 
-# Still learning fish shell, this works for now.
+# Override the default location with `DEFAULTS_CONFIG_DIR`.
+if test -n "$DEFAULTS_CONFIG_DIR"
+    set import_dir $DEFAULTS_CONFIG_DIR
+end
+
+if test -d $import_dir
+    mkdir -p $import_dir
+end
+
 for file in $import_dir/*
     if not test -f $file
         continue
@@ -21,16 +24,31 @@ for file in $import_dir/*
     set -e fileparts[(count $fileparts)]
     set domain (string join . $fileparts)
 
-    # Just make an assumption that the service is running under the default EUID in the gui layer
-    # we could do `launchctl print pid/22264` and parse that but it's too much of a PIA and
-    # the manpage notes that Apple does not consider this an API and may chop it at any point.
-    # PID code is now redundant
-    defaults import $domain $file
-    set pids (getPIDSFromDomain $domain)
+    printf "%s Importing defaults for domain: %s %s\n" "---" $domain "---"
 
-    if launchctl kickstart -k gui/501/$domain #> /dev/null 2>&1
-        printf "Just kickstarted application(s) from domain: %s with PID(s): %s\n" $domain $pids
+    if defaults import $domain $file
+        printf "Imported defaults for domain: %s from file %s\n" $domain $file
     else
-        printf "Didn't find anything to kickstart\n"
+        printf "Failed to import defaults for domain: %s from file %s\n" $domain $file
+        continue
     end
+
+    set bundlepath (lsappinfo info -only bundlepath $domain | cut -d '"' -f4)
+    set pid (lsappinfo info -only pid $domain | cut -d '=' -f2)
+
+    if kill $pid > /dev/null 2>&1
+        printf "Just killed process from domain: %s with PID: %i\n" $domain $pid
+        printf "Relaunching bundle path: %s...\n" $bundlepath
+        if open -n $bundlepath > /dev/null 2>&1
+            printf "Relaunched bundle path: %s!\n" $bundlepath
+        else
+            printf "Failed to relaunch bundle path: %s\n" $bundlepath
+            continue
+        end
+    else
+        printf "Couldn't find or kill any processes belong to domain: %s, tried PID: %i\n" $domain $pid
+        continue
+    end
+
+    printf "%s Imported defaults for domain: %s %s\n\n" "---" $domain "---"
 end
