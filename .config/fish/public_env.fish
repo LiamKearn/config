@@ -11,6 +11,9 @@ set -Ux LESS "-R"
 # Make the lazygit config file the same location as it is on my linux box.
 set -Ux CONFIG_DIR $HOME/.config/lazygit
 
+# Setup defaults dir
+set -Ux DEFAULTS_CONFIG_DIR $HOME/.config/defaults
+
 # I don't use gradle often so I consider it's config disposable.
 set -Ux GRADLE_USER_HOME $HOME/.cache/.gradle
 
