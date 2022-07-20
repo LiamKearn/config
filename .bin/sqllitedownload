@@ -14,9 +14,9 @@
 
 set git_remote https://github.com/sqlite/sqlite.git
 set arch_list "x86" "x64"
-set arch (echo {$arch_list}\n | fzf) 
+set arch (printf '%s\n' {$arch_list} | fzf) 
 set os_list "osx" "linux" "windows"
-set os (echo {$os_list}\n | fzf)
+set os (printf '%s\n' {$os_list} | fzf)
 set bin_location $HOME/.bin
 
 # https://www.sqlite.org/download.html#:~:text=Build%20Product%20Names%20and%20Info
