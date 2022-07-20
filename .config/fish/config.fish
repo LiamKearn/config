@@ -38,7 +38,10 @@ set fish_greeting
 
 if status is-interactive
     function doexec
-        docker ps | sed '1d' | fzf | awk '{print $1}' | xargs -pI{} docker exec -i {} /bin/bash
+        set id (docker ps | sed '1d' | awk '{print $1, $2}' | fzf | awk '{print $1}')
+        set shell_list "/bin/bash" "/bin/zsh" "redis-cli"
+        set chosen_shell (printf '%s\n' $shell_list | fzf)
+        docker exec -it $id $chosen_shell
     end
     # Commands to run in interactive sessions can go here
 end
