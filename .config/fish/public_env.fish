@@ -1,12 +1,21 @@
-set -Ux EDITOR nvim
-set -Ux VISUAL nvim
-set -Ux BROWSER chrome
+# A lot of these are explict defaults
 set -Ux NAME "Liam Kearney"
 set -Ux EMAIL liam@sproutlabs.com.au
+
+set -Ux LANG en_US.UTF-8
 set -Ux TZ Australia/Hobart
-# I don't use -F because if I want cat I'll use cat. :-)
-# I don't use -X because if I want cat I'll use cat. :-)
+
+set -Ux EDITOR nvim -e
+set -Ux SUDO_EDITOR visudo
+set -Ux PAGER less
+set -Ux VISUAL nvim
+set -Ux BROWSER chrome
 set -Ux LESS "-R"
+set -Ux CC clang
+
+set -Ux PROJECTDIR $HOME/Projects
+set -Ux MBOX $HOME/mbox
+set -Ux MAIL $HOME/mbox
 
 # Make the lazygit config file the same location as it is on my linux box.
 set -Ux CONFIG_DIR $HOME/.config/lazygit
