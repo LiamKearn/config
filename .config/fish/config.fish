@@ -17,6 +17,7 @@ abbr -a tunstop 'osascript $HOME/.config/tunnelblick/tunnelstop.scpt'
 abbr -a src 'source $HOME/.config/fish/config.fish'
 abbr -a tma 'tmux a'
 
+alias ac="AWS_CLI_AUTO_PROMPT=on aws --cli-auto-prompt"
 alias readlink='/usr/local/bin/greadlink'
 alias cat='bat'
 alias vi='nvim'
