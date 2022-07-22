@@ -17,6 +17,8 @@ set -Ux PROJECTDIR $HOME/Projects
 set -Ux MBOX $HOME/mbox
 set -Ux MAIL $HOME/mbox
 
+set -Ux DOCKER_BUILDKIT 1
+
 # Make the lazygit config file the same location as it is on my linux box.
 set -Ux CONFIG_DIR $HOME/.config/lazygit
 
