@@ -34,6 +34,7 @@ alias rg='rg --no-messages'
 alias dostopall='docker stop $(docker ps -q)'
 alias dops="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Names}}' | awk '{if (NR!=1) {print}}' | nl -w2 -s'  '"
 alias dopd="docker-compose up -d"
+alias todo="vi $HOME/todo.md"
 
 set fish_greeting
 
