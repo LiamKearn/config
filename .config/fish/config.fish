@@ -4,6 +4,7 @@ source $HOME/.config/fish/bindings.fish
 
 fish_add_path /usr/local/bin/nvim-osx64/bin
 fish_add_path $HOME/.bin
+fish_add_path $HOME/.cargo/bin
 
 abbr -a l 'ls -1'
 abbr -a ll 'ls -la'
@@ -19,7 +20,6 @@ abbr -a tma 'tmux a'
 
 alias ac="AWS_CLI_AUTO_PROMPT=on aws --cli-auto-prompt"
 alias readlink='/usr/local/bin/greadlink'
-alias cat='bat'
 alias vi='nvim'
 alias vim='nvim'
 alias vic='nvim $HOME/.config/fish/config.fish'
@@ -34,11 +34,14 @@ alias rg='rg --no-messages'
 alias dostopall='docker stop $(docker ps -q)'
 alias dops="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Names}}' | awk '{if (NR!=1) {print}}' | nl -w2 -s'  '"
 alias dopd="docker-compose up -d"
-alias todo="vi $HOME/todo.md"
 
 set fish_greeting
 
 if status is-interactive
+    function dolog
+        set id (docker ps | sed '1d' | awk '{print $1, $2}' | fzf | awk '{print $1}')
+        docker logs -f $id
+    end
     function doexec
         set id (docker ps | sed '1d' | awk '{print $1, $2}' | fzf | awk '{print $1}')
         set shell_list "/bin/bash" "/bin/zsh" "redis-cli"
