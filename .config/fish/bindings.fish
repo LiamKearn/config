@@ -1,7 +1,8 @@
 if status is-interactive
     function launchtmux
         if not test -n "$TMUX"
-            tmux; clear
+            commandline -r -- tmux
+            commandline -f execute
         end
     end
     bind \ct launchtmux
