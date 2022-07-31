@@ -37,6 +37,7 @@ alias dops="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Names}}' | awk '{i
 alias dopd="docker-compose up -d"
 alias todo="vi $HOME/todo.md"
 alias qtodo="ql $HOME/todo.md"
+alias htop="sudo htop"
 
 set fish_greeting
 
