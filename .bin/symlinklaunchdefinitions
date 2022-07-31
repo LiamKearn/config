@@ -1,0 +1,16 @@
+#!/usr/bin/env fish
+#
+# This script symlinks plists into my user launchd locations
+
+set launch_agent_dir $HOME/.config/launchd/agents
+
+for agent in $launch_agent_dir/*
+    set agent_name (basename $agent)
+    printf "Symlinking %s to %s.." $agent "$HOME/Library/LaunchAgents/$agent_name"
+    if ln -s $agent "$HOME/Library/LaunchAgents/$agent_name"
+        printf " Done!\n"
+    else
+        printf " Error!!!\n"
+    end
+end
+
