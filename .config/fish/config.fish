@@ -6,6 +6,7 @@ fish_add_path /usr/local/bin/nvim-osx64/bin
 fish_add_path $HOME/.bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $ANDROID_SDK_ROOT/tools/bin
+fish_add_path $ANDROID_SDK_ROOT/platform-tools
 
 abbr -a l 'ls -1'
 abbr -a ll 'ls -la'
