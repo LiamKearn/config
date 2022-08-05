@@ -15,6 +15,8 @@ brew "guile"
 brew "unbound"
 brew "gnutls"
 brew "emacs"
+brew "exa"
+brew "fd"
 brew "fish", link: false
 brew "freetds"
 brew "fzf"

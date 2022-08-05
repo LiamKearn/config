@@ -8,8 +8,8 @@ fish_add_path $HOME/.cargo/bin
 fish_add_path $ANDROID_SDK_ROOT/tools/bin
 fish_add_path $ANDROID_SDK_ROOT/platform-tools
 
-abbr -a l 'ls -1'
-abbr -a ll 'ls -la'
+abbr -a l 'exa -1'
+abbr -a ll 'exa --long --octal-permissions --no-time --no-filesize --header --group'
 abbr -a shi 'ssh imprint'
 abbr -a shit 'ssh imprint -t "tmux a; fish -l"'
 abbr -a lzg 'lazygit'
@@ -19,6 +19,7 @@ abbr -a tunconnect 'osascript $HOME/.config/tunnelblick/tunnelconnect.scpt'
 abbr -a tunstop 'osascript $HOME/.config/tunnelblick/tunnelstop.scpt'
 abbr -a src 'source $HOME/.config/fish/config.fish'
 abbr -a tma 'tmux a'
+abbr -a find 'fd'
 
 alias ac="AWS_CLI_AUTO_PROMPT=on aws --cli-auto-prompt"
 alias readlink='/usr/local/bin/greadlink'
