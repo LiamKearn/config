@@ -34,6 +34,7 @@ brew "imagemagick"
 brew "iperf"
 brew "jq"
 brew "lazygit", args: ["HEAD"]
+brew "mosh"
 brew "neovim", args: ["HEAD"]
 brew "netcat"
 brew "ripgrep"
