@@ -1,0 +1,10 @@
+{
+	"name": "New Tab",
+	"description": "Vimium enabled new tab page for chrome",
+	"version": "1.0",
+	"manifest_version": 3,
+	"incognito": "split",
+	"chrome_url_overrides": {
+		"newtab": "redirect.html"
+	}
+}
