@@ -1,3 +1,9 @@
+if not status --is-interactive
+    # SOS.
+    alias vi vim nvim
+	exit
+end
+
 source $HOME/.config/fish/public_env.fish
 source $HOME/.config/fish/private_env.fish
 source $HOME/.config/fish/bindings.fish
@@ -7,53 +13,56 @@ fish_add_path $HOME/.bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $ANDROID_SDK_ROOT/tools/bin
 fish_add_path $ANDROID_SDK_ROOT/platform-tools
+fish_add_path $HOME/.local/bin
+fish_add_path /usr/local/go/bin
+fish_add_path /usr/local/llvm/bin
 
-abbr -a l 'exa -1'
-abbr -a ll 'exa --long --octal-permissions --no-time --no-filesize --header --group'
-abbr -a shi 'ssh imprint'
-abbr -a shit 'ssh imprint -t "tmux a; fish -l"'
+switch (uname)
+    case Darwin
+        alias todo="vi $HOME/Documents/todo.md"
+        alias qtodo="ql $HOME/Documents/todo.md"
+        alias readlink='/usr/local/bin/greadlink'
+
+        abbr -a shi 'ssh imprint'
+        abbr -a shit 'ssh imprint -t "tmux a; fish -l"'
+        abbr -a tunconnect 'osascript $HOME/.config/tunnelblick/tunnelconnect.scpt'
+        abbr -a tunstop 'osascript $HOME/.config/tunnelblick/tunnelstop.scpt'
+    case Linux
+        alias clip="nc -N localhost 8377"
+        alias dostopall='docker stop $(docker ps -q)'
+        alias dops="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Names}}' | awk '{if (NR!=1) {print}}' | nl -w2 -s'  '"
+        alias dopd="docker-compose up -d"
+end
+
+abbr -a l 'exa -1 --icons'
+abbr -a ll 'exa --long --octal-permissions --no-time --no-filesize --header --group --grid -a --no-permissions'
+abbr -a ls 'exa --long --octal-permissions --no-time --no-filesize --header --group'
 abbr -a lzg 'lazygit'
-abbr -a lzgc 'lazygit --git-dir=$HOME/.cfg --work-tree=$HOME'
 abbr -a lzd 'lazydocker'
-abbr -a tunconnect 'osascript $HOME/.config/tunnelblick/tunnelconnect.scpt'
-abbr -a tunstop 'osascript $HOME/.config/tunnelblick/tunnelstop.scpt'
+abbr -a lzgc 'lazygit --git-dir=$HOME/.cfg --work-tree=$HOME'
 abbr -a src 'source $HOME/.config/fish/config.fish'
 abbr -a tma 'tmux a'
 abbr -a find 'fd'
+abbr -a cd- 'cd -'
 
 alias ac="AWS_CLI_AUTO_PROMPT=on aws --cli-auto-prompt"
-alias readlink='/usr/local/bin/greadlink'
 alias vi='nvim'
 alias vim='nvim'
 alias vic='nvim $HOME/.config/fish/config.fish'
-alias cf='cd $HOME/.config'
-alias ncf='cd $HOME/.config/nvim'
 alias vie='nvim $HOME/.config/fish/public_env.fish'
-alias fic='cd $HOME/.config/fish'
-alias findinpath="echo $PATH | sed 's/:/\n/g' | xargs -I % sh -c 'ls -ldhA —color %/* 2>/dev/null;' | fzf"
-alias findinstash="git stash list | awk '{print \$1}' | sed 's/stash@{//g' | sed 's/}://g' | xargs -t -I '{}' git stash show {} | rg"
-alias findinhistory="history | fzf | awk '{\$1=\"\"; print \$0}' | xargs -i{} -p sh -c {}"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias rg='rg --no-messages'
-alias dostopall='docker stop $(docker ps -q)'
-alias dops="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Names}}' | awk '{if (NR!=1) {print}}' | nl -w2 -s'  '"
-alias dopd="docker-compose up -d"
-alias todo="vi $HOME/todo.md"
-alias qtodo="ql $HOME/todo.md"
 alias htop="sudo htop"
 
-set fish_greeting
+# Dirstack stuff | TODO the OSX stuff is stupid as always.
+alias ds='dirs | awk -v OFS="\n" "{\$1=\$1}1"'
+alias jd='pushd'
+alias pd='popd'
 
-if status is-interactive
-    function dolog
-        set id (docker ps | sed '1d' | awk '{print $1, $2}' | fzf | awk '{print $1}')
-        docker logs -f $id
-    end
-    function doexec
-        set id (docker ps | sed '1d' | awk '{print $1, $2}' | fzf | awk '{print $1}')
-        set shell_list "/bin/bash" "/bin/zsh" "redis-cli"
-        set chosen_shell (printf '%s\n' $shell_list | fzf)
-        docker exec -it $id $chosen_shell
-    end
-    # Commands to run in interactive sessions can go here
-end
+# Directory aliases.
+alias fic='cd $HOME/.config/fish'
+alias cf='cd $HOME/.config'
+alias ncf='cd $HOME/.config/nvim'
+alias doc='cd $HOME/Documents'
+
+set fish_greeting
