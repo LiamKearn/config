@@ -17,6 +17,8 @@ set -Ux PROJECTDIR $HOME/Projects
 set -Ux MBOX $HOME/mbox
 set -Ux MAIL $HOME/mbox
 
+set -Ux DOCKER_BUILDKIT 1
+
 set -Ux JAVA_HOME /Library/Java/JavaVirtualMachines/jdk1.8.0_333.jdk/Contents/Home
 set -Ux ANDROID_SDK_ROOT $HOME/Library/Android/sdk
 
