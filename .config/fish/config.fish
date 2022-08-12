@@ -1,6 +1,7 @@
 if not status --is-interactive
     # SOS.
-    alias vi vim nvim
+    alias vi nvim
+    alias vim nvim
 	exit
 end
 
