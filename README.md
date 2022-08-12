@@ -39,9 +39,3 @@ Both machines share these dotfiles and config is mostly shared via branching on 
 ```fish
 git clone --separate-git-dir=$HOME/.cfg git@github.com:LiamKearn/config.git $HOME
 ```
-
-# Sync
-```fish
-config sync <Path to sync>
-```
-

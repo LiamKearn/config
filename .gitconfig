@@ -5,17 +5,11 @@
     email = liam@sproutlabs.com.au
 [alias]
     update = add -u
-    sync = !fish -c 'config checkout -p origin/$OTHER --'
 [add.interactive]
     useBuiltin = false
-[delta]
-    navigate = true
-    light = false
 [merge]
     conflictstyle = diff3
 [diff]
     colorMoved = default
 [commit]
-    verbose = true
-[status]
     verbose = true
