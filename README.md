@@ -1,12 +1,19 @@
 # Configs
-> It's dangerous to type alone take these..
+> It's dangerous to type alone take these.
+> I still stuck at typing with these..
+
+# TODOs
+ - [ ] Either completely switch to arch or use homebrew on Ubuntu (weird).
 
 # Env
-This is the OSX branch of my configs.
-I use a mix of a Macbook and a Ubuntu (pop-os) machine for development.
+I use a mix of a Macbook (4c, intel) and a (beefy) Ubuntu machine for development.
+
+Both machines share these dotfiles and config is mostly shared via branching on `uname`.
 
 # Primary software
+ - Shortcat (Current favourite).
  - Code (Would use VIM or jIDEs but code's remote support is the only viable option really)
+ - Brew for managing OSX software
  - Chrome
    - Vimium plugin
    - Refined GH
