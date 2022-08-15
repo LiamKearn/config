@@ -1,4 +1,8 @@
-# A lot of these are explict defaults
+# I know some of these are explict defaults.
+
+# ----------------------
+#          ENV
+# ----------------------
 set -Ux NAME "Liam Kearney"
 set -Ux EMAIL liam@sproutlabs.com.au
 
@@ -31,3 +35,12 @@ set -Ux DEFAULTS_CONFIG_DIR $HOME/.config/defaults
 # I don't use gradle often so I consider it's config disposable.
 set -Ux GRADLE_USER_HOME $HOME/.cache/.gradle
 
+# ----------------------
+#        OTHER
+# ----------------------
+
+# Use node 18 by default.
+set --universal nvm_default_version 18
+
+# Always install yarn when I install new versions of node.
+set --universal nvm_default_packages yarn
