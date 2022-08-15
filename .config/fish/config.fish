@@ -36,7 +36,7 @@ switch (uname)
 end
 
 abbr -a l 'exa -1 --icons'
-abbr -a ll 'exa --long --octal-permissions --no-time --no-filesize --header --group --grid -a --no-permissions'
+abbr -a ll 'exa --long --octal-permissions --no-time --no-filesize --header --group --grid -a --no-permissions --group-directories-first'
 abbr -a ls 'exa --long --octal-permissions --no-time --no-filesize --header --group'
 abbr -a lzg 'lazygit'
 abbr -a lzd 'lazydocker'
