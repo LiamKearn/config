@@ -1,0 +1,30 @@
+#!/usr/bin/env fish
+#
+# Downloads latest nerd-font fonts.
+
+set git_location ryanoasis/nerd-fonts
+set fonts SourceCodePro.zip ShareTechMono.zip
+
+for font in $fonts
+    set github_url "https://github.com/$git_location"
+    set git_remote "$github_url.git"
+
+    set git_tag (git -c 'versionsort.suffix=-' ls-remote --tags --sort='v:refname' $git_remote \
+    | rg -v '\{\}' \
+    | tail -1 \
+    | cut -f2 \
+    | cut -d'/' -f3 \
+    | string trim)
+
+    set download_url "$github_url/releases/download/$git_tag/$font"
+    if confirm "Do you want to install $download_url"
+        switch (uname)
+            case Linux
+                set font_location .fonts
+            case Darwin
+                set font_location Library/fonts
+        end
+        curl --proto 'https' --tlsv1.2 -sSL "$download_url" | bsdtar -xf- -C $HOME/$font_location
+    end
+end
+
