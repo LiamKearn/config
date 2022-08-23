@@ -40,9 +40,11 @@ brew "lazygit", args: ["HEAD"]
 brew "mosh"
 brew "neovim", args: ["HEAD"]
 brew "netcat"
+brew "redis"
 brew "ripgrep"
 brew "telnet"
 brew "tmux"
+brew "watch"
 brew "wget"
 brew "jesseduffield/lazydocker/lazydocker"
 brew "liamkearn/limelight/limelight"
