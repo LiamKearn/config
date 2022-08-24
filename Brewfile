@@ -33,10 +33,12 @@ brew "glib"
 brew "gradle"
 brew "htop"
 brew "python@3.9"
-brew "shared-mime-info" brew "imagemagick"
+brew "shared-mime-info"
+brew "imagemagick"
 brew "iperf"
 brew "jq"
 brew "lazygit", args: ["HEAD"]
+brew "mas"
 brew "mosh"
 brew "neovim", args: ["HEAD"]
 brew "netcat"
@@ -67,3 +69,5 @@ cask "tableplus"
 cask "tunnelblick"
 cask "visual-studio-code"
 cask "zoom"
+mas "Amphetamine", id: 937984704
+mas "Xcode", id: 497799835
