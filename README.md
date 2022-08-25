@@ -11,6 +11,7 @@ I use a mix of a Macbook (4c, intel) and a (beefy) Ubuntu machine for developmen
 Both machines share these dotfiles and config is mostly shared via branching on `uname`.
 
 # Primary software
+ - [VisiData](https://www.visidata.org/).
  - Shortcat (Current favourite).
  - Code (Would use VIM or jIDEs but code's remote support is the only viable option really)
  - Brew for managing OSX software
