@@ -10,6 +10,7 @@ tap "saulpw/vd"
 tap "superbrothers/opener"
 brew "python@3.10"
 brew "ansible"
+brew "asciinema"
 brew "awscli"
 brew "clipper", restart_service: true
 brew "libssh2"
