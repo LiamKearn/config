@@ -14,7 +14,7 @@ brew "awscli"
 brew "clipper", restart_service: true
 brew "libssh2"
 brew "freetds"
-brew "php"
+brew "php", link: false
 brew "composer"
 brew "coreutils"
 brew "dbus"
@@ -42,6 +42,7 @@ brew "mas"
 brew "mosh"
 brew "neovim", args: ["HEAD"]
 brew "netcat"
+brew "php@7.4", link: true
 brew "redis"
 brew "ripgrep"
 brew "telnet"
