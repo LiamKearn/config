@@ -6,6 +6,9 @@ return require('packer').startup(function(use)
     use 'dag/vim-fish'
     use 'nvim-lua/plenary.nvim'
 
+    -- todo Ergonomics.
+    use 'gaoDean/autolist.nvim'
+
     -- Language support stuff.
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/cmp-nvim-lsp'
