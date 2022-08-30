@@ -65,5 +65,6 @@ alias fic='cd $HOME/.config/fish'
 alias cf='cd $HOME/.config'
 alias ncf='cd $HOME/.config/nvim'
 alias doc='cd $HOME/Documents'
+alias down='cd $HOME/Downloads'
 
 set fish_greeting
