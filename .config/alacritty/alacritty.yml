@@ -104,7 +104,7 @@ window:
 
 # Font configuration
 font:
-  size: 18.0
+  size: 22.0
   use_thin_strokes: true
   normal:
     family: 'SauceCodePro Nerd Font Mono'
