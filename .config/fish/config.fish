@@ -43,7 +43,6 @@ abbr -a lzd 'lazydocker'
 abbr -a lzgc 'lazygit --git-dir=$HOME/.cfg --work-tree=$HOME'
 abbr -a src 'source $HOME/.config/fish/config.fish'
 abbr -a tma 'tmux a'
-abbr -a find 'fd'
 abbr -a cd- 'cd -'
 
 alias ac="AWS_CLI_AUTO_PROMPT=on aws --cli-auto-prompt"
