@@ -46,7 +46,7 @@ abbr -a cd- 'cd -'
 
 alias l='exa -1 --icons'
 alias ll='exa --grid -a --group-directories-first --icons -s Ext'
-alias ls='exa --long --octal-permissions --no-time --no-filesize --header --group || exa --long --no-time --no-filesize --header --group'
+alias ls='exa --long --octal-permissions --no-time --no-filesize --header --group'
 alias ac="AWS_CLI_AUTO_PROMPT=on aws --cli-auto-prompt"
 alias vi='nvim'
 alias vim='nvim'
