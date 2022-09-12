@@ -32,7 +32,7 @@ switch (uname)
         abbr -a tunstop 'osascript $HOME/.config/tunnelblick/tunnelstop.scpt'
     case Linux
         alias clip="nc -N localhost 8377"
-        alias dostopall='docker stop $(docker ps -q)'
+        alias dostopall='docker stop (docker ps -q)'
         alias dops="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Names}}' | awk '{if (NR!=1) {print}}' | nl -w2 -s'  '"
         alias dopd="docker-compose up -d"
 end
