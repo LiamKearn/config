@@ -3,7 +3,7 @@ function doexec
     if not test -n "$id"
         return
     end
-    set shell_list "/bin/bash" "/bin/zsh" "redis-cli"
+    set shell_list "/bin/bash" "/bin/zsh" "redis-cli" "/usr/bin/fish"
     set chosen_shell (printf '%s\n' $shell_list | fzf)
     if not test -n "$chosen_shell"
         return
