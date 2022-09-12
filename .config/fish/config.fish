@@ -37,9 +37,6 @@ switch (uname)
         alias dopd="docker-compose up -d"
 end
 
-abbr -a l 'exa -1 --icons'
-abbr -a ll 'exa --grid -a --group-directories-first --icons -s Ext'
-abbr -a ls 'exa --long --octal-permissions --no-time --no-filesize --header --group'
 abbr -a lzg 'lazygit'
 abbr -a lzd 'lazydocker'
 abbr -a lzgc 'lazygit --git-dir=$HOME/.cfg --work-tree=$HOME'
@@ -47,6 +44,9 @@ abbr -a src 'source $HOME/.config/fish/config.fish'
 abbr -a tma 'tmux a'
 abbr -a cd- 'cd -'
 
+alias l='exa -1 --icons'
+alias ll='exa --grid -a --group-directories-first --icons -s Ext'
+alias ls='exa --long --octal-permissions --no-time --no-filesize --header --group || exa --long --no-time --no-filesize --header --group'
 alias ac="AWS_CLI_AUTO_PROMPT=on aws --cli-auto-prompt"
 alias vi='nvim'
 alias vim='nvim'
