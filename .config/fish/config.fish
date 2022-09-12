@@ -6,7 +6,9 @@ if not status --is-interactive
 end
 
 source $HOME/.config/fish/public_env.fish
-source $HOME/.config/fish/private_env.fish
+if test -f $HOME/.config/fish/private_env.fish
+    source $HOME/.config/fish/private_env.fish
+end
 source $HOME/.config/fish/bindings.fish
 
 fish_add_path /usr/local/bin/nvim-osx64/bin
