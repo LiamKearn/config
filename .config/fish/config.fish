@@ -71,4 +71,13 @@ alias down='cd $HOME/Downloads'
 # Setup completion for 1pass.
 op completion fish | source
 
+op whoami > /dev/null
+if test $status -ne 0
+    set session_token (op signin --account my)
+    set session_token (string split 'export ' -f2 $session_token)
+    set session_token (string split '=' $session_token)
+    # Must remove quotes!! This one was a pain to realise. Fish != bash.
+    set -Ux $session_token[1] (echo $session_token[2] | tr -d '"')
+end
+
 set fish_greeting
