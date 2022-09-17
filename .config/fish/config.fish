@@ -68,4 +68,7 @@ alias ncf='cd $HOME/.config/nvim'
 alias doc='cd $HOME/Documents'
 alias down='cd $HOME/Downloads'
 
+# Setup completion for 1pass.
+op completion fish | source
+
 set fish_greeting
