@@ -41,6 +41,12 @@ require("lspconfig").intelephense.setup {
     },
 }
 
+require'lspconfig'.clangd.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    init_options = {},
+}
+
 local opts = {
     -- whether to highlight the currently hovered symbol
     -- disable if your cpu usage is higher than you want it
