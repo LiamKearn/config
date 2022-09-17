@@ -14,7 +14,7 @@ set -Ux SUDO_EDITOR visudo
 set -Ux PAGER less
 set -Ux VISUAL nvim
 set -Ux BROWSER chrome
-set -Ux LESS "-R"
+set -Ux LESS "-RS"
 set -Ux CC clang
 
 set -Ux PROJECTDIR $HOME/Projects
