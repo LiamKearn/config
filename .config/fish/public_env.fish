@@ -37,7 +37,7 @@ set -Ux GRADLE_USER_HOME $HOME/.cache/.gradle
 
 set -Ux PKG_CONFIG_PATH /usr/lib/x86_64-linux-gnu/pkgconfig
 
-set -Ux AWS_PROFILE sandbox
+set -Ux AWS_PROFILE personal
 
 # ----------------------
 #        OTHER
