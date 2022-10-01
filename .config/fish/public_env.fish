@@ -47,4 +47,4 @@ set -Ux AWS_PROFILE personal
 set --universal nvm_default_version 18
 
 # Always install yarn when I install new versions of node.
-set --universal nvm_default_packages yarn
+set --universal nvm_default_packages yarn pnpm sass
