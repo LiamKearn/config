@@ -72,9 +72,10 @@ alias down='cd $HOME/Downloads'
 # Setup completion for 1pass.
 op completion fish | source
 
-op whoami > /dev/null
-if test $status -ne 0
-    set session_token (op signin --account my)
+op whoami &> /dev/null
+# Ignore session token on Darwin since I use biometics.
+if test $status -ne 0 -a (uname) != "Darwin"
+    set session_token (op signin --account my --raw)
     if test $status -eq 0
         set session_token (string split 'export ' -f2 $session_token)
         set session_token (string split '=' $session_token)
