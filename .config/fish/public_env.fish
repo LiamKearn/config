@@ -53,3 +53,15 @@ set -U nvm_default_packages yarn pnpm sass
 set -Ux GOOGLE_API_KEY "no"
 set -Ux GOOGLE_DEFAULT_CLIENT_ID "no"
 set -Ux GOOGLE_DEFAULT_CLIENT_SECRET "no"
+
+# ----------------------
+#        TERM
+# ----------------------
+set -Ux TERM xterm-color
+
+# ----------------------
+#        COLOR
+# ----------------------
+set -Ux GREP_OPTIONS '--color=auto'
+set -Ux GREP_COLOR '1;32'
+set -Ux CLICOLOR 1
