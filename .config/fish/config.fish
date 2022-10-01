@@ -48,6 +48,7 @@ alias l='exa -1 --icons'
 alias ll='exa --grid -a --group-directories-first --icons -s Ext'
 alias ls='exa --long --octal-permissions --no-time --no-filesize --header --group'
 alias ac="AWS_CLI_AUTO_PROMPT=on aws --cli-auto-prompt"
+alias pn="pnpm"
 alias vi='nvim'
 alias vim='nvim'
 alias vic='nvim $HOME/.config/fish/config.fish'
