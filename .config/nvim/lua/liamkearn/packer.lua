@@ -15,6 +15,9 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/nvim-cmp'
 
+    -- Editing PList files.
+    use 'darfink/vim-plist'
+
     use("nvim-treesitter/nvim-treesitter", {
         run = ":TSUpdate"
     })
