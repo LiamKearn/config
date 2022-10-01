@@ -48,6 +48,7 @@ brew "mosh"
 brew "neovim", args: ["HEAD"]
 brew "netcat"
 brew "php@7.4"
+brew "pstree"
 brew "redis"
 brew "ripgrep"
 brew "telnet"
