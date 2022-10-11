@@ -69,6 +69,8 @@ alias ncf='cd $HOME/.config/nvim'
 alias doc='cd $HOME/Documents'
 alias down='cd $HOME/Downloads'
 
+set fish_greeting
+
 # Setup completion for 1pass.
 op completion fish | source
 
@@ -85,5 +87,3 @@ if test $status -ne 0 -a (uname) != "Darwin"
         echo "Signin failed"
     end
 end
-
-set fish_greeting
