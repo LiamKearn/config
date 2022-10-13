@@ -13,7 +13,7 @@ set -Ux EDITOR nvim -e
 set -Ux SUDO_EDITOR visudo
 set -Ux PAGER less
 set -Ux VISUAL nvim
-set -Ux BROWSER chrome
+set -Ux BROWSER chromium
 set -Ux LESS "-RS"
 set -Ux CC clang
 
