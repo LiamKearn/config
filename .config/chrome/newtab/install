@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
 
-"/System/Volumes/Data/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+"/System/Volumes/Data/Applications/Chromium.app/Contents/MacOS/Chromium" \
     --load-and-launch-app $HOME/.config/chrome/newtab
 
