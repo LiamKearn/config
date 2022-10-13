@@ -55,6 +55,7 @@ brew "telnet"
 brew "tmux"
 brew "watch"
 brew "wget"
+brew "ykman"
 brew "jesseduffield/lazydocker/lazydocker"
 brew "koekeishiya/formulae/yabai", args: ["HEAD"]
 brew "saulpw/vd/visidata"
