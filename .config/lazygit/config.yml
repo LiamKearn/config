@@ -32,6 +32,7 @@ gui:
   showListFooter: true # for seeing the '5 of 20' message in list panels
   showRandomTip: true
   showCommandLog: true
+  showIcons: true
   commandLogSize: 8
 git:
   paging:
@@ -76,6 +77,7 @@ confirmOnQuit: false
 quitOnTopLevelReturn: false
 disableStartupPopups: true
 notARepository: 'skip' # one of: 'prompt' | 'create' | 'skip'
+promptToReturnFromSubprocess: false
 keybinding:
   universal:
     quit: 'q'
