@@ -16,12 +16,7 @@ require("liamkearn")
 vim.cmd([[
 nnoremap <SPACE> <Nop>
 let mapleader = " "
-
-" Set contrast.
-" This configuration option should be placed before `colorscheme gruvbox-material`.
-" Available values: 'hard', 'medium'(default), 'soft'
-let g:gruvbox_material_background = 'hard'
-
-colorscheme gruvbox-material
 ]])
 
+vim.g.gruvbox_material_background = 'hard'
+vim.cmd('colorscheme ' .. 'gruvbox-material')
