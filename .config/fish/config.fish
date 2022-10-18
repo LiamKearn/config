@@ -23,6 +23,7 @@ fish_add_path /usr/local/llvm/bin
 switch (uname)
     case Darwin
         alias todo="vi $HOME/Documents/todo.md"
+        alias note="vi $HOME/Documents/notes.md"
         alias qtodo="ql $HOME/Documents/todo.md"
         alias readlink='/usr/local/bin/greadlink'
 
