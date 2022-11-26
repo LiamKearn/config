@@ -46,6 +46,7 @@ brew "lazygit", args: ["HEAD"]
 brew "libqalculate"
 brew "mas"
 brew "mosh"
+brew "mysql-client"
 brew "neovim", args: ["HEAD"]
 brew "netcat"
 brew "php@7.4"

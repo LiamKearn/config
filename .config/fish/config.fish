@@ -19,6 +19,7 @@ fish_add_path $ANDROID_SDK_ROOT/platform-tools
 fish_add_path $HOME/.local/bin
 fish_add_path /usr/local/go/bin
 fish_add_path /usr/local/llvm/bin
+fish_add_path /usr/local/opt/mysql-client/bin
 
 switch (uname)
     case Darwin
@@ -94,3 +95,4 @@ if test $status -ne 0 -a (uname) != "Darwin"
         echo "Signin failed"
     end
 end
+
