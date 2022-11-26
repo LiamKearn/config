@@ -32,6 +32,11 @@ switch (uname)
         abbr -a shit 'ssh imprint -t "tmux a; fish -l"'
         abbr -a tunconnect 'osascript $HOME/.config/tunnelblick/tunnelconnect.scpt'
         abbr -a tunstop 'osascript $HOME/.config/tunnelblick/tunnelstop.scpt'
+
+        # pnpm
+        set -gx PNPM_HOME "/Users/liamk/Library/pnpm"
+        set -gx PATH "$PNPM_HOME" $PATH
+        # pnpm end
     case Linux
         alias clip="nc -N localhost 8377"
         alias dostopall='docker stop (docker ps -q)'
