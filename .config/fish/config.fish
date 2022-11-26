@@ -70,6 +70,9 @@ alias ncf='cd $HOME/.config/nvim'
 alias doc='cd $HOME/Documents'
 alias down='cd $HOME/Downloads'
 
+# URL Decode
+alias urldecode='php -r "echo urldecode(stream_get_contents(STDIN));"'
+
 set fish_greeting
 
 # Setup completion for 1pass.
