@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>KeyboardShortcuts_click</key>
+	<string>{"carbonModifiers":0,"carbonKeyCode":36}</string>
+	<key>KeyboardShortcuts_debugElement</key>
+	<string>{"carbonModifiers":256,"carbonKeyCode":119}</string>
+	<key>KeyboardShortcuts_reloadUI</key>
+	<string>{"carbonModifiers":768,"carbonKeyCode":15}</string>
+	<key>KeyboardShortcuts_toggleLockUI</key>
+	<string>{"carbonModifiers":256,"carbonKeyCode":115}</string>
+	<key>KeyboardShortcuts_toggleShortcat</key>
+	<string>{"carbonModifiers":768,"carbonKeyCode":49}</string>
+	<key>NSStatusItem Preferred Position Item-0</key>
+	<real>829</real>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>410 376 620 398 0 0 1440 900 </string>
+	<key>NSWindow Frame com.sindresorhus.Preferences.FrameAutosaveName</key>
+	<string>390 260 660 434 0 0 1440 900 </string>
+	<key>SUFeedURL</key>
+	<string>https://updates.shortcat.app/appcast.xml</string>
+	<key>SUHasLaunchedBefore</key>
+	<true/>
+	<key>SULastCheckTime</key>
+	<date>2022-11-27T09:42:48Z</date>
+	<key>SUUpdateGroupIdentifier</key>
+	<integer>256261567</integer>
+	<key>continuousMode</key>
+	<true/>
+	<key>downKeycode</key>
+	<integer>38</integer>
+	<key>leftKeycode</key>
+	<integer>4</integer>
+	<key>rightKeycode</key>
+	<integer>37</integer>
+	<key>showShortcutsDelay</key>
+	<string>twoSeconds</string>
+	<key>telemetryIdentifier</key>
+	<string>ef2d077ff502472fbf6d1d4fb83c54f3</string>
+	<key>upKeycode</key>
+	<integer>40</integer>
+	<key>welcomeDisplayed</key>
+	<true/>
+</dict>
+</plist>
