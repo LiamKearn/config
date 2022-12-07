@@ -20,6 +20,7 @@ fish_add_path $HOME/.local/bin
 fish_add_path /usr/local/go/bin
 fish_add_path /usr/local/llvm/bin
 fish_add_path /usr/local/opt/mysql-client/bin
+fish_add_path /Users/liamk/.pyenv/versions/2.7.18/bin
 
 switch (uname)
     case Darwin
