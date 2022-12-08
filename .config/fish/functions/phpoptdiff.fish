@@ -7,7 +7,7 @@ function phpoptdiff -d "Displays opcache diffs"
     if not test -n "$startlevel"
         return;
     end
-    set endlevel (printf '%s\n' $optlevels | fzf --prompt 'Choose a optimised level: ' --layout=reverse)
+    set endlevel (printf '%s\n' $optlevels | fzf --prompt 'Choose a optimised level: ' --layout=reverse --tac)
     if not test -n "$endlevel"
         return;
     end
