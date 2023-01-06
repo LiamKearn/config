@@ -4,6 +4,8 @@ require('liamkearn.packer')
 
 local autocmd = vim.api.nvim_create_autocmd
 
+require("inlay-hints").setup({})
+
 autocmd('InsertEnter', {
 	pattern = '*',
 	callback = function()

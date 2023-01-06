@@ -16,6 +16,7 @@ set -Ux VISUAL nvim
 set -Ux BROWSER chromium
 set -Ux LESS "-RS"
 set -Ux CC clang
+set -Ux CXX clang++
 
 set -Ux PROJECTDIR $HOME/Projects
 set -Ux MBOX $HOME/mbox

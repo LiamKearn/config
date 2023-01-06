@@ -16,7 +16,7 @@ vim.opt.incsearch = true
 vim.opt.errorbells = false
 vim.opt.wrap = false
 vim.opt.updatetime = 50
-vim.opt.scrolloff = 18
+vim.opt.scrolloff = 8
 
 -- Spacing
 vim.opt.tabstop = 4
