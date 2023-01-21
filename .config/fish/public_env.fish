@@ -78,6 +78,10 @@ set -Ux XDG_STATE_HOME "$HOME/.local/state"
 # ----------------------
 #         HOME
 # ----------------------
+# Rust
 set -Ux CARGO_HOME "$XDG_DATA_HOME/cargo"
 set -Ux RUSTUP_HOME "$XDG_DATA_HOME/rustup"
 
+# AWS
+set -Ux AWS_SHARED_CREDENTIALS_FILE "$XDG_CONFIG_HOME/aws/credentials"
+set -Ux AWS_CONFIG_FILE "$XDG_CONFIG_HOME/aws/config"
