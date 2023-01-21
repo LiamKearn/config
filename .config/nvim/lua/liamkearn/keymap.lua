@@ -16,5 +16,14 @@ M.nnoremap = bind("n")
 M.vnoremap = bind("v")
 M.xnoremap = bind("x")
 M.inoremap = bind("i")
+M.snoremap = bind("n", {silent = true})
+
+M.nnoremap("Up", "<Nop>")
+M.nnoremap("Down", "<Nop>")
+M.nnoremap("Left", "<Nop>")
+M.nnoremap("Right", "<Nop>")
+
+M.snoremap("{", ":execute \"keepjumps norm! \" . v:count1 . \"{\"<CR>")
+M.snoremap("}", ":execute \"keepjumps norm! \" . v:count1 . \"}\"<CR>")
 
 return M

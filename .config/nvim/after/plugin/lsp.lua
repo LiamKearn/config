@@ -17,6 +17,15 @@ local on_attach = function(client, bufnr)
     -- Uncomment for inlayhints
     -- ih.on_attach(client, bufnr)
 
+    require "lsp_signature".on_attach({
+        bind = true,
+        floating_window_above_cur_line = false,
+        hint_prefix = "",
+        handler_opts = {
+            border = "rounded"
+        }
+    }, bufnr)
+
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
@@ -60,6 +69,8 @@ require'lspconfig'.rust_analyzer.setup {
     on_attach = on_attach,
     init_options = {},
 }
+
+require'lspconfig'.neocmake.setup{}
 
 local opts = {
     -- whether to highlight the currently hovered symbol

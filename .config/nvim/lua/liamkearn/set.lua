@@ -29,3 +29,4 @@ vim.opt.smartindent = true
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.opt.colorcolumn = "80"
+vim.opt.cursorline = true
