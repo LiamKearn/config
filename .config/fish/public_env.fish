@@ -66,3 +66,18 @@ set -Ux TERM xterm-color
 set -Ux GREP_OPTIONS '--color=auto'
 set -Ux GREP_COLOR '1;32'
 set -Ux CLICOLOR 1
+
+# ----------------------
+#         XDG
+# ----------------------
+set -Ux XDG_CACHE_HOME "$HOME/.cache"
+set -Ux XDG_CONFIG_HOME "$HOME/.config"
+set -Ux XDG_DATA_HOME "$HOME/.local/share"
+set -Ux XDG_STATE_HOME "$HOME/.local/state"
+
+# ----------------------
+#         HOME
+# ----------------------
+set -Ux CARGO_HOME "$XDG_DATA_HOME/cargo"
+set -Ux RUSTUP_HOME "$XDG_DATA_HOME/rustup"
+
