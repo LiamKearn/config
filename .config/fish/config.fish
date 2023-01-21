@@ -40,7 +40,7 @@ switch (uname)
         set -gx PATH "$PNPM_HOME" $PATH
         # pnpm end
     case Linux
-        alias clip="nc -N localhost 8377"
+        alias clip="socat - UNIX-CLIENT:/home/liam/.run/clipper.sock"
         alias dostopall='docker stop (docker ps -q)'
         alias dops="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Names}}' | awk '{if (NR!=1) {print}}' | nl -w2 -s'  '"
         alias dopd="docker-compose up -d"

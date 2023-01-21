@@ -1,5 +1,6 @@
 local Remap = require("liamkearn.keymap")
 local nnoremap = Remap.nnoremap
+local snoremap = Remap.snoremap
 
 nnoremap("Up", "<Nop>")
 nnoremap("Down", "<Nop>")
@@ -14,4 +15,5 @@ nnoremap("<leader>fm", "<cmd>lua require('telescope.builtin').man_pages()<cr>")
 nnoremap("<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>")
 nnoremap("<leader>fS", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>")
 nnoremap("<leader>fs", "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>")
+snoremap("<leader>y", ":call system('socat - UNIX-CLIENT:/home/liam/.clipper.sock', @0)<CR>")
 
