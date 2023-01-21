@@ -44,6 +44,10 @@ switch (uname)
         alias dostopall='docker stop (docker ps -q)'
         alias dops="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Names}}' | awk '{if (NR!=1) {print}}' | nl -w2 -s'  '"
         alias dopd="docker-compose up -d"
+        # pnpm
+        set -gx PNPM_HOME "/home/liam/.local/share/pnpm"
+        set -gx PATH "$PNPM_HOME" $PATH
+        # pnpm end
 end
 
 abbr -a lzg 'lazygit'
