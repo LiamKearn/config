@@ -1,0 +1,6 @@
+# The network to use opener daemon.
+# Allowed networks are: unix or tcp. (defaults to unix)
+network: unix
+
+# The address to listen on. (defaults to ~/.opener.sock)
+address: ~/.run/opener.sock
