@@ -49,7 +49,6 @@ brew "libqalculate"
 brew "mas"
 brew "mosh"
 brew "mysql-client"
-brew "ncftp"
 brew "neovim", args: ["HEAD"]
 brew "netcat"
 brew "netpbm"
