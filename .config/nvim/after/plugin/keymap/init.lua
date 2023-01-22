@@ -12,5 +12,5 @@ nnoremap("<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>")
 nnoremap("<leader>fs", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>")
 nnoremap("<leader>fS", "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>")
 nnoremap("<leader>fr", "<cmd>lua require('telescope.builtin').resume()<cr>")
-snoremap("<leader>y", ":call system('socat - UNIX-CLIENT:/home/liam/.clipper.sock', @0)<CR>")
+snoremap("<leader>y", ":call system('socat - UNIX-CLIENT:/home/liam/.run/clipper.sock', @0)<CR>")
 
