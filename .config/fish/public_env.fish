@@ -85,3 +85,12 @@ set -Ux RUSTUP_HOME "$XDG_DATA_HOME/rustup"
 # AWS
 set -Ux AWS_SHARED_CREDENTIALS_FILE "$XDG_CONFIG_HOME/aws/credentials"
 set -Ux AWS_CONFIG_FILE "$XDG_CONFIG_HOME/aws/config"
+
+# Gradle
+set -Ux GRADLE_USER_HOME "$XDG_DATA_HOME/gradle"
+
+# NVM
+set -Ux NVM_DIR "$XDG_DATA_HOME/nvm"
+
+# NPM
+set -Ux NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
