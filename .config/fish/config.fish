@@ -30,8 +30,8 @@ switch (uname)
         alias qtodo="ql $HOME/Documents/todo.md"
         alias readlink='/usr/local/bin/greadlink'
 
-        abbr -a shi 'ssh imprint'
-        abbr -a shit 'ssh imprint -t "tmux a; fish -l"'
+        abbr -a shi 'ssh ubuntu'
+        abbr -a shit 'ssh ubuntu -t "tmux a; fish -l"'
         abbr -a tunconnect 'osascript $HOME/.config/tunnelblick/tunnelconnect.scpt'
         abbr -a tunstop 'osascript $HOME/.config/tunnelblick/tunnelstop.scpt'
 
