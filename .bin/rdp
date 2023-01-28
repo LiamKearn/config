@@ -1,0 +1,3 @@
+#!/usr/bin/env fish
+
+x11vnc -xkb -noxrecord -noxfixes -noxdamage -create -nopw
