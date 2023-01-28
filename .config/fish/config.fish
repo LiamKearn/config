@@ -13,7 +13,7 @@ source $HOME/.config/fish/bindings.fish
 
 fish_add_path /usr/local/bin/nvim-osx64/bin
 fish_add_path $HOME/.bin
-fish_add_path $HOME/.cargo/bin
+fish_add_path $XDG_DATA_HOME/cargo/bin
 fish_add_path $ANDROID_SDK_ROOT/tools/bin
 fish_add_path $ANDROID_SDK_ROOT/platform-tools
 fish_add_path $HOME/.local/bin
