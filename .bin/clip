@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+socat - UNIX-CLIENT:/home/liam/.run/clipper.sock
