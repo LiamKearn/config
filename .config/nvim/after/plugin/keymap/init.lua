@@ -14,3 +14,12 @@ nnoremap("<leader>fS", "<cmd>lua require('telescope.builtin').lsp_dynamic_worksp
 nnoremap("<leader>fr", "<cmd>lua require('telescope.builtin').resume()<cr>")
 snoremap("<leader>y", ":call system('socat - UNIX-CLIENT:/home/liam/.run/clipper.sock', @0)<CR>")
 
+snoremap("<F5>", "<Cmd>lua require('dap').toggle_breakpoint()<CR>")
+snoremap("<F9>", "<Cmd>lua require('dap').continue()<CR>")
+snoremap("<F10>", "<Cmd>lua require('dap').step_over()<CR>")
+snoremap("<F11>", "<Cmd>lua require('dap').step_into()<CR>")
+snoremap("<F12>", "<Cmd>lua require('dap').step_out()<CR>")
+snoremap("<Leader>B", "<Cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
+snoremap("<Leader>lp", "<Cmd>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
+snoremap("<Leader>dr", "<Cmd>lua require('dap').repl.open()<CR>")
+snoremap("<Leader>dl", "<Cmd>lua require('dap').run_last()<CR>")

@@ -17,6 +17,10 @@ return require('packer').startup(function(use)
     use 'hrsh7th/nvim-cmp'
     use 'simrat39/inlay-hints.nvim'
 
+    -- Debugging.
+    use 'mfussenegger/nvim-dap'
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+
     -- Editing PList files.
     use 'darfink/vim-plist'
 
