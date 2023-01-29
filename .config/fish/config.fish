@@ -91,14 +91,3 @@ set fish_greeting
 # Setup completion for 1pass.
 op completion fish | source
 
-op whoami &> /dev/null
-# Ignore session token on Darwin since I use biometics.
-if test $status -ne 0 -a (uname) != "Darwin"
-    set session_token (op signin --account my --raw)
-    if test $status -eq 0
-        set -Ux OP_SESSION_my $session_token
-    else
-        echo "Signin failed"
-    end
-end
-
