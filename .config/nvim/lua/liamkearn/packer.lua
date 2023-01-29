@@ -24,6 +24,9 @@ return require('packer').startup(function(use)
     -- Editing PList files.
     use 'darfink/vim-plist'
 
+    -- Git, I prefer to work in lazygit and just have blame in the browser.
+    use 'ruanyl/vim-gh-line'
+
     use 'stevearc/oil.nvim'
 
     use("nvim-treesitter/nvim-treesitter", {
