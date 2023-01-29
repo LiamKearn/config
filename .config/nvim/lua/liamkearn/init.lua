@@ -1,5 +1,3 @@
-require('liamkearn.set')
-
 local autocmd = vim.api.nvim_create_autocmd
 
 require("inlay-hints").setup({})
