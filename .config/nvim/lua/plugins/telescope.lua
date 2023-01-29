@@ -1,6 +1,6 @@
 return {
     'nvim-telescope/telescope.nvim',
-    config = {
+    opts = {
         defaults = {
             file_ignore_patterns = {
                 ".git"

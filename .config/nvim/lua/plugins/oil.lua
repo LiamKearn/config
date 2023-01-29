@@ -1,6 +1,6 @@
 return {
     'stevearc/oil.nvim',
-    config = {
+    opts = {
         view_options = {
             show_hidden = true,
         }
