@@ -56,6 +56,7 @@ abbr -a src 'source $HOME/.config/fish/config.fish'
 abbr -a tma 'tmux a'
 abbr -a cd- 'cd -'
 
+alias pf='pushd (fd . --search-path $HOME/Work/ --search-path $HOME/Projects/ --type d -d 1 | fzf --preview "ls {}")'
 alias l='exa -1 --icons'
 alias ll='exa --grid -a --group-directories-first --icons -s Ext'
 alias ls='exa --long --octal-permissions --no-time --no-filesize --header --group'
