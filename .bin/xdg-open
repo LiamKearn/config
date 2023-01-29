@@ -1,3 +1,1 @@
-#!/usr/bin/env bash
-
-echo "${@}" | nc -U "$HOME/.run/opener.sock" &> /dev/null
+/home/liam/.bin/open

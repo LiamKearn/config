@@ -1,3 +1,17 @@
 #!/usr/bin/env bash
 
-echo "${@}" | nc -U "$HOME/.run/opener.sock"
+case $( uname -s ) in
+    Linux)
+        echo "${@}" | nc -U "$HOME/.run/opener.sock"
+        exit 0;
+        ;;
+    Darwin)
+        /usr/bin/open "${@}"
+        exit 0;
+        ;;
+    *)
+        echo "Unknown uname";
+        exit 1;
+    ;;
+esac
+

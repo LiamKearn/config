@@ -1,3 +1,15 @@
 #!/usr/bin/env bash
 
-socat - UNIX-CLIENT:/home/liam/.run/clipper.sock
+case $( uname -s ) in
+    Linux)
+        socat - UNIX-CLIENT:/home/liam/.run/clipper.sock
+        ;;
+    Darwin)
+        echo "${@}" | pbcopy
+        ;;
+    *)
+        echo "Unknown uname";
+        exit 1;
+    ;;
+esac
+
