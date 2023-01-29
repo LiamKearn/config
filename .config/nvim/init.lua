@@ -51,7 +51,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup('plugins')
 
-require("liamkearn")
+require("liamkearn/autoload")
+require("liamkearn/keymap")
 
-vim.g.gruvbox_material_background = 'hard'
-vim.cmd('colorscheme ' .. 'gruvbox-material')
