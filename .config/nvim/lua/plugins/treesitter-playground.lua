@@ -1,4 +1,4 @@
 return {
-    "nvim-treesitter/playground",
-    build = ":TSInstall query"
+    'nvim-treesitter/playground',
+    build = ':TSInstall query'
 }

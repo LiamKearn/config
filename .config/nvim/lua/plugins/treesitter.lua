@@ -1,29 +1,29 @@
 return {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
     opts = {
         configs = {
-            -- A list of parser names, or "all"
+            -- A list of parser names, or 'all'
             ensure_installed = {
-                "cmake",
-                "c",
-                "make",
-                "lua",
-                "cpp",
-                "rust",
-                "go",
-                "fish",
-                "dockerfile",
-                "php",
-                "yaml",
-                "html",
-                "javascript",
-                "typescript",
-                "sql",
-                "markdown",
-                "json",
-                "json5",
-                "vue"
+                'cmake',
+                'c',
+                'make',
+                'lua',
+                'cpp',
+                'rust',
+                'go',
+                'fish',
+                'dockerfile',
+                'php',
+                'yaml',
+                'html',
+                'javascript',
+                'typescript',
+                'sql',
+                'markdown',
+                'json',
+                'json5',
+                'vue'
             },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)

@@ -4,7 +4,7 @@ require'cmp'.setup {
   }
 }
 
-local ih = require("inlay-hints")
+local ih = require('inlay-hints')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
@@ -17,12 +17,12 @@ local on_attach = function(client, bufnr)
     -- Uncomment for inlayhints
     -- ih.on_attach(client, bufnr)
 
-    require "lsp_signature".on_attach({
+    require 'lsp_signature'.on_attach({
         bind = true,
         floating_window_above_cur_line = false,
-        hint_prefix = "",
+        hint_prefix = '',
         handler_opts = {
-            border = "rounded"
+            border = 'rounded'
         }
     }, bufnr)
 
@@ -47,14 +47,14 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<leader>hh', ":ClangdSwitchSourceHeader<cr>", bufopts)
+    vim.keymap.set('n', '<leader>hh', ':ClangdSwitchSourceHeader<cr>', bufopts)
 end
 
-require("lspconfig").intelephense.setup {
+require('lspconfig').intelephense.setup {
     capabilities = capabilities,
     on_attach = on_attach,
     init_options = {
-        licenceKey = os.getenv "INTELEPHENSE_LICENCE_KEY" or ""
+        licenceKey = os.getenv 'INTELEPHENSE_LICENCE_KEY' or ''
     },
 }
 
@@ -84,5 +84,5 @@ local opts = {
     show_guides = true,
 }
 
--- require("symbols-outline").setup(opts)
+-- require('symbols-outline').setup(opts)
 
