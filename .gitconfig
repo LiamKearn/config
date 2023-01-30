@@ -15,3 +15,5 @@
     verbose = true
 [diff "ansible-vault"]
 	textconv = ansible-vault view
+[core]
+	excludesFile = ~/.gitignore

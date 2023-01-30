@@ -1,22 +1,25 @@
 # Don't look at these!
-.ssh/*
-.cache
+~/.ssh/*
+~/.cache
 
 # Default todo files
-todo.md
+~/todo.md
 
 # Ignoring homedir files.
-Applications
-Builds
-Desktop
-Documents
-Downloads
-Dropbox*
-Library
-Movies
-Music
-Pictures
-Projects
-Screengrabs
-Work
+~/Applications
+~/Builds
+~/Desktop
+~/Documents
+~/Downloads
+~/Dropbox*
+~/Library
+~/Movies
+~/Music
+~/Pictures
+~/Projects
+~/Screengrabs
+~/Work
+
+**/.ignore
+**/.DS_Store
 
