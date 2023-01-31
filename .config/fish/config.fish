@@ -29,6 +29,7 @@ switch (uname)
         alias note="vi $HOME/Documents/notes.md"
         alias qtodo="ql $HOME/Documents/todo.md"
         alias readlink='/usr/local/bin/greadlink'
+        alias sed='/usr/local/bin/gsed'
 
         abbr -a shi 'ssh ubuntu'
         abbr -a shit 'ssh ubuntu -t "tmux a; fish -l"'
