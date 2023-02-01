@@ -6,6 +6,13 @@ return {
     },
     opts = {
         defaults = {
+            layout_strategies = 'vertical',
+            layout_config = {
+                vertical = {
+                    prompt_position = "top",
+                    mirror = true,
+                },
+            },
             vimgrep_arguments = {
                 'rg',
                 '--color=never',
@@ -31,7 +38,7 @@ return {
                     '--follow',
                 }
             }
-        }
+        },
     }
 }
 
