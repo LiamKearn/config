@@ -17,42 +17,15 @@ return {
         'DapToggleRepl',
     },
     keys = {
-        {
-            '<silent> <F5>',
-            '<Cmd>lua require("dap").toggle_breakpoint()<CR>'
-        },
-        {
-            '<silent> <F9>',
-            '<Cmd>lua require("dap").continue()<CR>'
-        },
-        {
-            '<silent> <F10>',
-            '<Cmd>lua require("dap").step_over()<CR>'
-        },
-        {
-            '<silent> <F11>',
-            '<Cmd>lua require("dap").step_into()<CR>'
-        },
-        {
-            '<silent> <F12>',
-            '<Cmd>lua require("dap").step_out()<CR>'
-        },
-        {
-            '<silent> <Leader>B',
-            '<Cmd>lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>'
-        },
-        {
-            '<silent> <Leader>lp',
-            '<Cmd>lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>'
-        },
-        {
-            '<silent> <Leader>dr',
-            '<Cmd>lua require("dap").repl.open()<CR>'
-        },
-        {
-            '<silent> <Leader>dl',
-            '<Cmd>lua require("dap").run_last()<CR>'
-        },
+        { '<F5>', function() require('dap').toggle_breakpoint() end, desc = 'Toggle Breakpoint' },
+        { '<F9>', function() require('dap').continue() end, desc = 'Continue' },
+        { '<F10>', function() require('dap').step_over() end, desc = 'Step Over' },
+        { '<F11>', function() require('dap').step_into() end, desc = 'Step Into' },
+        { '<F12>', function() require('dap').step_out() end, desc = 'Step Out' },
+        { '<Leader>B', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = 'Add a conditional Breakpoint' },
+        { '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, desc = 'Add a Logpoint' },
+        { '<Leader>dr', function() require('dap').repl.open() end, desc = 'Open REPL' },
+        { '<Leader>dl', function() require('dap').run_last() end, desc = 'Re-run last configuration' },
     },
     config = function()
         local dap = require('dap')
@@ -68,7 +41,7 @@ return {
             {
                 type = 'php',
                 request = 'launch',
-                name = 'Listen for Xdebug',
+                name = 'var/www/html - 9000',
                 port = 9000,
                 pathMappings = {
                     ['/var/www/html'] = '${workspaceFolder}'
@@ -148,7 +121,12 @@ return {
             dapui.open()
         end
 
-        dap.listeners.before.event_terminated['dapui_config'] = function()
+        dap.listeners.after.disconnected['dapui_config'] = function(a, b)
+            print(vim.inspect(a), vim.inspect(b))
+        end
+
+        -- FIXME: This doesn't seem to want to work for PHP adaptor.
+        dap.listeners.after.event_terminated['dapui_config'] = function()
             dapui.close()
         end
 

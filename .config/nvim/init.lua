@@ -23,6 +23,7 @@ vim.opt.updatetime = 50
 vim.opt.scrolloff = 8
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 -- Spacing
 vim.opt.tabstop = 4

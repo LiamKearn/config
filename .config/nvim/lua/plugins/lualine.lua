@@ -6,6 +6,14 @@ return {
             theme = 'gruvbox-material',
             component_separators = '|',
             section_separators = '',
+        },
+        sections = {
+            lualine_a = {'mode'},
+            lualine_b = {'diagnostics'},
+            lualine_c = {'filename'},
+            lualine_y = {},
+            lualine_x = {'encoding', 'filetype'},
+            lualine_z = {'location'}
         }
     }
 }

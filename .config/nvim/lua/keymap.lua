@@ -1,3 +1,4 @@
+-- TODO: Maybe https://github.com/folke/which-key.nvim
 local M = {}
 
 local function bind(op, outer_opts)
@@ -38,17 +39,5 @@ M.nnoremap('<leader>fS', '<cmd>lua require("telescope.builtin").lsp_dynamic_work
 M.nnoremap('<leader>fr', '<cmd>lua require("telescope.builtin").resume()<cr>')
 
 M.snoremap('<leader>y', ':call system("socat - UNIX-CLIENT:/home/liam/.run/clipper.sock", @0)<CR>')
-
-M.snoremap('<F5>', '<Cmd>lua require("dap").toggle_breakpoint()<CR>')
-M.snoremap('<F9>', '<Cmd>lua require("dap").continue()<CR>')
-M.snoremap('<F10>', '<Cmd>lua require("dap").step_over()<CR>')
-M.snoremap('<F11>', '<Cmd>lua require("dap").step_into()<CR>')
-M.snoremap('<F12>', '<Cmd>lua require("dap").step_out()<CR>')
-M.snoremap('<Leader>B', '<Cmd>lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>')
-M.snoremap('<Leader>lp', '<Cmd>lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>')
-M.snoremap('<Leader>dr', '<Cmd>lua require("dap").repl.open()<CR>')
-M.snoremap('<Leader>dl', '<Cmd>lua require("dap").run_last()<CR>')
-
-M.snoremap('<Leader>ee', '<Cmd>lua require("oil").open()<CR>')
 
 return M
