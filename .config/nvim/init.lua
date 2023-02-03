@@ -21,9 +21,13 @@ vim.opt.errorbells = false
 vim.opt.wrap = false
 vim.opt.updatetime = 50
 vim.opt.scrolloff = 8
+vim.opt.shell = '/bin/bash'
+vim.opt.shellcmdflag = '-lc'
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
+-- Files
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 -- Spacing
 vim.opt.tabstop = 4
@@ -37,6 +41,8 @@ vim.opt.termguicolors = true
 vim.opt.background = 'dark'
 vim.opt.colorcolumn = '80'
 vim.opt.cursorline = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
 -- Install lazy.
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'

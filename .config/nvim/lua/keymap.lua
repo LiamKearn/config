@@ -29,7 +29,7 @@ M.snoremap('}', ':execute "keepjumps norm! " . v:count1 . "}"<CR>')
 
 M.nnoremap('<leader>fq', '<cmd>lua require("telescope.builtin").diagnostics()<cr>')
 M.nnoremap('<leader>fk', '<cmd>lua require("telescope.builtin").keymaps()<cr>')
-M.nnoremap('<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>')
+M.nnoremap('<leader>ff', '<cmd>:CommandTRipgrep<cr>')
 M.nnoremap('<leader>fg', '<cmd>lua require("telescope.builtin").live_grep({layout_strategy="vertical"})<cr>')
 M.nnoremap('<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>')
 M.nnoremap('<leader>fm', '<cmd>lua require("telescope.builtin").man_pages()<cr>')
@@ -37,6 +37,8 @@ M.nnoremap('<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>')
 M.nnoremap('<leader>fs', '<cmd>lua require("telescope.builtin").lsp_document_symbols()<cr>')
 M.nnoremap('<leader>fS', '<cmd>lua require("telescope.builtin").lsp_dynamic_workspace_symbols()<cr>')
 M.nnoremap('<leader>fr', '<cmd>lua require("telescope.builtin").resume()<cr>')
+
+M.nnoremap('<leader>ll', '<cmd>:Lazy<cr>')
 
 M.snoremap('<leader>y', ':call system("socat - UNIX-CLIENT:/home/liam/.run/clipper.sock", @0)<CR>')
 

@@ -1,4 +1,7 @@
 return {
     'nvim-treesitter/playground',
-    build = ':TSInstall query'
+    build = ':TSInstall query',
+    dependencies = {
+        'nvim-treesitter/nvim-treesitter',
+    }
 }
