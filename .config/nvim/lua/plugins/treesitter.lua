@@ -18,6 +18,7 @@ return {
             'lua',
             'cpp',
             'rust',
+            'gitcommit',
             'go',
             'fish',
             'dockerfile',
