@@ -21,9 +21,8 @@ vim.opt.errorbells = false
 vim.opt.wrap = false
 vim.opt.updatetime = 50
 vim.opt.scrolloff = 8
-vim.opt.shell = '/bin/bash'
-vim.opt.shellcmdflag = '-lc'
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+vim.opt.shellcmdflag = '-lc'
 
 -- Files
 vim.g.loaded_netrw = 1

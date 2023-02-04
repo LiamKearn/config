@@ -2,11 +2,13 @@ return {
     'wincent/command-t',
     build = function()
         local lazypath = vim.fn.stdpath('data') .. '/lazy/command-t/lua/wincent/commandt/lib'
-        vim.fn.system({
+        local out = vim.fn.system({
             'make',
             '-C',
             lazypath
         })
+        print(out)
+        print('Built command-t')
     end,
     init = function()
         vim.g.CommandTPreferredImplementation = 'lua'
