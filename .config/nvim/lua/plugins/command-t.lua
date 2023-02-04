@@ -1,5 +1,9 @@
 return {
     'wincent/command-t',
+    lazy = false,
+    keys = {
+        { '<leader>ff', '<cmd>:CommandTRipgrep<cr>' }
+    },
     build = function()
         local lazypath = vim.fn.stdpath('data') .. '/lazy/command-t/lua/wincent/commandt/lib'
         local out = vim.fn.system({
