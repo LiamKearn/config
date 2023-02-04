@@ -121,11 +121,12 @@ return {
             dapui.open()
         end
 
-        dap.listeners.after.disconnected['dapui_config'] = function(a, b)
-            print(vim.inspect(a), vim.inspect(b))
+        -- The PHP dap adaptor doesn't play nice. Use disconnect as
+        -- well as terminate & exited.
+        dap.listeners.after.disconnect['dapui_config'] = function()
+            dapui.close()
         end
 
-        -- FIXME: This doesn't seem to want to work for PHP adaptor.
         dap.listeners.after.event_terminated['dapui_config'] = function()
             dapui.close()
         end
