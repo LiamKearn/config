@@ -26,10 +26,25 @@ return {
         { '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, desc = 'Add a Logpoint' },
         { '<Leader>dr', function() require('dap').repl.open() end, desc = 'Open REPL' },
         { '<Leader>dl', function() require('dap').run_last() end, desc = 'Re-run last configuration' },
+        { '<Leader>K', function() require('dap.ui.widgets').hover() end, desc = 'Hover' },
+        { '<Leader>dp', function() require('dap.ui.widgets').preview() end, desc = 'Preview' },
     },
     config = function()
         local dap = require('dap')
         local dapui = require('dapui')
+
+        vim.api.nvim_create_autocmd('FileType', {
+            pattern = 'dap-float',
+            callback = function(e)
+                vim.api.nvim_buf_set_keymap(
+                    e.buf,
+                    'n',
+                    'q',
+                    '<cmd>close!<CR>',
+                    { silent = true }
+                )
+            end,
+        })
 
         dap.adapters.php = {
             type = 'executable',
@@ -84,6 +99,10 @@ return {
                     elements = {
                         {
                             id = 'breakpoints',
+                            size = 0.25
+                        },
+                        {
+                            id = 'stacks',
                             size = 0.25
                         },
                         {
