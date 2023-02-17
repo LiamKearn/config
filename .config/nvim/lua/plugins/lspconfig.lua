@@ -12,7 +12,8 @@ return {
             },
             clangd = {},
             rust_analyzer = {},
-            neocmake = {}
+            neocmake = {},
+            html = {}
         }
     },
     config = function(plugin, opts)
@@ -56,6 +57,7 @@ return {
         end
 
         local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
         local servers = opts.servers
 
         for server, server_opts in pairs(servers) do
