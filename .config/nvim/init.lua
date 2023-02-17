@@ -17,9 +17,11 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 -- Misc
+vim.opt.virtualedit = 'block'
 vim.opt.errorbells = false
 vim.opt.wrap = false
 vim.opt.updatetime = 50
+vim.opt.lazyredraw = true
 vim.opt.scrolloff = 8
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.shellcmdflag = '-lc'
@@ -29,11 +31,21 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- Spacing
+vim.opt.textwidth = 80
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
+-- From Greg Hurrell's config.
+vim.opt.list = true
+vim.opt.listchars = {
+  nbsp = '⦸', -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
+  extends = '»', -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
+  precedes = '«', -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
+  tab = '▷⋯', -- WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7) + MIDLINE HORIZONTAL ELLIPSIS (U+22EF, UTF-8: E2 8B AF)
+  trail = '•', -- BULLET (U+2022, UTF-8: E2 80 A2)
+}
 
 -- GUI
 vim.opt.termguicolors = true
