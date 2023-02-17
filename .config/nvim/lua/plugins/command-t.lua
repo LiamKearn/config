@@ -2,7 +2,8 @@ return {
     'wincent/command-t',
     lazy = false,
     keys = {
-        { '<leader>ff', '<cmd>:CommandTRipgrep<cr>' }
+        { '<leader>ff', vim.cmd.CommandTRipgrep },
+        { '<leader>fb', vim.cmd.CommandTBuffer }
     },
     build = function()
         local lazypath = vim.fn.stdpath('data') .. '/lazy/command-t/lua/wincent/commandt/lib'
@@ -18,6 +19,11 @@ return {
         vim.g.CommandTPreferredImplementation = 'lua'
     end,
     config = function()
-        require('wincent.commandt').setup()
+        require('wincent.commandt').setup({
+            ignore_case = true,
+            smart_case = true,
+            order = 'forward',
+            position = 'bottom',
+        })
     end
 }
