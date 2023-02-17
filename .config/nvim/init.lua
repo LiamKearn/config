@@ -87,7 +87,7 @@ autocmd('InsertEnter', {
     callback = function()
         -- TODO: All the reloading here is evil.
         vim.g.gruvbox_material_background = 'medium'
-		vim.cmd('colorscheme gruvbox-material')
+        vim.cmd('colorscheme gruvbox-material')
         require('lualine').setup({
             options = {
                 icons_enabled = false,
@@ -100,10 +100,10 @@ autocmd('InsertEnter', {
 })
 
 autocmd('InsertLeave', {
-	pattern = '*',
-	callback = function()
+    pattern = '*',
+    callback = function()
         vim.g.gruvbox_material_background = 'hard'
-		vim.cmd('colorscheme gruvbox-material')
+        vim.cmd('colorscheme gruvbox-material')
         require('lualine').setup({
             options = {
                 icons_enabled = false,
@@ -112,7 +112,7 @@ autocmd('InsertLeave', {
                 section_separators = '',
             }
         })
-	end
+    end
 })
 
 require('keymap')
