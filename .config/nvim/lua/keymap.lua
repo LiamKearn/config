@@ -27,7 +27,7 @@ M.nnoremap('<Right>', '<Nop>')
 M.snoremap('{', ':execute "keepjumps norm! " . v:count1 . "{"<CR>')
 M.snoremap('}', ':execute "keepjumps norm! " . v:count1 . "}"<CR>')
 
-M.nnoremap('<leader>ll', '<cmd>:Lazy<cr>')
+M.nnoremap('<leader>ll', vim.cmd.Lazy)
 
 M.snoremap('<leader>y', ':call system("socat - UNIX-CLIENT:/home/liam/.run/clipper.sock", @0)<CR>')
 
