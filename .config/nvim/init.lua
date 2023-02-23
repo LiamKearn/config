@@ -103,12 +103,13 @@ autocmd('TextYankPost', {
   pattern = '*',
 })
 
+vim.cmd('colorscheme ' .. 'slate')
+
 autocmd('InsertEnter', {
     pattern = '*',
     callback = function()
         -- TODO: All the reloading here is evil.
-        vim.g.gruvbox_material_background = 'medium'
-        vim.cmd('colorscheme gruvbox-material')
+        vim.cmd('colorscheme habamax')
         require('lualine').setup({
             options = {
                 icons_enabled = false,
@@ -123,8 +124,7 @@ autocmd('InsertEnter', {
 autocmd('InsertLeave', {
     pattern = '*',
     callback = function()
-        vim.g.gruvbox_material_background = 'hard'
-        vim.cmd('colorscheme gruvbox-material')
+        vim.cmd('colorscheme slate')
         require('lualine').setup({
             options = {
                 icons_enabled = false,
@@ -139,16 +139,12 @@ autocmd('InsertLeave', {
 -- Trash all the buffers!
 vim.keymap.set('n', 'bda', 'bufdo bd', { commandab = true })
 vim.keymap.set('n', 'bda!', 'bufdo bd!', { commandab = true })
-
 vim.keymap.set('n', '<Up>', '<Nop>')
 vim.keymap.set('n', '<Down>', '<Nop>')
 vim.keymap.set('n', '<Left>', '<Nop>')
 vim.keymap.set('n', '<Right>', '<Nop>')
-
 vim.keymap.set('n', '{', ':execute "keepjumps norm! " . v:count1 . "{"<CR>', { silent = true })
 vim.keymap.set('n', '}', ':execute "keepjumps norm! " . v:count1 . "}"<CR>', { silent = true })
-
 vim.keymap.set('n', '<leader>ll', vim.cmd.Lazy)
-
 vim.keymap.set('n', '<leader>y', ':call system("socat - UNIX-CLIENT:/home/liam/.run/clipper.sock", @0)<CR>', { silent = true })
 
