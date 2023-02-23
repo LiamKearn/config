@@ -26,7 +26,6 @@ switch (uname)
     case Darwin
         alias todo="vi $HOME/Documents/todo.md"
         alias todop="vi $HOME/Documents/todo-personal.md"
-        alias note="vi $HOME/Documents/notes.md"
         alias qtodo="ql $HOME/Documents/todo.md"
         alias readlink='/usr/local/bin/greadlink'
         alias sed='/usr/local/bin/gsed'
@@ -81,6 +80,7 @@ alias fic='cd $HOME/.config/fish'
 alias cf='cd $HOME/.config'
 alias ncf='cd $HOME/.config/nvim'
 alias doc='cd $HOME/Documents'
+alias note='pushd $HOME/Notes && nvim'
 alias down='cd $HOME/Downloads'
 alias :q='exit'
 
