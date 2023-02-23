@@ -23,7 +23,6 @@ autocmd('User', {
 })
 
 autocmd('DirChanged', {
-    pattern = '*',
     callback = loadIfApplicable
 })
 
