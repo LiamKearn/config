@@ -1,4 +1,4 @@
 return {
     'dag/vim-fish',
-    ft = 'plist'
+    ft = 'fish'
 }
