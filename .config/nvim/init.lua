@@ -72,7 +72,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup('plugins')
+require('lazy').setup('plugins', {
+    change_detection = {
+        enabled = true,
+        notify = false,
+    },
+})
 
 local autocmd = vim.api.nvim_create_autocmd
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
