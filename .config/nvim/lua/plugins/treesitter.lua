@@ -33,6 +33,13 @@ return {
             'vue'
         }
     },
+    init = function()
+        vim.filetype.add({
+            extension = {
+                ss = 'html'
+            }
+        })
+    end,
     config = function(_, opts)
         require('nvim-treesitter.configs').setup(opts)
     end

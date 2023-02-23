@@ -55,6 +55,9 @@ vim.opt.cursorline = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+-- Filetype mappings.
+vim.g.filetype_ss = 'html'
+
 -- Install lazy.
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
