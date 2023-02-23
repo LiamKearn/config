@@ -3,7 +3,7 @@ return {
     lazy = false,
     keys = {
         { '<leader>ff', vim.cmd.CommandTRipgrep },
-        { '<leader>fb', vim.cmd.CommandTBuffer }
+        { '<leader>gg', vim.cmd.CommandTBuffer }
     },
     build = function()
         local lazypath = vim.fn.stdpath('data') .. '/lazy/command-t/lua/wincent/commandt/lib'
