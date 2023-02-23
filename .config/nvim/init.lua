@@ -79,6 +79,19 @@ require('lazy').setup('plugins', {
     },
 })
 
+-- Monkey Patching, What could go wrong?!
+local nvimSetFnPtr = vim.keymap.set
+vim.keymap.set = function(mode, lhs, rhs, opts)
+    if (opts and opts.commandab ~= nil) then
+        cmd = 'cnoreabbrev <expr> %s "%s"'
+
+        vim.cmd(cmd:format(lhs, rhs))
+        return
+    end
+
+    return nvimSetFnPtr(mode, lhs, rhs, opts)
+end
+
 local autocmd = vim.api.nvim_create_autocmd
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 
@@ -123,5 +136,19 @@ autocmd('InsertLeave', {
     end
 })
 
-require('keymap')
+-- Trash all the buffers!
+vim.keymap.set('n', 'bda', 'bufdo bd', { commandab = true })
+vim.keymap.set('n', 'bda!', 'bufdo bd!', { commandab = true })
+
+vim.keymap.set('n', '<Up>', '<Nop>')
+vim.keymap.set('n', '<Down>', '<Nop>')
+vim.keymap.set('n', '<Left>', '<Nop>')
+vim.keymap.set('n', '<Right>', '<Nop>')
+
+vim.keymap.set('n', '{', ':execute "keepjumps norm! " . v:count1 . "{"<CR>', { silent = true })
+vim.keymap.set('n', '}', ':execute "keepjumps norm! " . v:count1 . "}"<CR>', { silent = true })
+
+vim.keymap.set('n', '<leader>ll', vim.cmd.Lazy)
+
+vim.keymap.set('n', '<leader>y', ':call system("socat - UNIX-CLIENT:/home/liam/.run/clipper.sock", @0)<CR>', { silent = true })
 
