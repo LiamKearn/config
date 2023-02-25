@@ -86,7 +86,7 @@ require('lazy').setup('plugins', {
 local nvimSetFnPtr = vim.keymap.set
 vim.keymap.set = function(mode, lhs, rhs, opts)
     if (opts and opts.commandab ~= nil) then
-        cmd = 'cnoreabbrev <expr> %s "%s"'
+        cmd = 'cnoreabbrev <silent> <expr> %s "%s"'
 
         vim.cmd(cmd:format(lhs, rhs))
         return
