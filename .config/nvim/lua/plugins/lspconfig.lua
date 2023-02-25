@@ -1,8 +1,133 @@
+-- https://gist.github.com/VonHeikemen/8fc2aa6da030757a5612393d0ae060bd
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'LSP actions',
+    callback = function ()
+        local bufopts = { noremap = true, silent = true, buffer = true }
+
+        vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, bufopts)
+        vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
+        vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
+        vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, bufopts)
+        vim.keymap.set('n', '<leader>gD', vim.lsp.buf.declaration, bufopts)
+        vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, bufopts)
+        vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, bufopts)
+        vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+        vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+        vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+        vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
+        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
+        vim.keymap.set('n', '<leader>hh', ':ClangdSwitchSourceHeader<cr>', bufopts)
+        vim.keymap.set('n', '<leader>FF', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', bufopts)
+    end
+})
+
+local config = function(_, opts)
+    local lspconfig = require('lspconfig')
+
+    local defaults = lspconfig.util.default_config
+    defaults.capabilities = vim.tbl_deep_extend(
+        'force',
+        defaults.capabilities,
+        require('cmp_nvim_lsp').default_capabilities()
+    )
+
+    local servers = opts.servers
+    for server, server_opts in pairs(servers) do
+        require('lspconfig')[server].setup(server_opts)
+    end
+
+    local cmp = require('cmp')
+    local luasnip = require('luasnip')
+
+    local select_opts = {behavior = cmp.SelectBehavior.Select}
+
+    cmp.setup({
+        snippet = {
+            expand = function(args)
+                luasnip.lsp_expand(args.body)
+            end
+        },
+        sources = {
+            {name = 'path'},
+            {name = 'nvim_lsp', keyword_length = 1},
+            {name = 'buffer', keyword_length = 3},
+            {name = 'luasnip', keyword_length = 2},
+        },
+        window = {
+            documentation = cmp.config.window.bordered()
+        },
+        formatting = {
+            fields = {'menu', 'abbr', 'kind'},
+            format = function(entry, item)
+                local menu_icon = {
+                    nvim_lsp = 'λ',
+                    luasnip = '⋗',
+                    buffer = 'Ω',
+                    path = 'TODO'
+                }
+
+                item.menu = menu_icon[entry.source.name]
+                return item
+            end,
+        },
+        mapping = {
+            ['<Up>'] = cmp.mapping.select_prev_item(select_opts),
+            ['<Down>'] = cmp.mapping.select_next_item(select_opts),
+
+            ['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
+            ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
+
+            ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+            ['<C-d>'] = cmp.mapping.scroll_docs(4),
+
+            ['<C-e>'] = cmp.mapping.abort(),
+            ['<C-y>'] = cmp.mapping.confirm({select = true}),
+            ['<CR>'] = cmp.mapping.confirm({select = false}),
+
+            ['<C-f>'] = cmp.mapping(function(fallback)
+                if luasnip.jumpable(1) then
+                    luasnip.jump(1)
+                else
+                    fallback()
+                end
+            end, {'i', 's'}),
+
+            ['<C-b>'] = cmp.mapping(function(fallback)
+                if luasnip.jumpable(-1) then
+                    luasnip.jump(-1)
+                else
+                    fallback()
+                end
+            end, {'i', 's'}),
+
+            ['<Tab>'] = cmp.mapping(function(fallback)
+                local col = vim.fn.col('.') - 1
+
+                if cmp.visible() then
+                    cmp.select_next_item(select_opts)
+                elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+                    fallback()
+                else
+                    cmp.complete()
+                end
+            end, {'i', 's'}),
+
+            ['<S-Tab>'] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item(select_opts)
+                else
+                    fallback()
+                end
+            end, {'i', 's'}),
+        },
+    })
+end
+
 return {
     'neovim/nvim-lspconfig',
-    dependencies = {
-        'ray-x/lsp_signature.nvim',
-    },
     opts = {
         servers = {
             intelephense = {
@@ -13,57 +138,17 @@ return {
             clangd = {},
             rust_analyzer = {},
             neocmake = {},
-            html = {}
+            html = {},
+            lua_ls = {
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { 'vim' }
+                        }
+                    }
+                }
+            }
         }
     },
-    config = function(plugin, opts)
-        local signature = require('lsp_signature');
-        local on_attach = function(client, buffer)
-            -- Enable completion triggered by <c-x><c-o>
-            vim.api.nvim_buf_set_option(buffer, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-            -- Uncomment for inlayhints
-            -- require('inlay-hints').on_attach(client, buffer)
-
-            signature.on_attach({
-                bind = true,
-                floating_window_above_cur_line = false,
-                hint_prefix = '',
-                handler_opts = {
-                    border = 'rounded'
-                }
-            }, buffer)
-
-            local bufopts = { noremap=true, silent=true, buffer=buffer }
-            vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, bufopts)
-            vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
-            vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
-            vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, bufopts)
-            vim.keymap.set('n', '<leader>gD', vim.lsp.buf.declaration, bufopts)
-            vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, bufopts)
-            vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, bufopts)
-            vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts)
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-            vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-            vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-            vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-            vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
-            vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
-            vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
-            vim.keymap.set('n', '<leader>hh', ':ClangdSwitchSourceHeader<cr>', bufopts)
-            vim.keymap.set('n', '<leader>wl', function()
-                print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-            end, bufopts)
-        end
-
-        local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-        capabilities.textDocument.completion.completionItem.snippetSupport = true
-        local servers = opts.servers
-
-        for server, server_opts in pairs(servers) do
-            server_opts.capabilities = capabilities
-            server_opts.on_attach = on_attach
-            require('lspconfig')[server].setup(server_opts)
-        end
-    end
+    config = config
 }

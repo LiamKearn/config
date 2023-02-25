@@ -1,13 +1,12 @@
 {
+  "LuaSnip": { "branch": "master", "commit": "f7c845749aba6096f041a73a26ba64f3817bab99" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "59224771f91b86d1de12570b4070fe4ad7cd1eeb" },
   "command-t": { "branch": "main", "commit": "23d2860931dcbcbdfb3543bed002e35d7b3b898b" },
   "corpus": { "branch": "main", "commit": "5f57e8db10f9e385e8416c9acbee962d27745489" },
   "ferret": { "branch": "main", "commit": "22cf052269b1143cd579b81c9390880ac712b67f" },
-  "inlay-hints.nvim": { "branch": "main", "commit": "006b0898f5d3874e8e528352103733142e705834" },
-  "lazy.nvim": { "branch": "main", "commit": "3d2dcb2d5ef99106c5ff412da88c6f59a9f8a693" },
-  "lsp_signature.nvim": { "branch": "master", "commit": "6f6252f63b0baf0f2224c4caea33819a27f3f550" },
-  "lualine.nvim": { "branch": "master", "commit": "0050b308552e45f7128f399886c86afefc3eb988" },
+  "lazy.nvim": { "branch": "main", "commit": "8077428e63feb0f3bf795d53b23ba1695b28ab0e" },
+  "lualine.nvim": { "branch": "master", "commit": "e99d733e0213ceb8f548ae6551b04ae32e590c80" },
   "nredir.nvim": { "branch": "main", "commit": "22cdf3aaf43d563b27c5bbbd31da5ab23efec972" },
   "nvim-cmp": { "branch": "main", "commit": "e7e2ef7031db8e0cfad7ad9916ec766ddd9dbb3b" },
   "nvim-dap": { "branch": "master", "commit": "0e376f00e7fac143e29e1017d2ac2cc3df13d185" },
@@ -22,4 +21,3 @@
   "vim-gh-line": { "branch": "master", "commit": "fbf368bdfad7e5478009a6dc62559e6b2c72d603" },
   "vim-plist": { "branch": "master", "commit": "60e69bec50dfca32f0a62ee2dacdfbe63fd92038" },
   "vim-unimpaired": { "branch": "master", "commit": "6d44a6dc2ec34607c41ec78acf81657248580bf1" }
-}
