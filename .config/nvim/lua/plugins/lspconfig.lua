@@ -74,11 +74,11 @@ local config = function(_, opts)
             end,
         },
         mapping = {
-            ['<Up>'] = cmp.mapping.select_prev_item(select_opts),
-            ['<Down>'] = cmp.mapping.select_next_item(select_opts),
-
             ['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
             ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
+
+            -- Press twice for bottom (weird but works).
+            ['<C-g>'] = cmp.mapping.select_prev_item({count = 9999}),
 
             ['<C-u>'] = cmp.mapping.scroll_docs(-4),
             ['<C-d>'] = cmp.mapping.scroll_docs(4),
