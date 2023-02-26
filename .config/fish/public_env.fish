@@ -94,3 +94,5 @@ set -Ux NVM_DIR "$XDG_DATA_HOME/nvm"
 
 # NPM
 set -Ux NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
+
+set -Ux GPG_TTY (tty)

@@ -49,9 +49,10 @@ switch (uname)
         # pnpm end
 end
 
-abbr -a lzg 'lazygit'
+alias sign='echo "" | gpg --sign -u "Liam Kearney" > /dev/null'
+abbr -a lzg 'sign; lazygit'
 abbr -a lzd 'lazydocker'
-abbr -a lzgc 'lazygit --git-dir=$HOME/.cfg --work-tree=$HOME'
+abbr -a lzgc 'sign; lazygit --git-dir=$HOME/.cfg --work-tree=$HOME'
 abbr -a src 'source $HOME/.config/fish/config.fish'
 abbr -a tma 'tmux a'
 abbr -a cd- 'cd -'
