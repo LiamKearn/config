@@ -3,7 +3,10 @@
 [user]
 	name = lkearn
 	email = liam@sproutlabs.com.au
-	signingkey = 0E9E696B1D411414
+[includeIf "gitdir:/Users/"]
+	path = ~/.gitconfig.darwin.inc
+[includeIf "gitdir:/home/"]
+	path = ~/.gitconfig.linux.inc
 [alias]
 	update = add -u
 [add.interactive]
