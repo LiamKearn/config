@@ -1,18 +1,20 @@
 [credential]
-    helper = store
+	helper = store
 [user]
-    name = lkearn
-    email = liam@sproutlabs.com.au
+	name = lkearn
+	email = liam@sproutlabs.com.au
+	signingkey = 0E9E696B1D411414
 [alias]
-    update = add -u
+	update = add -u
 [add.interactive]
-    useBuiltin = false
+	useBuiltin = false
 [merge]
-    conflictstyle = diff3
+	conflictstyle = diff3
 [diff]
-    colorMoved = default
+	colorMoved = default
 [commit]
-    verbose = true
+	gpgsign = true
+	verbose = true
 [diff "ansible-vault"]
 	textconv = ansible-vault view
 [core]

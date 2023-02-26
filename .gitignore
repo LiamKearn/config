@@ -1,6 +1,7 @@
 # Don't look at these!
 ~/.ssh/*
 ~/.cache
+~/.gnupg
 
 # Default todo files
 ~/todo.md
