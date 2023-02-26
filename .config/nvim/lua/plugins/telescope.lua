@@ -7,7 +7,6 @@ return {
         { '<leader>fq', '<cmd>lua require("telescope.builtin").diagnostics()<cr>' },
         { '<leader>fk', '<cmd>lua require("telescope.builtin").keymaps()<cr>' },
         { '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep({layout_strategy="vertical"})<cr>' },
-        { '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>' },
         { '<leader>fm', '<cmd>lua require("telescope.builtin").man_pages()<cr>' },
         { '<leader>fs', '<cmd>lua require("telescope.builtin").lsp_document_symbols()<cr>' },
         { '<leader>fS', '<cmd>lua require("telescope.builtin").lsp_dynamic_workspace_symbols()<cr>' },

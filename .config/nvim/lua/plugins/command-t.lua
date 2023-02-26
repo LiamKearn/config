@@ -3,6 +3,7 @@ return {
     lazy = false,
     keys = {
         { '<leader>ff', vim.cmd.CommandTRipgrep },
+        { '<leader>fh', vim.cmd.CommandTHelp },
         { '<leader>gg', vim.cmd.CommandTBuffer }
     },
     build = function()
