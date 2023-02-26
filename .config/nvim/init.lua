@@ -80,13 +80,18 @@ require('lazy').setup('plugins', {
         enabled = true,
         notify = false,
     },
+    dev = {
+        path = vim.fn.expand('$HOME/Projects'),
+        fallback = true,
+    }
 })
 
 -- Monkey Patching, What could go wrong?!
 local nvimSetFnPtr = vim.keymap.set
+---@diagnostic disable-next-line: duplicate-set-field Intentional monkey patch.
 vim.keymap.set = function(mode, lhs, rhs, opts)
     if (opts and opts.commandab ~= nil) then
-        cmd = 'cnoreabbrev <silent> <expr> %s "%s"'
+        local cmd = 'cnoreabbrev <silent> <expr> %s "%s"'
 
         vim.cmd(cmd:format(lhs, rhs))
         return
@@ -99,7 +104,7 @@ local autocmd = vim.api.nvim_create_autocmd
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 
 -- TODO: All the reloading here is evil.
-function toggleScheme()
+function ToggleScheme()
     if (vim.g.colors_name == 'slate') then
         vim.cmd('colorscheme habamax')
     else
@@ -117,8 +122,8 @@ function toggleScheme()
         }
     })
 end
-autocmd('InsertEnter', { callback = toggleScheme })
-autocmd('InsertLeave', { callback = toggleScheme })
+autocmd('InsertEnter', { callback = ToggleScheme })
+autocmd('InsertLeave', { callback = ToggleScheme })
 
 autocmd('TextYankPost', {
   callback = function()

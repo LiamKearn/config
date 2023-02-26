@@ -128,6 +128,9 @@ end
 
 return {
     'neovim/nvim-lspconfig',
+    dependencies = {
+        'folke/neodev.nvim'
+    },
     opts = {
         servers = {
             intelephense = {
