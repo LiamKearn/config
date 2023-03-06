@@ -22,6 +22,7 @@ return {
         { '<F10>', function() require('dap').step_over() end, desc = 'Step Over' },
         { '<F11>', function() require('dap').step_into() end, desc = 'Step Into' },
         { '<F12>', function() require('dap').step_out() end, desc = 'Step Out' },
+        { '<F8>', function() require('dap').set_exception_breakpoints() end, desc = 'Breakpoint filters' },
         { '<Leader>B', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = 'Add a conditional Breakpoint' },
         { '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, desc = 'Add a Logpoint' },
         { '<Leader>dr', function() require('dap').repl.open() end, desc = 'Open REPL' },
