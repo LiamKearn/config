@@ -17,9 +17,10 @@ brew "asciinema"
 brew "awscli"
 brew "glib"
 brew "clipper", restart_service: true
+brew "cloc"
 brew "libssh2"
 brew "freetds"
-brew "php", link: false
+brew "php"
 brew "composer"
 brew "coreutils"
 brew "dbus"
@@ -67,7 +68,7 @@ brew "x11vnc"
 brew "ykman"
 brew "jesseduffield/lazydocker/lazydocker"
 brew "koekeishiya/formulae/yabai", args: ["HEAD"]
-brew "shivammathur/php/php@7.4", link: true
+brew "shivammathur/php/php@7.4"
 brew "superbrothers/opener/opener"
 cask "1password-cli"
 cask "alacritty"
