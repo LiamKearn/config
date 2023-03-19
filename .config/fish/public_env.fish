@@ -24,7 +24,13 @@ set -Ux MAIL $HOME/mbox
 
 set -Ux DOCKER_BUILDKIT 1
 
-set -Ux JAVA_HOME /Library/Java/JavaVirtualMachines/jdk1.8.0_333.jdk/Contents/Home
+switch (uname)
+    case Darwin
+        set -Ux JAVA_HOME /Library/Java/JavaVirtualMachines/jdk1.8.0_333.jdk/Contents/Home
+    case Linux
+        set -Ux JAVA_HOME /usr/lib/jvm/default-java
+end
+
 set -Ux ANDROID_SDK_ROOT $HOME/Library/Android/sdk
 
 # Make the lazygit config file the same location as it is on my linux box.
