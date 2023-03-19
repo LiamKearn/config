@@ -56,6 +56,17 @@ abbr -a lzgc 'sign && lazygit --git-dir=$HOME/.cfg --work-tree=$HOME'
 abbr -a src 'source $HOME/.config/fish/config.fish'
 abbr -a tma 'tmux a'
 abbr -a cd- 'cd -'
+abbr -a cd.. 'cd ..'
+# cd... -> cd ../../, cd.... -> cd ../../../ etc.
+for level in (seq 1 5)
+    set dot_count (string repeat -n (math $level + 2) '.')
+    set alias (string join '' 'cd' $dot_count)
+
+    set dirs_up (string repeat -n (math $level + 1) '../')
+    set cmd (string join '' 'cd ' $dirs_up)
+
+    abbr -a $alias $cmd
+end
 
 alias pf='pushd (fd . --search-path $HOME/Work/ --search-path $HOME/Projects/ --type d -d 1 | fzf --preview "ls {}")'
 alias l='exa -1 --icons'
