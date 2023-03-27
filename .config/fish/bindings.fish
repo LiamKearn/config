@@ -3,4 +3,5 @@ if not status is-interactive
 end
 
 bind \ct launchtmux
+bind \cv launchvim
 
