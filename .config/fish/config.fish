@@ -81,6 +81,7 @@ alias vie='nvim $HOME/.config/fish/public_env.fish'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias rg='rg --no-messages'
 alias htop="sudo htop"
+alias icat="wezterm imgcat"
 
 # Dirstack stuff | TODO the OSX stuff is stupid as always.
 alias ds='dirs | awk -v OFS="\n" "{\$1=\$1}1"'

@@ -71,7 +71,6 @@ brew "koekeishiya/formulae/yabai", args: ["HEAD"]
 brew "shivammathur/php/php@7.4", link: true
 brew "superbrothers/opener/opener"
 cask "1password-cli"
-cask "alacritty"
 cask "alfred"
 cask "alt-tab"
 cask "authy"
@@ -100,6 +99,7 @@ cask "tunnelblick"
 cask "visual-studio-code"
 cask "vlc"
 cask "vnc-viewer"
+cask "wezterm-nightly"
 cask "zoom"
 mas "Amphetamine", id: 937984704
 mas "Xcode", id: 497799835
