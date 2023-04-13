@@ -1,7 +1,7 @@
 -- https://gist.github.com/VonHeikemen/8fc2aa6da030757a5612393d0ae060bd
 vim.api.nvim_create_autocmd('LspAttach', {
-  desc = 'LSP actions',
-    callback = function ()
+    desc = 'LSP actions',
+    callback = function()
         local bufopts = { noremap = true, silent = true, buffer = true }
 
         vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, bufopts)
@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, bufopts)
         vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, bufopts)
         vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts)
+        vim.keymap.set('n', '<leader>gt', vim.lsp.buf.type_definition, bufopts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
         vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
         vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
@@ -42,7 +43,7 @@ local config = function(_, opts)
     local cmp = require('cmp')
     local luasnip = require('luasnip')
 
-    local select_opts = {behavior = cmp.SelectBehavior.Select}
+    local select_opts = { behavior = cmp.SelectBehavior.Select }
 
     cmp.setup({
         snippet = {
@@ -51,16 +52,16 @@ local config = function(_, opts)
             end
         },
         sources = {
-            {name = 'path'},
-            {name = 'nvim_lsp', keyword_length = 1},
-            {name = 'buffer', keyword_length = 3},
-            {name = 'luasnip', keyword_length = 2},
+            { name = 'path' },
+            { name = 'nvim_lsp', keyword_length = 1 },
+            { name = 'buffer',   keyword_length = 3 },
+            { name = 'luasnip',  keyword_length = 2 },
         },
         window = {
             documentation = cmp.config.window.bordered()
         },
         formatting = {
-            fields = {'menu', 'abbr', 'kind'},
+            fields = { 'menu', 'abbr', 'kind' },
             format = function(entry, item)
                 local menu_icon = {
                     nvim_lsp = 'λ',
@@ -78,14 +79,14 @@ local config = function(_, opts)
             ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
 
             -- Press twice for bottom (weird but works).
-            ['<C-g>'] = cmp.mapping.select_prev_item({count = 9999}),
+            ['<C-g>'] = cmp.mapping.select_prev_item({ count = 9999 }),
 
-            ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+            ['<C-u>'] = cmp.mapping.scroll_docs( -4),
             ['<C-d>'] = cmp.mapping.scroll_docs(4),
 
             ['<C-e>'] = cmp.mapping.abort(),
-            ['<C-y>'] = cmp.mapping.confirm({select = true}),
-            ['<CR>'] = cmp.mapping.confirm({select = false}),
+            ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+            ['<CR>'] = cmp.mapping.confirm({ select = false }),
 
             ['<C-f>'] = cmp.mapping(function(fallback)
                 if luasnip.jumpable(1) then
@@ -93,15 +94,15 @@ local config = function(_, opts)
                 else
                     fallback()
                 end
-            end, {'i', 's'}),
+            end, { 'i', 's' }),
 
             ['<C-b>'] = cmp.mapping(function(fallback)
-                if luasnip.jumpable(-1) then
-                    luasnip.jump(-1)
+                if luasnip.jumpable( -1) then
+                    luasnip.jump( -1)
                 else
                     fallback()
                 end
-            end, {'i', 's'}),
+            end, { 'i', 's' }),
 
             ['<Tab>'] = cmp.mapping(function(fallback)
                 local col = vim.fn.col('.') - 1
@@ -113,7 +114,7 @@ local config = function(_, opts)
                 else
                     cmp.complete()
                 end
-            end, {'i', 's'}),
+            end, { 'i', 's' }),
 
             ['<S-Tab>'] = cmp.mapping(function(fallback)
                 if cmp.visible() then
@@ -121,7 +122,7 @@ local config = function(_, opts)
                 else
                     fallback()
                 end
-            end, {'i', 's'}),
+            end, { 'i', 's' }),
         },
     })
 end
@@ -139,13 +140,55 @@ return {
                 }
             },
             clangd = {},
-            rust_analyzer = {},
+            rust_analyzer = {
+                -- These apply to the default RustSetInlayHints command
+                inlay_hints = {
+                    -- automatically set inlay hints (type hints)
+                    -- default: true
+                    auto = true,
+
+                    -- Only show inlay hints for the current line
+                    only_current_line = false,
+
+                    -- whether to show parameter hints with the inlay hints or not
+                    -- default: true
+                    show_parameter_hints = true,
+
+                    -- prefix for parameter hints
+                    -- default: "<-"
+                    parameter_hints_prefix = "<- ",
+
+                    -- prefix for all the other hints (type, chaining)
+                    -- default: "=>"
+                    other_hints_prefix = "=> ",
+
+                    -- whether to align to the length of the longest line in the file
+                    max_len_align = false,
+
+                    -- padding from the left if max_len_align is true
+                    max_len_align_padding = 1,
+
+                    -- whether to align to the extreme right or not
+                    right_align = false,
+
+                    -- padding from the right if right_align is true
+                    right_align_padding = 7,
+
+                    -- The color of the hints
+                    highlight = "Comment",
+                },
+            },
             neocmake = {},
             html = {},
             tsserver = {},
+            gopls = {
+                cmd = {
+                    vim.fn.expand('$XDG_DATA_HOME/go/bin/') .. 'gopls'
+                }
+            },
             lua_ls = {
                 cmd = {
-                    vim.fn.expand('$HOME/Builds') .. '/lua_ls/bin/lua-language-server'
+                    vim.fn.expand('$HOME/Builds/lua_ls/bin/') .. 'lua-language-server'
                 },
                 settings = {
                     Lua = {
