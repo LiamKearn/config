@@ -4,7 +4,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     keys = {
         { "<c-space>", desc = "Increment selection" },
-        { "<bs>", desc = "Schrink selection", mode = "x" },
+        { "<bs>",      desc = "Schrink selection",  mode = "x" },
     },
     opts = {
         sync_install = false,
@@ -46,6 +46,30 @@ return {
                 node_decremental = "<bs>",
             },
         },
+        textobjects = {
+            move = {
+                enable = true,
+                set_jumps = true,
+                goto_next_start = {
+                    ["]p"] = "@parameter.inner",
+                    ["]m"] = "@function.outer",
+                    ["]]"] = "@class.outer",
+                },
+                goto_next_end = {
+                    ["]M"] = "@function.outer",
+                    ["]["] = "@class.outer",
+                },
+                goto_previous_start = {
+                    ["[p"] = "@parameter.inner",
+                    ["[m"] = "@function.outer",
+                    ["[["] = "@class.outer",
+                },
+                goto_previous_end = {
+                    ["[M"] = "@function.outer",
+                    ["[]"] = "@class.outer",
+                },
+            },
+        }
     },
     init = function()
         vim.filetype.add({
