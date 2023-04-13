@@ -1,6 +1,14 @@
 # I know some of these are explict defaults.
 
 # ----------------------
+#         XDG
+# ----------------------
+set -Ux XDG_CACHE_HOME "$HOME/.cache"
+set -Ux XDG_CONFIG_HOME "$HOME/.config"
+set -Ux XDG_DATA_HOME "$HOME/.local/share"
+set -Ux XDG_STATE_HOME "$HOME/.local/state"
+
+# ----------------------
 #          ENV
 # ----------------------
 set -Ux NAME "Liam Kearney"
@@ -30,6 +38,8 @@ switch (uname)
     case Linux
         set -Ux JAVA_HOME /usr/lib/jvm/default-java
 end
+
+set -Ux GOPATH $XDG_DATA_HOME/go
 
 set -Ux ANDROID_SDK_ROOT $HOME/Library/Android/sdk
 
@@ -72,14 +82,6 @@ set -Ux TERM xterm-color
 set -Ux GREP_OPTIONS '--color=auto'
 set -Ux GREP_COLOR '1;32'
 set -Ux CLICOLOR 1
-
-# ----------------------
-#         XDG
-# ----------------------
-set -Ux XDG_CACHE_HOME "$HOME/.cache"
-set -Ux XDG_CONFIG_HOME "$HOME/.config"
-set -Ux XDG_DATA_HOME "$HOME/.local/share"
-set -Ux XDG_STATE_HOME "$HOME/.local/state"
 
 # ----------------------
 #         HOME
