@@ -32,10 +32,10 @@ return {
         smart_case = true,
         order = 'forward',
         position = 'bottom',
-        send_handlers = {
-            quickfix = function()
-            end
-        }
+        -- send_handlers = {
+        --     quickfix = function()
+        --     end
+        -- }
     },
     config = function(_, opts)
         require('wincent.commandt').setup(opts)
