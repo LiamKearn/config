@@ -4,7 +4,15 @@ return {
     event = 'InsertEnter',
     opts = {
         suggestion = {
-            auto_trigger = true
-        }
+            auto_trigger = true,
+            keymap = {
+                accept_line = '<C-e>',
+                accept_word = '<C-s>',
+            },
+        },
+        filetypes = {
+            ["."] = false,
+            ["*"] = true,
+        },
     },
 }
