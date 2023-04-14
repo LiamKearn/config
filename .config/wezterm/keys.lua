@@ -10,4 +10,9 @@ return {
             act.SendKey { key = 'L', mods = 'CTRL' },
         }
     },
+    {
+        key = 'e',
+        mods = 'CTRL',
+        action = wezterm.action.SendString '\x05',
+    },
 }
