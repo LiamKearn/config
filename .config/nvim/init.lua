@@ -102,6 +102,8 @@ end
 
 local autocmd = vim.api.nvim_create_autocmd
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
+
 
 -- TODO: All the reloading here is evil.
 function ToggleScheme()
@@ -121,6 +123,7 @@ function ToggleScheme()
             section_separators = '',
         }
     })
+    vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
 end
 autocmd('InsertEnter', { callback = ToggleScheme })
 autocmd('InsertLeave', { callback = ToggleScheme })
