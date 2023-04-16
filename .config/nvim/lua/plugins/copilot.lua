@@ -11,7 +11,6 @@ return {
             },
         },
         filetypes = {
-            ["."] = false,
             ["*"] = true,
         },
     },
