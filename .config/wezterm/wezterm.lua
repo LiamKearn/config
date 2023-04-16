@@ -3,12 +3,13 @@ local config = wezterm.config_builder()
 
 require('appearance')(config)
 require('domains')(config)
+require('status-loop')
 require 'tabs'
 require 'toasty'
 
 config.keys = require 'keys'
 
-config.window_background_opacity = 0.95
+config.window_background_opacity = 0.75
 config.window_decorations = 'RESIZE'
 
 config.use_fancy_tab_bar = false

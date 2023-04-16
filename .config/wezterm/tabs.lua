@@ -46,6 +46,8 @@ wezterm.on(
         if tab_info.is_active then
             table.insert(built_title, { Attribute = { Intensity = 'Bold' } })
             table.insert(built_title, { Text = '*' })
+        elseif wezterm.GLOBAL.tab_state.last_tab_id == tab_info.tab_id then
+            table.insert(built_title, { Text = '-' })
         else
             table.insert(built_title, { Text = ' ' })
         end
