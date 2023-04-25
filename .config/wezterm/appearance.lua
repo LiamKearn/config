@@ -1,8 +1,7 @@
 local wezterm = require 'wezterm'
 
 local function fonts(config)
-    config.font = wezterm.font('Comic Code Ligatures', { weight = 'Regular' })
-    -- config.font = wezterm.font('SauceCodePro Nerd Font Mono', { weight = 'Regular' })
+    config.font = wezterm.font('Fira Code', { weight = 'Medium' })
     config.font_size = 21
 end
 
