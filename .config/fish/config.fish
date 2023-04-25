@@ -100,6 +100,7 @@ alias :q='exit'
 
 # URL Decode
 alias urldecode='php -r "echo urldecode(stream_get_contents(STDIN));"'
+alias urlencode='php -r "echo urlencode(stream_get_contents(STDIN));"'
 
 set fish_greeting
 
