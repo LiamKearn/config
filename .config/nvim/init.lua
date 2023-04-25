@@ -83,6 +83,18 @@ require('lazy').setup('plugins', {
     dev = {
         path = vim.fn.expand('$HOME/Projects'),
         fallback = true,
+    },
+    ui = {
+        border = {
+            { "╭" },
+            { "─" },
+            { "╮" },
+            { "│" },
+            { "╯" },
+            { "─" },
+            { "╰" },
+            { "│" },
+        }
     }
 })
 
