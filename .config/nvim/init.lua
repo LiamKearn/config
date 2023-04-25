@@ -58,8 +58,8 @@ vim.opt.splitright = true
 -- Filetype mappings.
 vim.g.filetype_ss = 'html'
 
-vim.cmd('colorscheme slate')
-vim.api.nvim_set_hl(0, 'ColorColumn', { bg = "#333333", fg = "none" })
+-- Fallback to slate because it's great!
+vim.cmd.colorscheme('slate')
 
 -- Install lazy.
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -86,6 +86,8 @@ require('lazy').setup('plugins', {
     }
 })
 
+vim.cmd.colorscheme('catppuccin')
+
 -- Monkey Patching, What could go wrong?!
 local nvimSetFnPtr = vim.keymap.set
 ---@diagnostic disable-next-line: duplicate-set-field Intentional monkey patch.
@@ -100,42 +102,14 @@ vim.keymap.set = function(mode, lhs, rhs, opts)
     return nvimSetFnPtr(mode, lhs, rhs, opts)
 end
 
-local autocmd = vim.api.nvim_create_autocmd
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
-
-
--- TODO: All the reloading here is evil.
-function ToggleScheme()
-    if (vim.g.colors_name == 'slate') then
-        vim.cmd('colorscheme habamax')
-    else
-        vim.cmd('colorscheme slate')
-    end
-
-    -- Any hightlight changes need to be reloaded.
-    vim.api.nvim_set_hl(0, 'ColorColumn', { bg = "#333333", fg = "none" })
-    require('lualine').setup({
-        options = {
-            icons_enabled = false,
-            theme = 'gruvbox-material',
-            component_separators = '|',
-            section_separators = '',
-        }
-    })
-    vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
-end
-autocmd('InsertEnter', { callback = ToggleScheme })
-autocmd('InsertLeave', { callback = ToggleScheme })
-
-autocmd('TextYankPost', {
+vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank()
   end,
-  group = highlight_group,
+  group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
 })
 
--- Trash all the buffers!
 vim.keymap.set('n', 'bda', 'bufdo bd', { commandab = true })
 vim.keymap.set('n', 'bda!', 'bufdo bd!', { commandab = true })
 vim.keymap.set('n', '<Up>', '<Nop>')

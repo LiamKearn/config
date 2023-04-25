@@ -6,17 +6,4 @@ return {
         'hrsh7th/cmp-buffer',
         'L3MON4D3/LuaSnip'
     },
-    opt = function()
-        local cmp = require("cmp")
-        return {
-            completion = {
-                completeopt = "menu,menuone,noinsert",
-            },
-            sources = cmp.config.sources({
-                { name = "nvim_lsp" },
-                { name = "buffer" },
-                { name = "path" },
-            }),
-        }
-    end
 }

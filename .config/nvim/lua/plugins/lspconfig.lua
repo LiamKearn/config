@@ -35,6 +35,24 @@ local config = function(_, opts)
         require('cmp_nvim_lsp').default_capabilities()
     )
 
+    local border = {
+        { "╭", "FloatBorder" },
+        { "─",  "FloatBorder" },
+        { "╮", "FloatBorder" },
+        { "│",  "FloatBorder" },
+        { "╯", "FloatBorder" },
+        { "─",  "FloatBorder" },
+        { "╰", "FloatBorder" },
+        { "│",  "FloatBorder" },
+    }
+
+    local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+    function vim.lsp.util.open_floating_preview(contents, syntax, options, ...)
+        options = options or {}
+        options.border = options.border or border
+        return orig_util_open_floating_preview(contents, syntax, options, ...)
+    end
+
     local servers = opts.servers
     for server, server_opts in pairs(servers) do
         require('lspconfig')[server].setup(server_opts)
