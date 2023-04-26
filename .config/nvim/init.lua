@@ -132,4 +132,10 @@ vim.keymap.set('n', '{', ':execute "keepjumps norm! " . v:count1 . "{"<CR>', { s
 vim.keymap.set('n', '}', ':execute "keepjumps norm! " . v:count1 . "}"<CR>', { silent = true })
 vim.keymap.set('n', '<leader>ll', vim.cmd.Lazy)
 vim.keymap.set('n', '<leader>y', ':call system("socat - UNIX-CLIENT:/home/liam/.run/clipper.sock", @0)<CR>', { silent = true })
-
+vim.keymap.set('n', '<leader>z', function ()
+    if (vim.wo.numberwidth == 20) then
+        vim.wo.numberwidth = 4
+    else
+        vim.wo.numberwidth = 20
+    end
+end, { desc = 'Toggle Zen Mode' })
