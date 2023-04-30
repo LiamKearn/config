@@ -98,6 +98,8 @@ require('lazy').setup('plugins', {
     }
 })
 
+vim.keymap.set('n', '<leader>ll', vim.cmd.Lazy)
+
 vim.cmd.colorscheme('catppuccin')
 
 -- Monkey Patching, What could go wrong?!
@@ -123,15 +125,24 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.keymap.set('n', 'bda', 'bufdo bd', { commandab = true })
+-- Buffer management.
+vim.keymap.set('n', 'bda', 'bufdo bd', { commandab = true })
 vim.keymap.set('n', 'bda!', 'bufdo bd!', { commandab = true })
+
+-- Map arrow keys to no OP.
 vim.keymap.set('n', '<Up>', '<Nop>')
 vim.keymap.set('n', '<Down>', '<Nop>')
 vim.keymap.set('n', '<Left>', '<Nop>')
 vim.keymap.set('n', '<Right>', '<Nop>')
+
+-- Don't pollute jump list with (what should be) small movements.
 vim.keymap.set('n', '{', ':execute "keepjumps norm! " . v:count1 . "{"<CR>', { silent = true })
 vim.keymap.set('n', '}', ':execute "keepjumps norm! " . v:count1 . "}"<CR>', { silent = true })
-vim.keymap.set('n', '<leader>ll', vim.cmd.Lazy)
+
+-- Yank over socket to local clipboard.
 vim.keymap.set('n', '<leader>y', ':call system("socat - UNIX-CLIENT:/home/liam/.run/clipper.sock", @0)<CR>', { silent = true })
+
+-- Focusing toggles.
 vim.keymap.set('n', '<leader>z', function ()
     if (vim.wo.numberwidth == 20) then
         vim.wo.numberwidth = 4
@@ -139,3 +150,11 @@ vim.keymap.set('n', '<leader>z', function ()
         vim.wo.numberwidth = 20
     end
 end, { desc = 'Toggle Zen Mode' })
+
+vim.keymap.set('n', '<leader>bd', function ()
+    vim.cmd('highlight Normal guibg=black')
+end, { desc = 'Background dark' })
+
+vim.keymap.set('n', '<leader>bl', function ()
+    vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
+end, { desc = 'Background light' })
