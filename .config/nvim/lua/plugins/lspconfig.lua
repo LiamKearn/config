@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, bufopts)
         vim.keymap.set('n', '<leader>gD', vim.lsp.buf.declaration, bufopts)
         vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, bufopts)
-        vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, bufopts)
+        vim.keymap.set('n', '<leader>gr', function () vim.lsp.buf.references({ includeDeclaration = false }) end, bufopts)
         vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts)
         vim.keymap.set('n', '<leader>gt', vim.lsp.buf.type_definition, bufopts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
