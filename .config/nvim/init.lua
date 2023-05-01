@@ -139,8 +139,19 @@ vim.keymap.set('n', '<Right>', '<Nop>')
 vim.keymap.set('n', '{', ':execute "keepjumps norm! " . v:count1 . "{"<CR>', { silent = true })
 vim.keymap.set('n', '}', ':execute "keepjumps norm! " . v:count1 . "}"<CR>', { silent = true })
 
--- Yank over socket to local clipboard.
-vim.keymap.set('n', '<leader>y', ':call system("socat - UNIX-CLIENT:/home/liam/.run/clipper.sock", @0)<CR>', { silent = true })
+-- System yank binding.
+vim.keymap.set('n', '<leader>y', function ()
+    if (vim.loop.os_uname().sysname == 'Darwin') then
+        vim.cmd('call system("pbcopy", @0)')
+    else
+        local remote_socket = vim.fn.expand('$HOME/.run/clipper.sock')
+        if (vim.loop.fs_stat(remote_socket)) then
+            vim.cmd(string.format('call system("socat - UNIX-CLIENT:%s", @0)', remote_socket))
+        else
+            vim.cmd('call system("clip", @0)')
+        end
+    end
+end, { silent = true, desc = 'Yank to system clipboard' })
 
 -- Focusing toggles.
 vim.keymap.set('n', '<leader>z', function ()
