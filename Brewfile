@@ -67,7 +67,6 @@ brew "watch"
 brew "wget"
 brew "x11vnc"
 brew "ykman"
-brew "felixkratz/formulae/svim"
 brew "jesseduffield/lazydocker/lazydocker"
 brew "koekeishiya/formulae/yabai", args: ["HEAD"]
 brew "shivammathur/php/php@7.4", link: true
