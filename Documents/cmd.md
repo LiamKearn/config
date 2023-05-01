@@ -37,7 +37,6 @@ Find all the directories that are not in use:
 ```bash
 ls -1 /var/lib/docker/overlay2/ | xargs -n1 -I{} sh -c 'if ! grep -Fxq {} inuse.txt; then echo '{}'; fi'
 ```
-
 ---
 Title: Merge arrays from two files with JQ
 Tags:
@@ -59,4 +58,12 @@ Check correctness with (will not work for merges):
 [[ $(echo $(jq -s 'flatten | length' file1.json) $(jq -s 'flatten | length' file2.json) | dc -e '? ? + p') -eq $(jq -s 'flatten | length' file1.json file2.json) ]] \
     && echo $?
 ```
-
+---
+Title: UFW basic TCP allow from IP
+Tags:
+  - UFW
+  - Firewall
+---
+```bash
+sudo ufw allow in from 172.0.0.1 proto tcp to any port 1
+```
