@@ -95,6 +95,7 @@ alias cf='cd $HOME/.config'
 alias ncf='cd $HOME/.config/nvim'
 alias doc='cd $HOME/Documents'
 alias note='pushd $HOME/Notes && nvim'
+alias cmd="vi $HOME/Documents/cmd.md"
 alias down='cd $HOME/Downloads'
 alias :q='exit'
 
