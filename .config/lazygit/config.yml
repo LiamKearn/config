@@ -12,9 +12,9 @@ gui:
       - white
       - bold
     inactiveBorderColor:
-      - green
+      - black
     optionsTextColor:
-      - blue
+      - white
     selectedLineBgColor:
       - default
     selectedRangeBgColor:
@@ -34,6 +34,8 @@ gui:
   showCommandLog: true
   showIcons: true
   commandLogSize: 8
+  skipRewordInEditorWarning: true
+  border: 'single'
 git:
   paging:
     colorArg: always
@@ -62,11 +64,11 @@ git:
   parseEmoji: false
   diffContextSize: 3 # how many lines of context are shown around a change in diffs
 os:
-  editCommand: 'nvim' # see 'Configuring File Editing' section
+  open: 'nvim'
+  editPreset: 'nvim'
   editCommandTemplate: '{{editor}} +{{line}} -- {{filename}}'
-  openCommand: 'nvim'
 refresher:
-  refreshInterval: 10 # file/submodule refresh interval in seconds
+  refreshInterval: 3 # file/submodule refresh interval in seconds
   fetchInterval: 60 # re-fetch interval in seconds
 update:
   method: prompt # can be: prompt | background | never
@@ -81,8 +83,8 @@ promptToReturnFromSubprocess: false
 keybinding:
   universal:
     quit: 'q'
-    quit-alt1: '<c-c>' # alternative/alias of quit
-    quit-alt2: '<c-d>' # alternative/alias of quit
+    quit-alt1: '<c-d>' # alternative/alias of quit
+    quit-alt2: '<c-c>' # alternative/alias of quit
     return: '<esc>' # return to previous menu, will quit if there's nowhere to return
     quitWithoutChangingDirectory: 'Q'
     togglePanel: '<tab>' # goto the next panel

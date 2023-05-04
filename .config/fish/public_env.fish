@@ -1,5 +1,9 @@
 # I know some of these are explict defaults.
 
+if status --is-interactive
+    set GPG_TTY (tty)
+end
+
 # ----------------------
 #         XDG
 # ----------------------
