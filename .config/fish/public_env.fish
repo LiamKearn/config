@@ -27,6 +27,7 @@ set -Ux PAGER less
 set -Ux VISUAL nvim
 set -Ux BROWSER chromium
 set -Ux LESS "-RS"
+set -Ux HISTFILE "$XDG_DATA_HOME/history"
 set -Ux CC clang
 set -Ux CXX clang++
 
@@ -39,6 +40,7 @@ set -Ux DOCKER_BUILDKIT 1
 switch (uname)
     case Darwin
         set -Ux JAVA_HOME /Library/Java/JavaVirtualMachines/jdk1.8.0_333.jdk/Contents/Home
+        set -Ux SDKROOT /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
     case Linux
         set -Ux JAVA_HOME /usr/lib/jvm/default-java
 end
