@@ -72,7 +72,7 @@ end
 alias pf='pushd (fd . --search-path $HOME/Work/ --search-path $HOME/Projects/ --type d -d 1 | fzf --preview "git --no-pager --git-dir {}/.git log 2>/dev/null -n10")'
 alias l='exa -1 --icons'
 alias ll='exa --grid -a --group-directories-first --icons -s Ext'
-alias ls='exa --long --octal-permissions --no-time --no-filesize --header --group'
+alias ls='exa --long --octal-permissions --no-permissions --no-time --no-filesize --header --group'
 alias ac="AWS_CLI_AUTO_PROMPT=on aws --cli-auto-prompt"
 alias pn="pnpm"
 alias vi='nvim'
