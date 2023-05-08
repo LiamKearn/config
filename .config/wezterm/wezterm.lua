@@ -10,6 +10,7 @@ require 'toasty'
 config.keys = require 'keys'
 
 config.window_background_opacity = 0.85
+config.macos_window_background_blur = 15
 config.window_decorations = 'RESIZE'
 
 config.use_fancy_tab_bar = false
