@@ -6,13 +6,13 @@ if not status --is-interactive
 end
 
 source $HOME/.config/fish/public_env.fish
-if test -f $HOME/.config/fish/private_env.fish
-    source $HOME/.config/fish/private_env.fish
+if test -f $XDG_CONFIG_HOME/fish/private_env.fish
+    source $XDG_CONFIG_HOME/fish/private_env.fish
 end
-source $HOME/.config/fish/bindings.fish
+source $XDG_CONFIG_HOME/fish/bindings.fish
 
 fish_add_path /usr/local/bin/nvim-osx64/bin
-fish_add_path $HOME/.bin
+fish_add_path $XDG_CONFIG_HOME/.bin
 fish_add_path $XDG_DATA_HOME/cargo/bin
 fish_add_path $XDG_DATA_HOME/rustup/toolchains/nightly-x86_64-apple-darwin/bin
 fish_add_path $ANDROID_SDK_ROOT/tools/bin
@@ -33,8 +33,8 @@ switch (uname)
 
         abbr -a shi 'ssh ubuntu'
         abbr -a shit 'ssh ubuntu -t "tmux a; fish -l"'
-        abbr -a tunconnect 'osascript $HOME/.config/tunnelblick/tunnelconnect.scpt'
-        abbr -a tunstop 'osascript $HOME/.config/tunnelblick/tunnelstop.scpt'
+        abbr -a tunconnect 'osascript $XDG_CONFIG_HOME/tunnelblick/tunnelconnect.scpt'
+        abbr -a tunstop 'osascript $XDG_CONFIG_HOME/tunnelblick/tunnelstop.scpt'
 
         # pnpm
         set -gx PNPM_HOME "/Users/liamk/Library/pnpm"
@@ -54,7 +54,7 @@ alias sign='echo "" | gpg --sign -u "Liam Kearney" > /dev/null'
 abbr -a lzg 'lazygit'
 abbr -a lzd 'lazydocker'
 abbr -a lzgc 'lazygit --git-dir=$HOME/.cfg --work-tree=$HOME'
-abbr -a src 'source $HOME/.config/fish/config.fish'
+abbr -a src 'source $XDG_CONFIG_HOME/fish/config.fish'
 abbr -a tma 'tmux a'
 abbr -a cd- 'cd -'
 abbr -a cd.. 'cd ..'
@@ -77,8 +77,8 @@ alias ac="AWS_CLI_AUTO_PROMPT=on aws --cli-auto-prompt"
 alias pn="pnpm"
 alias vi='nvim'
 alias vim='nvim'
-alias vic='nvim $HOME/.config/fish/config.fish'
-alias vie='nvim $HOME/.config/fish/public_env.fish'
+alias vic='nvim $XDG_CONFIG_HOME/fish/config.fish'
+alias vie='nvim $XDG_CONFIG_HOME/fish/public_env.fish'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias rg='rg --no-messages'
 alias htop="sudo htop"
@@ -90,9 +90,9 @@ alias jd='pushd'
 alias pd='popd'
 
 # Directory aliases.
-alias fic='cd $HOME/.config/fish'
-alias cf='cd $HOME/.config'
-alias ncf='cd $HOME/.config/nvim'
+alias fic='cd $XDG_CONFIG_HOME/fish'
+alias cf='cd $XDG_CONFIG_HOME'
+alias ncf='cd $XDG_CONFIG_HOME/nvim'
 alias doc='cd $HOME/Documents'
 alias note='pushd $HOME/Notes && nvim'
 alias cmd="vi $HOME/Documents/cmd.md"

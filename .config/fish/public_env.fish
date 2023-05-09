@@ -50,10 +50,10 @@ set -Ux GOPATH $XDG_DATA_HOME/go
 set -Ux ANDROID_SDK_ROOT $HOME/Library/Android/sdk
 
 # Make the lazygit config file the same location as it is on my linux box.
-set -Ux CONFIG_DIR $HOME/.config/lazygit
+set -Ux CONFIG_DIR $XDG_CONFIG_HOME/lazygit
 
 # Setup defaults dir
-set -Ux DEFAULTS_CONFIG_DIR $HOME/.config/defaults
+set -Ux DEFAULTS_CONFIG_DIR $XDG_CONFIG_HOME/defaults
 
 # I don't use gradle often so I consider it's config disposable.
 set -Ux GRADLE_USER_HOME $HOME/.cache/.gradle
