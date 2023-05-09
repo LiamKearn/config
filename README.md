@@ -1,9 +1,6 @@
 # Configs
-> It's dangerous to type alone take these.
-> I still stuck at typing with these..
-
-# TODOs
- - [ ] Either completely switch to arch or use homebrew on Ubuntu (weird).
+> It's dangerous to type alone, take these.
+> I still stuck at typing with these.
 
 # Env
 I use a mix of a Macbook (4c, intel) and a (beefy) Ubuntu machine for development.
@@ -11,10 +8,10 @@ I use a mix of a Macbook (4c, intel) and a (beefy) Ubuntu machine for developmen
 Both machines share these dotfiles and config is mostly shared via branching on `uname`.
 
 # Primary software
+- [Shortcat](https://shortcat.app/) (Current favourite).
 - [VisiData](https://www.visidata.org/).
-- Shortcat (Current favourite).
-- Code (Would use VIM or jIDEs but code's remote support is the only viable option really)
-- Brew for managing OSX software
+- Neovim.
+- Brew for managing OSX software, My Aptitude use on ubuntu is a mess..
 - Chromium (With env setup for no google apis).
     - Both
         - Vimium plugin
@@ -28,14 +25,12 @@ Both machines share these dotfiles and config is mostly shared via branching on 
     - Personal
         - 1Pass
         - Gruvbox normal so I can tell the difference.
-- Rectangle
-- Easy Move+Resize
+- Rectangle (premium for ubuntu like window dragging).
 - Alt-tab
-- Alacritty
+- Wezterm
     - TMUX
     - NVIM
     - Lazygit
-    - Lazydocker
     - RipGrep
 - Tunnelblick VPN client
 - Alfred
