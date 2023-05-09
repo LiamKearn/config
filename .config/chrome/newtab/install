@@ -1,5 +1,0 @@
-#!/usr/bin/env fish
-
-"/System/Volumes/Data/Applications/Chromium.app/Contents/MacOS/Chromium" \
-    --load-and-launch-app $XDG_CONFIG_HOME/chrome/newtab
-
