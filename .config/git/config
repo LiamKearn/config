@@ -4,9 +4,9 @@
 	name = lkearn
 	email = liam@sproutlabs.com.au
 [includeIf "gitdir:/Users/"]
-	path = ~/.gitconfig.darwin.inc
+	path = ~/.config/git/darwin.inc
 [includeIf "gitdir:/home/"]
-	path = ~/.gitconfig.linux.inc
+	path = ~/.config/git/linux.inc
 [alias]
 	update = add -u
 [add.interactive]
