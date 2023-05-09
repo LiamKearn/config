@@ -2,6 +2,7 @@
 ~/.ssh/*
 ~/.cache
 ~/.gnupg
+~/.config/fish/private_env.fish
 
 # Default todo files
 ~/todo.md
