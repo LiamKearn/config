@@ -12,7 +12,7 @@ end
 source $XDG_CONFIG_HOME/fish/bindings.fish
 
 fish_add_path /usr/local/bin/nvim-osx64/bin
-fish_add_path $XDG_CONFIG_HOME/.bin
+fish_add_path $XDG_CONFIG_HOME/bin
 fish_add_path $XDG_DATA_HOME/cargo/bin
 fish_add_path $XDG_DATA_HOME/rustup/toolchains/nightly-x86_64-apple-darwin/bin
 fish_add_path $ANDROID_SDK_ROOT/tools/bin
