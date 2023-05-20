@@ -38,6 +38,7 @@ defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 # Better keyrepeat for vim and Cocca text navigation
 defaults write -g InitialKeyRepeat -int 10
 defaults write -g KeyRepeat -int 2
+defaults write -g ApplePressAndHoldEnabled -bool false
 
 # Display full POSIX path as Finder window title
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
@@ -56,6 +57,14 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE; killall Finder
 
 # By default open textedit with a new document! I don't care to produce something I'm saving in it.
 defaults write com.apple.TextEdit NSShowAppCentricOpenPanelInsteadOfUntitledFile -bool false
+
+# I don't use the desktop at all, needs a quick safe mode reboot if my other
+# services fail to startup (make sure you have spotlight or alfred first).
+defaults write com.apple.finder QuitMenuItem -bool true
+launchctl unload -w /System/Library/LaunchAgents/com.apple.Finder.plist
+
+# Disable indexing
+sudo mdutil -a -i off
 
 killall Dock
 killall Finder
