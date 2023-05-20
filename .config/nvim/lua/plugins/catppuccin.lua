@@ -23,5 +23,10 @@ return {
             telescope = true,
         },
         no_italic = true,
+        custom_highlights = function(_)
+            return {
+                CursorColumn = { bg = '#303347' }
+            }
+        end
     },
 }

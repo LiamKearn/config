@@ -51,9 +51,12 @@ vim.opt.listchars = {
 vim.opt.termguicolors = true
 vim.opt.background = 'dark'
 vim.opt.colorcolumn = '80'
-vim.opt.cursorline = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+
+-- Cursor lines.
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
 
 -- Filetype mappings.
 vim.g.filetype_ss = 'html'
