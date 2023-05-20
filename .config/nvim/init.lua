@@ -162,6 +162,15 @@ vim.keymap.set('n', '<leader>z', function ()
     end
 end, { desc = 'Toggle Zen Mode' })
 
+vim.keymap.set('n', '<leader>ww', function ()
+    vim.wo.wrap = not vim.wo.wrap
+    if (vim.wo.wrap) then
+        print('Wrap enabled')
+    else
+        print('Wrap disabled')
+    end
+end, { desc = 'Toggle Wrap' })
+
 vim.keymap.set('n', '<leader>bd', function ()
     vim.cmd('highlight Normal guibg=black')
 end, { desc = 'Background dark' })
