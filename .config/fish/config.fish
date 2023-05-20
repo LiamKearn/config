@@ -98,6 +98,7 @@ alias note='pushd $HOME/Notes && nvim'
 alias cmd="vi $HOME/Documents/cmd.md"
 alias down='cd $HOME/Downloads'
 alias :q='exit'
+alias .='pwd'
 
 # URL Decode
 alias urldecode='php -r "echo urldecode(stream_get_contents(STDIN));"'
