@@ -25,6 +25,7 @@ vim.opt.lazyredraw = true
 vim.opt.scrolloff = 8
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.shellcmdflag = '-lc'
+vim.opt.cmdheight = 0
 
 -- Files
 vim.g.loaded_netrw = 1
