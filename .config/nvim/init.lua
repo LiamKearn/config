@@ -40,11 +40,11 @@ vim.opt.smartindent = true
 -- From Greg Hurrell's config.
 vim.opt.list = true
 vim.opt.listchars = {
-  nbsp = '⦸',
-  extends = '»',
-  precedes = '«',
-  tab = '▷⋯',
-  trail = '•',
+    nbsp = '⦸',
+    extends = '»',
+    precedes = '«',
+    tab = '▷⋯',
+    trail = '•',
 }
 
 -- GUI
@@ -67,14 +67,14 @@ vim.cmd.colorscheme('slate')
 -- Install lazy.
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/folke/lazy.nvim.git',
-    '--branch=stable',
-    lazypath,
-  })
+    vim.fn.system({
+        'git',
+        'clone',
+        '--filter=blob:none',
+        'https://github.com/folke/lazy.nvim.git',
+        '--branch=stable',
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -121,10 +121,10 @@ end
 
 vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
 vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+    group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
 })
 
 vim.keymap.set('n', 'bda', 'bufdo bd', { commandab = true })
@@ -143,7 +143,7 @@ vim.keymap.set('n', '{', ':execute "keepjumps norm! " . v:count1 . "{"<CR>', { s
 vim.keymap.set('n', '}', ':execute "keepjumps norm! " . v:count1 . "}"<CR>', { silent = true })
 
 -- System yank binding.
-vim.keymap.set('n', '<leader>y', function ()
+vim.keymap.set('n', '<leader>y', function()
     if (vim.loop.os_uname().sysname == 'Darwin') then
         vim.cmd('call system("pbcopy", @0)')
     else
@@ -157,7 +157,7 @@ vim.keymap.set('n', '<leader>y', function ()
 end, { silent = true, desc = 'Yank to system clipboard' })
 
 -- Focusing toggles.
-vim.keymap.set('n', '<leader>z', function ()
+vim.keymap.set('n', '<leader>z', function()
     if (vim.wo.numberwidth == 20) then
         vim.wo.numberwidth = 4
     else
@@ -165,7 +165,7 @@ vim.keymap.set('n', '<leader>z', function ()
     end
 end, { desc = 'Toggle Zen Mode' })
 
-vim.keymap.set('n', '<leader>ww', function ()
+vim.keymap.set('n', '<leader>ww', function()
     vim.wo.wrap = not vim.wo.wrap
     if (vim.wo.wrap) then
         print('Wrap enabled')
@@ -174,10 +174,19 @@ vim.keymap.set('n', '<leader>ww', function ()
     end
 end, { desc = 'Toggle Wrap' })
 
-vim.keymap.set('n', '<leader>bd', function ()
+vim.keymap.set('n', '<leader>bd', function()
     vim.cmd('highlight Normal guibg=black')
 end, { desc = 'Background dark' })
 
-vim.keymap.set('n', '<leader>bl', function ()
+vim.keymap.set('n', '<leader>bl', function()
     vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
 end, { desc = 'Background light' })
+
+-- Include $ in iskeyword for PHP, shite language :^)
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'php',
+    callback = function(e)
+        local new = vim.api.nvim_buf_get_option(e.buf, 'iskeyword') .. ",$"
+        vim.api.nvim_buf_set_option(0, 'iskeyword', new)
+    end,
+})
