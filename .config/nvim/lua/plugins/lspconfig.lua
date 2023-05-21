@@ -10,10 +10,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, bufopts)
         vim.keymap.set('n', '<leader>GD', vim.lsp.buf.declaration, bufopts)
         vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, bufopts)
-        vim.keymap.set('n', '<leader>gr', function () vim.lsp.buf.references({ includeDeclaration = false }) end, bufopts)
+        vim.keymap.set('n', '<leader>gr', function() vim.lsp.buf.references({ includeDeclaration = false }) end, bufopts)
         vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts)
         vim.keymap.set('n', '<leader>gt', vim.lsp.buf.type_definition, bufopts)
-        vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() vim.lsp.buf.hover() end, bufopts)
+        vim.keymap.set('n', 'K', function()
+            vim.lsp.buf.hover()
+            vim.lsp.buf.hover()
+        end, bufopts)
         vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
         vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
         vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
@@ -36,13 +39,13 @@ local config = function(_, opts)
 
     local border = {
         { "╭", "FloatBorder" },
-        { "─",  "FloatBorder" },
+        { "─", "FloatBorder" },
         { "╮", "FloatBorder" },
-        { "│",  "FloatBorder" },
+        { "│", "FloatBorder" },
         { "╯", "FloatBorder" },
-        { "─",  "FloatBorder" },
+        { "─", "FloatBorder" },
         { "╰", "FloatBorder" },
-        { "│",  "FloatBorder" },
+        { "│", "FloatBorder" },
     }
 
     local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
@@ -156,7 +159,12 @@ return {
                     licenceKey = os.getenv 'INTELEPHENSE_LICENCE_KEY'
                 }
             },
-            clangd = {},
+            clangd = {
+                cmd = {
+                    "clangd",
+                    "--offset-encoding=utf-16",
+                },
+            },
             rust_analyzer = {
                 -- These apply to the default RustSetInlayHints command
                 inlay_hints = {
