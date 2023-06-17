@@ -183,11 +183,3 @@ vim.keymap.set('n', '<leader>bl', function()
     vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
 end, { desc = 'Background light' })
 
--- Include $ in iskeyword for PHP, shite language :^)
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'php',
-    callback = function(e)
-        local new = vim.api.nvim_buf_get_option(e.buf, 'iskeyword') .. ",$"
-        vim.api.nvim_buf_set_option(0, 'iskeyword', new)
-    end,
-})
