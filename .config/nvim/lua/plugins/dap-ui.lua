@@ -96,19 +96,19 @@ return {
             layouts = {
                 {
                     position = 'left',
-                    size = 40,
+                    size = 10,
                     elements = {
                         {
                             id = 'breakpoints',
-                            size = 0.25
+                            size = 0.15
                         },
                         {
                             id = 'stacks',
-                            size = 0.25
+                            size = 0.15
                         },
                         {
                             id = 'scopes',
-                            size = 0.25
+                            size = 0.70
                         }
                     }
                 },
