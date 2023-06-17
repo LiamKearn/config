@@ -6,11 +6,13 @@ require('domains')(config)
 require 'status-loop'
 require 'tabs'
 require 'toasty'
+require 'listeners'
 
 config.keys = require 'keys'
 
 config.window_background_opacity = 0.85
 config.macos_window_background_blur = 15
+config.native_macos_fullscreen_mode = true
 config.window_decorations = 'RESIZE'
 
 config.use_fancy_tab_bar = false

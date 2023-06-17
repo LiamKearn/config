@@ -57,4 +57,9 @@ return {
             end),
         },
     },
+    {
+        key = 'B',
+        mods = 'CMD|SHIFT',
+        action = act.EmitEvent('toggle-background-opaque'),
+    },
 }
