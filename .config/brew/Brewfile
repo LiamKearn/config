@@ -54,6 +54,8 @@ brew "libqalculate"
 brew "lzfse"
 brew "mas"
 brew "mosh"
+brew "msmtp"
+brew "mutt"
 brew "mysql-client"
 brew "neovim", args: ["HEAD"]
 brew "netcat"
