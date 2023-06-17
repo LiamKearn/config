@@ -39,9 +39,11 @@ set -Ux DOCKER_BUILDKIT 1
 
 switch (uname)
     case Darwin
+        set -Ux LOG_HOME $HOME/Library/Logs
         set -Ux JAVA_HOME /Library/Java/JavaVirtualMachines/jdk1.8.0_333.jdk/Contents/Home
         set -Ux SDKROOT /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
     case Linux
+        set -Ux LOG_HOME /var/log
         set -Ux JAVA_HOME /usr/lib/jvm/default-java
 end
 
