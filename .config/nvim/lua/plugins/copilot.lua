@@ -4,6 +4,7 @@ return {
     event = 'InsertEnter',
     opts = {
         suggestion = {
+            enabled = true,
             auto_trigger = true,
             keymap = {
                 accept_line = '<C-e>',
