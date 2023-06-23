@@ -1,8 +1,8 @@
 [credential]
 	helper = store
 [user]
-	name = lkearn
-	email = liam@sproutlabs.com.au
+	name = LiamKearn
+	email = contact@liamkearn.me
 [includeIf "gitdir:/Users/"]
 	path = ~/.config/git/darwin.inc
 [includeIf "gitdir:/home/"]

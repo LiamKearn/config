@@ -1,2 +1,2 @@
 [user]
-	signingkey = 2C67EF504E9784A7
+	signingkey = 38627FB3EE8B3891
