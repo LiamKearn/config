@@ -50,7 +50,7 @@ switch (uname)
         # pnpm end
 end
 
-alias sign='echo "" | gpg --sign -u "Liam Kearney" > /dev/null'
+alias sign='echo "" | gpg --sign -u "Liam Kearney (LiamKearn) <contact@liamkearn.me>" > /dev/null'
 abbr -a lzg 'lazygit'
 abbr -a lzd 'lazydocker'
 abbr -a lzgc 'lazygit --git-dir=$HOME/.cfg --work-tree=$HOME'
