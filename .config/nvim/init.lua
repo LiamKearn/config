@@ -10,6 +10,14 @@ vim.opt.nu = true
 -- Cursor
 vim.opt.guicursor = 'n-v-c-i-sm:block'
 
+-- Spell
+-- https://neovim.io/doc/user/spell.html
+-- 'zg' marks as good word.
+-- 'zG' marks as good word (non persistent).
+-- 'z=' shows suggestions
+vim.opt.spelllang = 'en_au'
+vim.opt.spell = false
+
 -- Search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -157,6 +165,9 @@ vim.keymap.set('n', '<leader>y', function()
     end
 end, { silent = true, desc = 'Yank to system clipboard' })
 
+
+-- TODO: Dry up this seemingly recurring pattern of toggle functions for opts.
+
 -- Focusing toggles.
 vim.keymap.set('n', '<leader>z', function()
     if (vim.wo.numberwidth == 20) then
@@ -165,6 +176,15 @@ vim.keymap.set('n', '<leader>z', function()
         vim.wo.numberwidth = 20
     end
 end, { desc = 'Toggle Zen Mode' })
+
+vim.keymap.set('n', '<leader>ws', function()
+    vim.opt_local.spell = not vim.opt_local.spell:get()
+    if (vim.opt_local.spell:get()) then
+        print('Spell enabled')
+    else
+        print('Spell disabled')
+    end
+end, { desc = 'Toggle Spelling' })
 
 vim.keymap.set('n', '<leader>ww', function()
     vim.wo.wrap = not vim.wo.wrap
