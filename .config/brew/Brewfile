@@ -61,6 +61,7 @@ brew "neovim", args: ["HEAD"]
 brew "netcat"
 brew "netpbm"
 brew "pstree"
+brew "pv"
 brew "pyenv"
 brew "redis"
 brew "ripgrep"
