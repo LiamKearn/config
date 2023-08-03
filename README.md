@@ -1,3 +1,8 @@
+# DEPRECATED
+I've now moved over full time to [nixOS](https://nixos.org/guides/how-nix-works#nixos) and the [nix package manager](https://nixos.org/guides/how-nix-works).
+
+Leaving this repo up as a reference for others using github codesearch, not sure if I'm going to make my nixOS config public.
+
 # Configs
 > It's dangerous to type alone, take these.
 > I still stuck at typing with these.
