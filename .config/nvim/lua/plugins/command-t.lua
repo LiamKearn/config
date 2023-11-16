@@ -1,6 +1,6 @@
 return {
     'wincent/command-t',
-    dev = true,
+    dev = false,
     lazy = false,
     keys = {
         { '<leader>ff', vim.cmd.CommandTRipgrep },
