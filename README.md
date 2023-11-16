@@ -54,7 +54,7 @@ Both machines share these dotfiles and config is mostly shared via branching on 
 		&& git fetch \
 		&& git checkout -t origin/main
 	```
-- Install the bloated wonder "Brew" via it's 30kb install script which has functions just to emit a bell escape sequence.
+- Install the bloated wonder "Brew" via it's 30kb install script which has functions just to emit a bell device control sequence.
 	```sh
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	```
