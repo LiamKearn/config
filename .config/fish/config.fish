@@ -2,7 +2,7 @@ if not status --is-interactive
     # SOS.
     alias vi nvim
     alias vim nvim
-	exit
+    exit
 end
 
 source $HOME/.config/fish/public_env.fish
