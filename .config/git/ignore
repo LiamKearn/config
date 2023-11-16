@@ -5,9 +5,6 @@
 ~/.config/aws
 ~/.config/fish/private_env.fish
 
-# Default todo files
-~/todo.md
-
 # Ignoring homedir files.
 ~/Applications
 ~/Builds
