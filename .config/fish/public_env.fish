@@ -31,6 +31,9 @@ set -Ux LESSHISTFILE "$XDG_STATE_HOME/less/history"
 set -Ux HISTFILE "$XDG_DATA_HOME/history"
 set -Ux CC clang
 set -Ux CXX clang++
+set -Ux NODE_REPL_HISTORY "$XDG_STATE_HOME/node/repl_history"
+set -Ux GNUPGHOME "$XDG_CONFIG_HOME/gnupg"
+
 
 set -Ux PROJECTDIR $HOME/Projects
 set -Ux MBOX $HOME/mbox
