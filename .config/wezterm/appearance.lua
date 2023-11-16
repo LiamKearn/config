@@ -2,7 +2,7 @@ local wezterm = require 'wezterm'
 
 local function fonts(config)
     config.font = wezterm.font('FiraCode Nerd Font Mono', { weight = 'Medium' })
-    config.font_size = 21
+    config.font_size = 23
 end
 
 local function colors(config)
