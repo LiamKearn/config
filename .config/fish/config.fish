@@ -31,6 +31,7 @@ switch (uname)
         alias qtodo="ql $HOME/Documents/todo.md"
         alias readlink='greadlink'
         alias sed='/usr/local/bin/gsed'
+        alias .c='echo (pwd) | tr -d "\n" | pbcopy'
 
         abbr -a shi 'ssh ubuntu'
         abbr -a shit 'ssh ubuntu -t "tmux a; fish -l"'
