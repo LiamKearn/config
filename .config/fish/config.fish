@@ -29,7 +29,7 @@ switch (uname)
         alias todo="vi $HOME/Documents/todo.md"
         alias todop="vi $HOME/Documents/todo-personal.md"
         alias qtodo="ql $HOME/Documents/todo.md"
-        alias readlink='/usr/local/bin/greadlink'
+        alias readlink='greadlink'
         alias sed='/usr/local/bin/gsed'
 
         abbr -a shi 'ssh ubuntu'
