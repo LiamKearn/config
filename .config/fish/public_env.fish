@@ -42,7 +42,7 @@ switch (uname)
         set -Ux LOG_HOME $HOME/Library/Logs
         set -Ux LOG_ROOT /Library/Logs
         set -Ux JAVA_HOME /Library/Java/JavaVirtualMachines/jdk1.8.0_333.jdk/Contents/Home
-        set -Ux SDKROOT /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
+        set -Ux SDKROOT (xcrun --sdk macosx --show-sdk-path)
     case Linux
         set -Ux LOG_HOME $XDG_STATE_HOME
         set -Ux LOG_ROOT /var/log
