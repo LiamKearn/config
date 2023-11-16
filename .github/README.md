@@ -41,7 +41,7 @@ Both machines share these dotfiles and config is mostly shared via branching on 
 - You may (for removing files in $HOME) want to grant Terminal.app full disk access (there is no way to automate TCC without SIP being disabled).
 - Bootstrap git and set hostnames.
 	```sh
-	/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/LiamKearn/config/main/bootstrap.sh)"
+	/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/LiamKearn/config/main/.github/bootstrap.sh)"
 	```
 - Clone down this repo.
 	```sh
