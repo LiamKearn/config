@@ -38,9 +38,26 @@ Both machines share these dotfiles and config is mostly shared via branching on 
     - Menubar on autohide with KB shortcut
 
 # Install
-```fish
-git clone --separate-git-dir=$HOME/.cfg git@github.com:LiamKearn/config.git $HOME
-```
+- You may (for removing files in $HOME) want to grant Terminal.app full disk access (there is no way to automate TCC without SIP being disabled).
+- Bootstrap git and set hostnames.
+	```sh
+	/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/LiamKearn/config/main/bootstrap.sh)"
+	```
+- Clone down this repo.
+	```sh
+	git clone --separate-git-dir=$HOME/.cfg git@github.com:LiamKearn/config.git $HOME
+	```
+	alternatively if your `$HOME` has files:
+	```sh
+	git init --separate-git-dir=$HOME/.cfg $HOME \
+		&& git remote add origin git@github.com:LiamKearn/config.git \
+		&& git fetch \
+		&& git checkout -t origin/main
+	```
+- Install the bloated wonder "Brew" via it's 30kb install script which has functions just to emit a bell escape sequence.
+	```sh
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	```
 
 # No Google APIs.
 ```xml
