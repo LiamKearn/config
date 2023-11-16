@@ -2,6 +2,8 @@
 
 set -ev;
 
+mkdir -p $HOME/{.ssh,.run};
+
 CLI_TMP_FLAG_PATH="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress";
 
 # Setup hostnames and restart DNS
