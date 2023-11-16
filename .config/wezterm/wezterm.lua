@@ -10,8 +10,7 @@ require 'listeners'
 
 config.keys = require 'keys'
 
-config.window_background_opacity = 0.85
-config.macos_window_background_blur = 15
+config.window_background_opacity = 1.00
 config.native_macos_fullscreen_mode = true
 config.window_decorations = 'RESIZE'
 
