@@ -94,6 +94,7 @@ alias pd='popd'
 # Directory aliases.
 alias fic='cd $XDG_CONFIG_HOME/fish'
 alias cf='cd $XDG_CONFIG_HOME'
+alias sc='cd $HOME/Source'
 alias ncf='cd $XDG_CONFIG_HOME/nvim'
 alias doc='cd $HOME/Documents'
 alias note='pushd $HOME/Notes && nvim'
