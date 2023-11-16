@@ -1,7 +1,109 @@
-#!/usr/bin/env fish
+#!/usr/bin/env sh
 
-# Selectively taken from: https://github.com/pstadler/dotfiles/blob/master/macos-defaults.sh
-# A lot of these I've had for ages but it's nice to have these in config :-)
+set -ev
+
+# Disable boot sound
+sudo nvram SystemAudioVolume=" "
+
+# To find list: sudo systemsetup -printCommands
+sudo systemsetup -settimezone "Australia/Hobart" > /dev/null
+
+# Sleep the display after 2 minutes (battery)
+sudo pmset -b sleep 2
+
+# Start screensaver after 5 minutes (charging only since 5 minutes is too short
+# for battery)
+sudo pmset -c displaysleep 5
+
+# Sleep the display after 10 minutes (charging)
+sudo pmset -c sleep 10
+
+# I'm not actually sure these two are working.
+# toggling them in the UI and doing a:
+#  - `defaults read > before`
+#  - toggle
+#  - `defaults read > after && git diff --no-index before after && rm before after`
+# doesn't show any changes.
+# Require password immediately after sleep or screen saver begins
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+# Use touch id for sudo
+sudo sh -c 'cat > /etc/pam.d/sudo_local <<EOF
+# sudo_local: local config file which survives system update and is included for sudo
+# uncomment following line to enable Touch ID for sudo
+auth       sufficient     pam_tid.so
+EOF'
+
+# Enable Simulators
+sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
+sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (Watch).app" "/Applications/Simulator (Watch).app"
+
+# Disable annoying gestures
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFiveFingerPinchGesture -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFiveFingerPinchGesture -int 0
+
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerPinchGesture -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerPinchGesture -int 0
+
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture -int 0
+
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+
+defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
+
+defaults write com.apple.dock showAppExposeGestureEnabled -bool false
+defaults write com.apple.dock showDesktopGestureEnabled -bool false
+defaults write com.apple.dock showLaunchpadGestureEnabled -bool false
+defaults write com.apple.dock showMissionControlGestureEnabled -bool false
+
+# Disable Hotcorner nonsense
+defaults write com.apple.dock wvous-tl-corner -int 0
+defaults write com.apple.dock wvous-tr-corner -int 0
+defaults write com.apple.dock wvous-bl-corner -int 0
+defaults write com.apple.dock wvous-br-corner -int 0
+
+# Reduce transparency
+defaults write com.apple.universalaccess reduceTransparency -bool false
+defaults write com.apple.Accessibility EnhancedBackgroundContrastEnabled -bool true
+defaults write com.apple.stocks2 reduceTransparency -bool true
+
+# Reduce Motion
+defaults write com.apple.Accessibility ReduceMotionEnabled -bool true
+defaults write com.apple.universalaccess reduceMotion -bool true
+defaults write com.apple.universalaccess reduceTransparency -bool true
+defaults write com.apple.Accessibility ReduceMotionEnabled -bool true
+defaults write com.apple.stocks2 reduceMotion -bool true
+
+# Automatically hide menu bar.
+defaults write NSGlobalDomain _HIHideMenuBar -bool true
+
+# Set screenshots location
+mkdir -p "${HOME}/Screenshots" || true
+defaults write com.apple.screencapture location -string "${HOME}/Screenshots"
+
+# Set language
+defaults write NSGlobalDomain AppleLanguages -array "en-AU"
+
+# Set currency to AUD
+defaults write NSGlobalDomain AppleLocale -string "en_AU@currency=AUD"
+
+# Fucking sanity please
+defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
+defaults write NSGlobalDomain AppleMetricUnits -bool true
+
+# Enable dark mode
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+
+# No menubar transparency
+defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+
+# Set minimize/maximize window effect to scale
+# https://macos-defaults.com/dock/mineffect.html#set-to-scale
+defaults write com.apple.dock mineffect -string "scale"
 
 # Disable window animations
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
@@ -43,28 +145,36 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 # Display full POSIX path as Finder window title
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
+# Show file extensions
+# https://macos-defaults.com/finder/appleshowallextensions.html#set-to-true
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Avoid creating .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
-# I don't use the Dock at all.
-defaults write com.apple.dock autohide-delay -float 1000
+# I don't use the Dock at all. "Get rid of it"
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-delay -float 10
 
-# Quicklook text selection.
-defaults write com.apple.finder QLEnableTextSelection -bool TRUE; killall Finder
+# Text selection in Quicklook
+defaults write com.apple.finder QLEnableTextSelection -bool true;
 
-# By default open textedit with a new document! I don't care to produce something I'm saving in it.
+# By default open textedit with a new document
 defaults write com.apple.TextEdit NSShowAppCentricOpenPanelInsteadOfUntitledFile -bool false
+
+#
+# Danger zone
+#
 
 # I don't use the desktop at all, needs a quick safe mode reboot if my other
 # services fail to startup (make sure you have spotlight or alfred first).
-defaults write com.apple.finder QuitMenuItem -bool true
-launchctl unload -w /System/Library/LaunchAgents/com.apple.Finder.plist
+# defaults write com.apple.finder QuitMenuItem -bool true
+# launchctl unload -w /System/Library/LaunchAgents/com.apple.Finder.plist
 
 # Disable indexing
-sudo mdutil -a -i off
+# sudo mdutil -a -i off
 
-killall Dock
-killall Finder
+killall Dock Finder cfprefsd SystemUIServer
