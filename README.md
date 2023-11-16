@@ -58,6 +58,10 @@ Both machines share these dotfiles and config is mostly shared via branching on 
 	```sh
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	```
+- Install software
+	```
+	brew bundle install --file=$HOME/.config/brew/Brewfile
+	```
 
 # No Google APIs.
 ```xml
