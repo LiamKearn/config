@@ -3,6 +3,9 @@
 ~/.cache
 ~/.gnupg
 ~/.config/aws
+~/.config/gcloud
+~/.config/alfred
+~/.config/github-copilot
 ~/.config/fish/private_env.fish
 
 # Ignoring homedir files.
