@@ -27,6 +27,7 @@ set -Ux PAGER less
 set -Ux VISUAL nvim
 set -Ux BROWSER chromium
 set -Ux LESS "-RS"
+set -Ux LESSHISTFILE "$XDG_STATE_HOME/less/history"
 set -Ux HISTFILE "$XDG_DATA_HOME/history"
 set -Ux CC clang
 set -Ux CXX clang++
