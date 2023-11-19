@@ -3,6 +3,5 @@ if not status is-interactive
 end
 
 bind \ct launchtmux
-bind \cv launchvim
 bind \cs nextd-or-forward-word
 
