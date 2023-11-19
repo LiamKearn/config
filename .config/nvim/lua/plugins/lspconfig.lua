@@ -206,6 +206,7 @@ return {
             neocmake = {},
             html = {},
             tsserver = {},
+            texlab = {},
             gopls = {
                 cmd = {
                     vim.fn.expand('$XDG_DATA_HOME/go/bin/') .. 'gopls'

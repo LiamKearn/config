@@ -8,7 +8,7 @@ vim.opt.relativenumber = true
 vim.opt.nu = true
 
 -- Cursor
-vim.opt.guicursor = 'n-v-c-i-sm:block'
+vim.opt.guicursor = 'n-v-c-sm:block,o-i-r:hor20'
 
 -- Spell
 -- https://neovim.io/doc/user/spell.html
@@ -31,6 +31,7 @@ vim.opt.wrap = false
 vim.opt.updatetime = 50
 vim.opt.lazyredraw = true
 vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 16
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.shellcmdflag = '-lc'
 vim.opt.cmdheight = 0
@@ -93,7 +94,7 @@ require('lazy').setup('plugins', {
         notify = false,
     },
     dev = {
-        path = vim.fn.expand('$HOME/Projects'),
+        path = vim.fn.expand('$HOME/Source'),
         fallback = true,
     },
     ui = {

@@ -17,6 +17,7 @@ return {
             updatetime = 25
         },
         ensure_installed = {
+            'bibtex',
             'cmake',
             'c',
             'make',
