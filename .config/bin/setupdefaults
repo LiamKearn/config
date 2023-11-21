@@ -93,8 +93,9 @@ defaults write com.apple.universalaccess reduceTransparency -bool true
 defaults write com.apple.Accessibility ReduceMotionEnabled -bool true
 defaults write com.apple.stocks2 reduceMotion -bool true
 
-# Automatically hide menu bar.
-defaults write NSGlobalDomain _HIHideMenuBar -bool true
+# Don't automatically hide menu bar, we can't use the menu bar space with the
+# notch anyway. This used to be necessary for screen real estate.
+defaults write NSGlobalDomain _HIHideMenuBar -bool false
 
 # Set screenshots location
 mkdir -p "${HOME}/Screenshots" || true
