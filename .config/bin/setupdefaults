@@ -39,6 +39,21 @@ EOF'
 sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
 sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (Watch).app" "/Applications/Simulator (Watch).app"
 
+# Disable window tinting
+defaults write NSGlobalDomain AppleReduceDesktopTinting -bool true
+
+# Disable widgets
+defaults write com.apple.WindowManager StageManagerHideWidgets -bool true
+defaults write com.apple.WindowManager StandardHideWidgets -bool true
+defaults write com.apple.chronod effectiveRemoteWidgetsEnabled -bool false
+defaults write com.apple.chronod remoteWidgetsEnabled -bool false
+
+# Disable fn key emoji nonsense
+defaults write com.apple.HIToolbox AppleFnUsageType -int 0
+
+# Show battery percentage
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+
 # Disable annoying gestures
 defaults write com.apple.AppleMultitouchTrackpad TrackpadFiveFingerPinchGesture -int 0
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFiveFingerPinchGesture -int 0
