@@ -1,5 +1,5 @@
 function brew
-    set -l disabled_commands "search" "bundle" "bundle dump" "info"
+    set -l disabled_commands "search" "bundle" "bundle dump" "info" "list"
     if contains $argv[1] $disabled_commands
         command brew $argv
         return
