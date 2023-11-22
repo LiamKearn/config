@@ -75,8 +75,8 @@ set -Ux AWS_PROFILE personal
 #        OTHER
 # ----------------------
 
-# Use node 18 by default.
-set -U nvm_default_version 18
+# Use node 20 by default.
+set -U nvm_default_version 20
 
 # Always install yarn when I install new versions of node.
 set -U nvm_default_packages yarn pnpm sass
