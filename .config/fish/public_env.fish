@@ -79,7 +79,7 @@ set -Ux AWS_PROFILE personal
 set -U nvm_default_version 20
 
 # Always install yarn when I install new versions of node.
-set -U nvm_default_packages yarn pnpm sass awk-cdk
+set -U nvm_default_packages yarn pnpm sass aws-cdk
 
 # Annoying google stuff, May end up using this so avoid signing in manually every day.
 set -Ux GOOGLE_API_KEY "no"
