@@ -14,8 +14,6 @@ tap "shivammathur/php"
 tap "superbrothers/opener"
 brew "readline"
 brew "asciinema"
-brew "node"
-brew "aws-cdk"
 brew "awscli"
 brew "glib"
 brew "clipper", restart_service: true
