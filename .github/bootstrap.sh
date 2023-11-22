@@ -12,10 +12,13 @@ sudo scutil --set HostName "liam.macbook.liamkearn.me" \
 	&& sudo dscacheutil -flushcache;
 
 # Remove everything from dock, going to be disabled later anyways
-defaults write com.apple.dock persistent-apps array
-killall Dock
+defaults write com.apple.dock persistent-apps array;
+killall Dock;
 
 # Install command line tools for git
 touch $CLI_TMP_FLAG_PATH \
 	; softwareupdate --verbose -i "$(softwareupdate -l | sed -n 's/^* Label: \(Command Line Tools for Xcode-\([[:digit:]]*\)\.\([[:digit:]]*\)\)$/\1/p')" \
 	; rm $CLI_TMP_FLAG_PATH;
+
+# Install rosetta for whatever needs it
+softwareupdate --install-rosetta --agree-to-license;
