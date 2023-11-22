@@ -38,7 +38,7 @@ Both machines share these dotfiles and config is mostly shared via branching on 
     - Menubar on autohide with KB shortcut
 
 # Install
-- You may (for removing files in $HOME) want to grant Terminal.app full disk access (there is no way to automate TCC without SIP being disabled).
+- You may (for removing files in $HOME) want to grant Terminal.app full disk access (there is no way to automate [TCC](https://book.hacktricks.xyz/macos-hardening/macos-security-and-privilege-escalation/macos-security-protections/macos-tcc) without SIP being disabled).
 - Bootstrap git and set hostnames.
 	```sh
 	/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/LiamKearn/config/main/.github/bootstrap.sh)"
