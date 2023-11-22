@@ -2,7 +2,7 @@
 
 set -ev;
 
-mkdir -p $HOME/{.ssh,.run};
+mkdir -p $HOME/{.ssh,.run,Health};
 
 CLI_TMP_FLAG_PATH="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress";
 
