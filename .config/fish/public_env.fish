@@ -34,6 +34,8 @@ set -Ux CXX clang++
 set -Ux NODE_REPL_HISTORY "$XDG_STATE_HOME/node/repl_history"
 set -Ux GNUPGHOME "$XDG_CONFIG_HOME/gnupg"
 
+set -Ux RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/config"
+
 
 set -Ux PROJECTDIR $HOME/Projects
 set -Ux MBOX $HOME/mbox
