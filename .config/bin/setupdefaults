@@ -2,6 +2,14 @@
 
 set -ev
 
+# Setup some directories I use
+mkdir -p $HOME/{.ssh,.run,Health};
+
+# Setup hostnames and restart DNS
+sudo scutil --set HostName "liam.macbook.liamkearn.me" \
+	&& sudo scutil --set ComputerName "Liam's Macbook Pro" \
+	&& sudo dscacheutil -flushcache;
+
 # Firewall hates these
 brew analytics off
 
@@ -175,6 +183,7 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 # I don't use the Dock at all. "Get rid of it"
+defaults write com.apple.dock persistent-apps array;
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock autohide-delay -float 10
 
