@@ -67,10 +67,15 @@ Both machines share these dotfiles and config is mostly shared via branching on 
     which fish | sudo tee -a /etc/shells
     chsh -s $(which fish)
     ```
-- Restart the terminal
+- Grant wezterm full fisk access (optionally remove it from terminal.app in case that ever becomes an exploit target)
+- Close terminal
+- Open up wezterm
 - Setup defaults
     ```sh
     $HOME/.config/bin/setupdefaults
+    # ALTERNATIVELY:
+    # If you've closed the terminal fish should now be default and setupdefaults will be in your path
+    setupdefaults
     ```
 
 # No Google APIs.
