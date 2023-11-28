@@ -207,11 +207,7 @@ return {
             html = {},
             tsserver = {},
             texlab = {},
-            gopls = {
-                cmd = {
-                    vim.fn.expand('$XDG_DATA_HOME/go/bin/') .. 'gopls'
-                }
-            },
+            gopls = {},
             lua_ls = {
                 cmd = {
                     vim.fn.expand('$HOME/Builds/lua_ls/bin/') .. 'lua-language-server'
