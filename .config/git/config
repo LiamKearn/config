@@ -9,6 +9,8 @@
 	path = ~/.config/git/linux.inc
 [alias]
 	update = add -u
+[alias]
+	ls-pwd = ls-tree --name-only HEAD
 [add.interactive]
 	useBuiltin = false
 [merge]
