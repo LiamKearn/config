@@ -21,6 +21,7 @@
   "playground": { "branch": "master", "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
   "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
   "telescope.nvim": { "branch": "master", "commit": "18774ec7929c8a8003a91e9e1f69f6c32258bbfe" },
+  "tint.nvim": { "branch": "master", "commit": "862835626941d263466754b9c8e2ce2cb004f5ac" },
   "vim-fish": { "branch": "master", "commit": "50b95cbbcd09c046121367d49039710e9dc9c15f" },
   "vim-gh-line": { "branch": "master", "commit": "fbf368bdfad7e5478009a6dc62559e6b2c72d603" },
   "vim-plist": { "branch": "master", "commit": "60e69bec50dfca32f0a62ee2dacdfbe63fd92038" },
