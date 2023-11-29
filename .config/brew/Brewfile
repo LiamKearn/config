@@ -48,6 +48,7 @@ brew "jq"
 brew "lazygit", args: ["HEAD"]
 brew "libqalculate"
 brew "llvm"
+brew "lua-language-server"
 brew "lzfse"
 brew "mas"
 brew "mosh"

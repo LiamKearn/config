@@ -209,9 +209,6 @@ return {
             texlab = {},
             gopls = {},
             lua_ls = {
-                cmd = {
-                    vim.fn.expand('$HOME/Builds/lua_ls/bin/') .. 'lua-language-server'
-                },
                 settings = {
                     Lua = {
                         diagnostics = {
