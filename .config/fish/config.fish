@@ -11,7 +11,7 @@ if test -f $XDG_CONFIG_HOME/fish/private_env.fish
 end
 source $XDG_CONFIG_HOME/fish/bindings.fish
 
-fish_add_path /opt/homebrew/bin
+fish_add_path /opt/homebrew/{bin,sbin}
 fish_add_path /usr/local/bin/nvim-osx64/bin
 fish_add_path $XDG_CONFIG_HOME/bin
 fish_add_path $XDG_DATA_HOME/cargo/bin
