@@ -60,9 +60,6 @@ set -Ux GOPATH $XDG_DATA_HOME/go
 
 set -Ux ANDROID_SDK_ROOT $HOME/Library/Android/sdk
 
-# Make the lazygit config file the same location as it is on my linux box.
-set -Ux CONFIG_DIR $XDG_CONFIG_HOME/lazygit
-
 # Setup defaults dir
 set -Ux DEFAULTS_CONFIG_DIR $XDG_CONFIG_HOME/defaults
 
