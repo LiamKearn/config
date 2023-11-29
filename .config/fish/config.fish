@@ -72,11 +72,12 @@ for level in (seq 1 5)
 end
 
 alias pf='pushd (fd . --search-path $HOME/Source/ --type d -d 1 | fzf --preview "git --no-pager --git-dir {}/.git log 2>/dev/null -n10")'
-alias l='exa -1 --icons'
-alias lt='exa -1 --icons -T'
-alias ltl='exa -1 --icons -T -L '
-alias ll='exa --grid -a --group-directories-first --icons -s Ext'
-alias ls='exa --long --octal-permissions --no-permissions --no-time --no-filesize --header --group'
+alias l='eza -1 --icons'
+alias la='eza -1 --icons -a'
+alias lt='eza -1 --icons -T'
+alias ltl='eza -1 --icons -T -L '
+alias ll='eza --grid -a --group-directories-first --icons -s Ext'
+alias ls='eza --long --octal-permissions --no-permissions --no-time --no-filesize --header --group'
 alias ac="AWS_CLI_AUTO_PROMPT=on aws --cli-auto-prompt"
 alias pn="pnpm"
 alias vi='nvim'
