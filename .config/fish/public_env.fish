@@ -36,6 +36,8 @@ set -Ux GNUPGHOME "$XDG_CONFIG_HOME/gnupg"
 
 set -Ux RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/config"
 
+set -Ux GNUPGHOME "$XDG_CONFIG_HOME/gnupg"
+
 
 set -Ux PROJECTDIR $HOME/Projects
 set -Ux MBOX $HOME/mbox
