@@ -33,17 +33,13 @@ set -Ux CC clang
 set -Ux CXX clang++
 set -Ux NODE_REPL_HISTORY "$XDG_STATE_HOME/node/repl_history"
 set -Ux GNUPGHOME "$XDG_CONFIG_HOME/gnupg"
-
 set -Ux RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/config"
-
 set -Ux GNUPGHOME "$XDG_CONFIG_HOME/gnupg"
-
-
 set -Ux PROJECTDIR $HOME/Projects
 set -Ux MBOX $HOME/mbox
 set -Ux MAIL $HOME/mbox
-
 set -Ux DOCKER_BUILDKIT 1
+set -Ux HOMEBREW_NO_AUTO_UPDATE 1
 
 switch (uname)
     case Darwin
@@ -58,12 +54,11 @@ switch (uname)
         set -Ux JAVA_HOME /usr/lib/jvm/default-java
 end
 
-set -Ux GOPATH $XDG_DATA_HOME/go
-
-set -Ux ANDROID_SDK_ROOT $HOME/Library/Android/sdk
-
 # Setup defaults dir
 set -Ux DEFAULTS_CONFIG_DIR $XDG_CONFIG_HOME/defaults
+
+set -Ux GOPATH $XDG_DATA_HOME/go
+set -Ux ANDROID_SDK_ROOT $HOME/Library/Android/sdk
 
 # I don't use gradle often so I consider it's config disposable.
 set -Ux GRADLE_USER_HOME $HOME/.cache/.gradle
