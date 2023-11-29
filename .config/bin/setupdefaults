@@ -193,6 +193,9 @@ defaults write com.apple.finder QLEnableTextSelection -bool true;
 # By default open textedit with a new document
 defaults write com.apple.TextEdit NSShowAppCentricOpenPanelInsteadOfUntitledFile -bool false
 
+# Disable annoying "click to show desktop"
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop 0
+
 #
 # Danger zone
 #
