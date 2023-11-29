@@ -78,7 +78,6 @@ brew "felixkratz/formulae/borders", args: ["HEAD"]
 brew "jesseduffield/lazydocker/lazydocker"
 brew "mach-kernel/pkgs/launchk"
 brew "saulpw/vd/visidata"
-brew "shivammathur/php/php@7.4", link: true
 brew "superbrothers/opener/opener"
 cask "1password"
 cask "1password-cli"
