@@ -1,6 +1,11 @@
 function brew
-    set -l disabled_commands "search" "bundle" "bundle dump" "info" "list" "deps" "ls"
-    if contains $argv[1] $disabled_commands
+    set -l enabled_commands \
+        "install" \
+        "uninstall" \
+        "upgrade" \
+        "update"
+
+    if not contains $argv[1] $enabled_commands
         command brew $argv
         return
     end
