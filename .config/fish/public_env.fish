@@ -40,6 +40,7 @@ set -Ux MBOX $HOME/mbox
 set -Ux MAIL $HOME/mbox
 set -Ux DOCKER_BUILDKIT 1
 set -Ux HOMEBREW_NO_AUTO_UPDATE 1
+set -Ux PYTHONSTARTUP "$XDG_CONFIG_HOME/python/init.py"
 
 switch (uname)
     case Darwin
