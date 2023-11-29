@@ -3,7 +3,7 @@ local wezterm = require 'wezterm'
 local function fonts(config)
     config.font = wezterm.font_with_fallback({
         -- { family = 'Comic Code Ligatures', weight = 'Medium' },
-        { family = 'Berkeley Mono Variable', weight = 'Regular' },
+        { family = 'BerkeleyMonoVariable Nerd Font', weight = 'Regular' },
         { family = 'FiraCode Nerd Font Mono', weight = 'Medium' },
     })
     config.font_size = 23
