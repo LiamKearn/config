@@ -5,7 +5,7 @@ function brew
         "upgrade" \
         "update"
 
-    if not contains $argv[1] $enabled_commands
+    if not contains -- "$argv[1]" $enabled_commands
         command brew $argv
         return
     end
