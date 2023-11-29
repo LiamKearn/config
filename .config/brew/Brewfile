@@ -23,7 +23,6 @@ brew "php", link: false
 brew "composer"
 brew "coreutils"
 brew "dbus"
-brew "dog"
 brew "unbound"
 brew "gnutls"
 brew "emacs"
