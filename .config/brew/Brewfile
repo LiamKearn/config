@@ -113,6 +113,7 @@ cask "visual-studio-code"
 cask "vlc"
 cask "vnc-viewer"
 cask "wezterm-nightly"
+cask "wireshark"
 cask "zoom"
 mas "Amphetamine", id: 937984704
 mas "GarageBand", id: 682658836
