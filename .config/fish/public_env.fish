@@ -46,7 +46,6 @@ switch (uname)
     case Darwin
         set -Ux LOG_HOME $HOME/Library/Logs
         set -Ux LOG_ROOT /Library/Logs
-        set -Ux JAVA_HOME /Library/Java/JavaVirtualMachines/jdk1.8.0_333.jdk/Contents/Home
         set -Ux SDKROOT (xcrun --sdk macosx --show-sdk-path)
         set -Ux LIBRARY_PATH "$sdk_root/usr/lib"
     case Linux
