@@ -19,6 +19,7 @@ fish_add_path $XDG_DATA_HOME/rustup/toolchains/nightly-x86_64-apple-darwin/bin
 fish_add_path $ANDROID_SDK_ROOT/tools/bin
 fish_add_path $ANDROID_SDK_ROOT/platform-tools
 fish_add_path $HOME/.local/bin
+fish_add_path $HOME/.docker/bin
 fish_add_path /usr/local/go/bin
 fish_add_path /usr/local/llvm/bin
 fish_add_path /usr/local/opt/mysql-client/bin
