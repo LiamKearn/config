@@ -112,7 +112,7 @@ alias urlencode='php -r "echo urlencode(stream_get_contents(STDIN));"'
 set fish_greeting
 
 # 1pass plugins.
-source /Users/liam/.config/op/plugins.sh
+source $XDG_CONFIG_HOME/op/plugins.sh
 
 # Setup completion for 1pass
 op completion fish | source
