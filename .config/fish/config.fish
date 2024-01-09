@@ -39,10 +39,8 @@ switch (uname)
         abbr -a tunconnect 'osascript $XDG_CONFIG_HOME/tunnelblick/tunnelconnect.scpt'
         abbr -a tunstop 'osascript $XDG_CONFIG_HOME/tunnelblick/tunnelstop.scpt'
 
-        # pnpm
-        set -gx PNPM_HOME "/Users/liamk/Library/pnpm"
-        set -gx PATH "$PNPM_HOME" $PATH
-        # pnpm end
+        set -gx PNPM_HOME "$HOME/Library/pnpm"
+        fish_add_path $PNPM_HOME
     case Linux
         alias dostopall='docker stop (docker ps -q)'
         alias dops="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Names}}' | awk '{if (NR!=1) {print}}' | nl -w2 -s'  '"
