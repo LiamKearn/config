@@ -3,7 +3,16 @@ return {
     dev = false,
     lazy = false,
     keys = {
-        { '<leader>ff', vim.cmd.CommandTRipgrep },
+        {
+            '<leader>ff',
+            function ()
+                if (vim.fn.getcwd() == vim.fn.expand('$HOME')) then
+                    print('Searching home is slow use Ripgrep instead :p')
+                    return
+                end
+                vim.cmd.CommandTRipgrep()
+            end
+        },
         { '<leader>fh', vim.cmd.CommandTHelp },
         { '<leader>gg', vim.cmd.CommandTBuffer }
     },
