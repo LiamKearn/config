@@ -8,34 +8,20 @@ Both machines share these dotfiles and config is mostly shared via branching on 
 
 # Primary software
 - [Shortcat](https://shortcat.app/) (Current favourite).
-- [VisiData](https://www.visidata.org/).
-- Neovim.
 - Brew for managing OSX software, My Aptitude use on ubuntu is a mess..
-- Chromium (With env setup for no google apis).
-    - Both
-        - Vimium plugin
-        - Refined GH
-        - Select2 Anywhere
-        - Tampermonkey
-        - UBlock Origin
-    - Work
-        - Lastpass
-        - Gruvbox Material
-    - Personal
-        - 1Pass
-        - Gruvbox normal so I can tell the difference.
+- ARC (mostly because it has no UI).
 - Rectangle (premium for ubuntu like window dragging).
 - Alt-tab
-- Wezterm
-    - TMUX
-    - NVIM
-    - Lazygit
-    - RipGrep
-- Tunnelblick VPN client
 - Alfred
-- Yabai active window border
-    - Dock disabled
-    - Menubar on autohide with KB shortcut
+- Janky Borders Borders
+- Dock disabled
+- Wezterm
+- [VisiData](https://www.visidata.org/).
+- Neovim.
+- TMUX
+- NVIM
+- Lazygit
+- RipGrep
 
 # Install
 - You may (for removing files in $HOME) want to grant Terminal.app full disk access (there is no way to automate [TCC](https://book.hacktricks.xyz/macos-hardening/macos-security-and-privilege-escalation/macos-security-protections/macos-tcc) without SIP being disabled).
