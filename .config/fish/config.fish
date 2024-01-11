@@ -12,7 +12,6 @@ end
 source $XDG_CONFIG_HOME/fish/bindings.fish
 
 fish_add_path /opt/homebrew/{bin,sbin}
-fish_add_path /usr/local/bin/nvim-osx64/bin
 fish_add_path $XDG_CONFIG_HOME/bin
 fish_add_path $XDG_DATA_HOME/cargo/bin
 fish_add_path $XDG_DATA_HOME/rustup/toolchains/nightly-x86_64-apple-darwin/bin
@@ -20,10 +19,6 @@ fish_add_path $ANDROID_SDK_ROOT/tools/bin
 fish_add_path $ANDROID_SDK_ROOT/platform-tools
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.docker/bin
-fish_add_path /usr/local/go/bin
-fish_add_path /usr/local/llvm/bin
-fish_add_path /usr/local/opt/mysql-client/bin
-fish_add_path /Users/liamk/.pyenv/versions/2.7.18/bin
 
 switch (uname)
     case Darwin
@@ -45,10 +40,9 @@ switch (uname)
         alias dostopall='docker stop (docker ps -q)'
         alias dops="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Names}}' | awk '{if (NR!=1) {print}}' | nl -w2 -s'  '"
         alias dopd="docker-compose up -d"
-        # pnpm
-        set -gx PNPM_HOME "/home/liam/.local/share/pnpm"
-        set -gx PATH "$PNPM_HOME" $PATH
-        # pnpm end
+
+        set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+        fish_add_path $PNPM_HOME
 end
 
 alias sign='set GPG_TTY (tty) && echo "" | gpg --sign -u "LiamKearn" > /dev/null'
