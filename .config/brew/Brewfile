@@ -76,7 +76,6 @@ brew "wget"
 brew "x11vnc"
 brew "ykman"
 brew "yq"
-brew "ddev/ddev/ddev"
 brew "felixkratz/formulae/borders", args: ["HEAD"]
 brew "jesseduffield/lazydocker/lazydocker"
 brew "mach-kernel/pkgs/launchk"
