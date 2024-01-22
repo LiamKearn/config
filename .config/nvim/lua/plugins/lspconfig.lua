@@ -208,6 +208,11 @@ return {
             tsserver = {},
             texlab = {},
             gopls = {},
+            elixirls = {
+                cmd = {
+                    "/opt/homebrew/bin/elixir-ls"
+                }
+            },
             lua_ls = {
                 settings = {
                     Lua = {
