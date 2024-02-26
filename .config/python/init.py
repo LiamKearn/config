@@ -7,7 +7,7 @@ MAX_HIST_LEN = 10000
 
 print()
 
-cache_home = Path(os.getenv('XDG_CACHE_HOME'), default = Path.home() / '.cache')
+cache_home = Path(os.getenv('XDG_CACHE_HOME', default=Path.home() / '.cache'))
 histfile = cache_home / 'python_history'
 
 if not os.path.exists(histfile):
@@ -16,3 +16,4 @@ if not os.path.exists(histfile):
 readline.read_history_file(histfile)
 readline.set_history_length(MAX_HIST_LEN)
 atexit.register(readline.write_history_file, histfile)
+
