@@ -1,29 +1,4 @@
 # Don't look at these!
-~/.ssh/*
-~/.cache
-~/.gnupg
-~/.config/gcloud
-~/.config/gnupg
-~/.config/alfred
-~/.config/github-copilot
-~/.config/fish/private_env.fish
-
-# Ignoring homedir files.
-~/Applications
-~/Builds
-~/Desktop
-~/Documents
-!~/Documents/cmd.md
-~/Downloads
-~/Dropbox*
-~/Library
-~/Movies
-~/Music
-~/Pictures
-~/Projects
-~/Screengrabs
-~/Work
-
 **/.ignore
 **/.DS_Store
 

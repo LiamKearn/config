@@ -1,0 +1,25 @@
+# Don't look at these!
+.ssh/*
+.gnupg
+.cache
+.local
+.config/alfred
+.config/gcloud
+.config/gnupg
+.config/github-copilot
+.config/fish/private_env.fish
+.config/alfred
+
+# Ignoring homedir files.
+Desktop
+Documents
+Downloads
+Health
+intelephense
+Library
+Movies
+Music
+OrbStack
+Pictures
+Screenshots
+Source
