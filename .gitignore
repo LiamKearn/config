@@ -23,3 +23,20 @@ OrbStack
 Pictures
 Screenshots
 Source
+
+# Manually ignored
+.config/fish/completions/nvm.fish
+.config/fish/conf.d/nvm.fish
+.config/fish/functions/_nvm_index_update.fish
+.config/fish/functions/_nvm_list.fish
+.config/fish/functions/_nvm_version_activate.fish
+.config/fish/functions/_nvm_version_deactivate.fish
+.config/fish/functions/nvm.fish
+.config/fish/fish_variables
+.config/lazygit/development.log
+.config/lazygit/state.yml
+.config/neofetch
+.config/op
+.config/qalculate/qalc.history
+.config/wireshark/recent
+.config/wireshark/recent_common
