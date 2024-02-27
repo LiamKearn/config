@@ -17,3 +17,4 @@ readline.read_history_file(histfile)
 readline.set_history_length(MAX_HIST_LEN)
 atexit.register(readline.write_history_file, histfile)
 
+print(f'[init.py] Utilising {histfile} for history.')
