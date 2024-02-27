@@ -2,7 +2,6 @@
 #
 # Small script for setting up quicklook on osx.
 
-
 set git_locations toland/qlmarkdown
 set git_releases QLMarkdown.qlgenerator.zip
 
@@ -14,10 +13,10 @@ for git_location in $git_locations
         set git_remote "$github_url.git"
 
         set git_tag (git -c 'versionsort.suffix=-' ls-remote --tags --sort='v:refname' $git_remote \
-        	| rg -v '\{\}' \
-        	| tail -1 \
-        	| cut -f2 \
-        	| cut -d'/' -f3 \
+            | rg -v '\{\}' \
+            | tail -1 \
+            | cut -f2 \
+            | cut -d'/' -f3 \
             | string trim)
 
         set download_url "$github_url/releases/download/$git_tag/$git_release"
