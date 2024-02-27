@@ -7,19 +7,18 @@ I use a mix of a Macbook Pro (M3 Max) and a (beefy) Ubuntu machine for developme
 Both machines share these dotfiles and config is mostly shared via branching on `uname`.
 
 # Primary software
-- [Shortcat](https://shortcat.app/) (Current favourite).
-- Brew for managing OSX software, My Aptitude use on ubuntu is a mess..
-- ARC (mostly because it has no UI).
-- Rectangle (premium for ubuntu like window dragging).
+- [Shortcat](https://shortcat.app/) (Current favourite)
+- Brew for managing OSX software, My Aptitude use on ubuntu is a mess
+- ARC (mostly because it has no UI)
+- Rectangle (premium for ubuntu like window dragging)
 - Alt-tab
 - Alfred
 - Janky Borders Borders
 - Dock disabled
 - Wezterm
-- [VisiData](https://www.visidata.org/).
-- Neovim.
+- [VisiData](https://www.visidata.org/)
 - TMUX
-- NVIM
+- Neovim
 - Lazygit
 - RipGrep
 
@@ -64,14 +63,3 @@ Both machines share these dotfiles and config is mostly shared via branching on 
     setupdefaults
     ```
 
-# No Google APIs.
-```xml
-    <key>GOOGLE_API_KEY</key>
-    <string>no</string>
-    <key>GOOGLE_DEFAULT_CLIENT_ID</key>
-    <string>no</string>
-    <key>GOOGLE_DEFAULT_CLIENT_SECRET</key>
-    <string>no</string>
-``` -> `/Applications/Chromium.app/Contents/Info.plist`
-
-add to `LSEnvironment`
