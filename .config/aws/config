@@ -1,0 +1,8 @@
+[default]
+region = ap-southeast-2
+output = json
+
+# Unauthed without MFA.
+[profile personal]
+region = ap-southeast-2
+

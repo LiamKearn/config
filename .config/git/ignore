@@ -2,7 +2,6 @@
 ~/.ssh/*
 ~/.cache
 ~/.gnupg
-~/.config/aws
 ~/.config/gcloud
 ~/.config/gnupg
 ~/.config/alfred
