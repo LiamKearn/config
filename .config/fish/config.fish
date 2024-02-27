@@ -101,6 +101,9 @@ alias .='pwd'
 alias urldecode='php -r "echo urldecode(stream_get_contents(STDIN));"'
 alias urlencode='php -r "echo urlencode(stream_get_contents(STDIN));"'
 
+# Program XDG overrides:
+alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
+
 set fish_greeting
 
 # 1pass plugins.
