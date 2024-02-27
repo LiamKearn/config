@@ -40,3 +40,4 @@ Source
 .config/qalculate/qalc.history
 .config/wireshark/recent
 .config/wireshark/recent_common
+.config/wget/history
