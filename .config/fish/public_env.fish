@@ -43,6 +43,7 @@ set -Ux HOMEBREW_NO_AUTO_UPDATE 1
 set -Ux PYTHONSTARTUP "$XDG_CONFIG_HOME/python/init.py"
 set -Ux CDK_HOME "$XDG_DATA_HOME/cdk"
 set -Ux WGETRC "$XDG_CONFIG_HOME/wget/wgetrc"
+set -Ux ZDOTDIR "$XDG_CONFIG_HOME/zsh"
 
 switch (uname)
     case Darwin
