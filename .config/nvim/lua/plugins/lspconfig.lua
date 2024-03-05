@@ -156,7 +156,8 @@ return {
         servers = {
             intelephense = {
                 init_options = {
-                    licenceKey = os.getenv 'INTELEPHENSE_LICENCE_KEY'
+                    licenceKey = os.getenv 'INTELEPHENSE_LICENCE_KEY',
+                    globalStoragePath = os.getenv('XDG_DATA_HOME') .. '/intelephense'
                 }
             },
             clangd = {
