@@ -1,23 +1,26 @@
-import atexit
-import os
-import readline
-from pathlib import Path
-from functools import partial
+import sys
 
-MAX_HIST_LEN = 10000
+if sys.version_info[0] > 3:
+    import atexit
+    import os
+    import readline
+    from pathlib import Path
+    from functools import partial
 
-print()
+    MAX_HIST_LEN = 10000
 
-cache_home = Path(os.getenv('XDG_CACHE_HOME', default=Path.home() / '.cache'))
-histfile = cache_home / 'python_history'
+    print()
 
-if not os.path.exists(histfile):
-    exit(f'[init.py] Exiting: {histfile} does not exist.')
+    cache_home = Path(os.getenv('XDG_CACHE_HOME', default=Path.home() / '.cache'))
+    histfile = cache_home / 'python_history'
 
-readline.read_history_file(histfile)
-readline.set_history_length(MAX_HIST_LEN)
-atexit.register(readline.write_history_file, histfile)
+    if not os.path.exists(histfile):
+        exit('[init.py] Exiting: ' + histfile + ' does not exist.')
 
-truthy = partial(filter, None)
+    readline.read_history_file(histfile)
+    readline.set_history_length(MAX_HIST_LEN)
+    atexit.register(readline.write_history_file, histfile)
 
-print(f'[init.py] Utilising {histfile} for history.')
+    truthy = partial(filter, None)
+
+    print('[init.py] Utilising ' + histfile + ' for history.')
