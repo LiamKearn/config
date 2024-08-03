@@ -222,7 +222,8 @@ return {
                         }
                     }
                 }
-            }
+            },
+            jdtls = {}
         }
     },
     config = config
