@@ -268,18 +268,18 @@
 
 # Packet list hidden columns
 # List all columns to hide in the packet list.
-#gui.column.hidden: 
+gui.column.hidden: 
 
 # Packet list column format
 # Each pair of strings consists of a column title and its format
-#gui.column.format: 
-#	"No.", "%m",
-#	"Time", "%t",
-#	"Source", "%s",
-#	"Destination", "%d",
-#	"Protocol", "%p",
-#	"Length", "%L",
-#	"Info", "%i"
+gui.column.format: 
+	"No.", "%m",
+	"Time", "%Yut",
+	"Source", "%s",
+	"Destination", "%d",
+	"Protocol", "%p",
+	"Length", "%L",
+	"Info", "%i"
 
 ####### User Interface: Font ########
 
@@ -538,7 +538,7 @@ capture.devices_pmode: ap1(1),en0(1),awdl0(1),llw0(1),utun0(1),utun1(1),utun2(1)
 
 # Remote capture filter
 # A string
-#extcap.ciscodump.remotefilter: deny tcp host fe80::ce81:b1c:bd2c:69e any eq 22, deny tcp any eq 22 host fe80::ce81:b1c:bd2c:69e, deny tcp host fe80::41a7:b85f:3b22:3d63 any eq 22, deny tcp any eq 22 host fe80::41a7:b85f:3b22:3d63, deny tcp host fe80::9bb8:db77:aa40:13b5 any eq 22, deny tcp any eq 22 host fe80::9bb8:db77:aa40:13b5, deny tcp host fe80::5db4:ab1e:87f7:90a9 any eq 22, deny tcp any eq 22 host fe80::5db4:ab1e:87f7:90a9, deny tcp host fe80::5ce6:f1ff:fed7:c9a3 any eq 22, deny tcp any eq 22 host fe80::5ce6:f1ff:fed7:c9a3, deny tcp host fe80::5ce6:f1ff:fed7:c9a3 any eq 22, deny tcp any eq 22 host fe80::5ce6:f1ff:fed7:c9a3, deny tcp host 2404:e80:173::1007 any eq 22, deny tcp any eq 22 host 2404:e80:173::1007, deny tcp host 192.168.1.101 any eq 22, deny tcp any eq 22 host 192.168.1.101, deny tcp host fe80::469:c976:1636:7dd5 any eq 22, deny tcp any eq 22 host fe80::469:c976:1636:7dd5, deny tcp host fe80::603e:5fff:fe34:63bb any eq 22, deny tcp any eq 22 host fe80::603e:5fff:fe34:63bb, deny tcp host fe80::1 any eq 22, deny tcp any eq 22 host fe80::1, permit ip any any
+#extcap.ciscodump.remotefilter: deny tcp host fe80::ce81:b1c:bd2c:69e any eq 22, deny tcp any eq 22 host fe80::ce81:b1c:bd2c:69e, deny tcp host fe80::14ad:a27f:4975:3e0 any eq 22, deny tcp any eq 22 host fe80::14ad:a27f:4975:3e0, deny tcp host fe80::7168:7127:b0f7:2ca any eq 22, deny tcp any eq 22 host fe80::7168:7127:b0f7:2ca, deny tcp host fe80::d816:4cd4:bf08:85c3 any eq 22, deny tcp any eq 22 host fe80::d816:4cd4:bf08:85c3, deny tcp host fe80::6442:5dff:feb4:ba23 any eq 22, deny tcp any eq 22 host fe80::6442:5dff:feb4:ba23, deny tcp host fe80::6442:5dff:feb4:ba23 any eq 22, deny tcp any eq 22 host fe80::6442:5dff:feb4:ba23, deny tcp host 192.168.1.101 any eq 22, deny tcp any eq 22 host 192.168.1.101, deny tcp host 2404:e80:c6d::100b any eq 22, deny tcp any eq 22 host 2404:e80:c6d::100b, deny tcp host fe80::425:f3e4:6d1:25af any eq 22, deny tcp any eq 22 host fe80::425:f3e4:6d1:25af, deny tcp host 2404:e80:c6d::100a any eq 22, deny tcp any eq 22 host 2404:e80:c6d::100a, deny tcp host fe80::603e:5fff:fe34:63bb any eq 22, deny tcp any eq 22 host fe80::603e:5fff:fe34:63bb, deny tcp host fe80::1 any eq 22, deny tcp any eq 22 host fe80::1, permit ip any any
 
 # Packets to capture
 # A string
@@ -622,7 +622,7 @@ capture.devices_pmode: ap1(1),en0(1),awdl0(1),llw0(1),utun0(1),utun1(1),utun2(1)
 
 # Remote capture filter
 # A string
-#extcap.sshdump.remotefilter: not ((host fe80::ce81:b1c:bd2c:69e or host fe80::41a7:b85f:3b22:3d63 or host fe80::9bb8:db77:aa40:13b5 or host fe80::5db4:ab1e:87f7:90a9 or host fe80::5ce6:f1ff:fed7:c9a3 or host fe80::5ce6:f1ff:fed7:c9a3 or host 2404:e80:173::1007 or host 192.168.1.101 or host fe80::469:c976:1636:7dd5 or host fe80::603e:5fff:fe34:63bb or host fe80::1) and port 22)
+#extcap.sshdump.remotefilter: not ((host fe80::ce81:b1c:bd2c:69e or host fe80::14ad:a27f:4975:3e0 or host fe80::7168:7127:b0f7:2ca or host fe80::d816:4cd4:bf08:85c3 or host fe80::6442:5dff:feb4:ba23 or host fe80::6442:5dff:feb4:ba23 or host 192.168.1.101 or host 2404:e80:c6d::100b or host fe80::425:f3e4:6d1:25af or host 2404:e80:c6d::100a or host fe80::603e:5fff:fe34:63bb or host fe80::1) and port 22)
 
 # Packets to capture
 # A string
@@ -1976,10 +1976,6 @@ capture.devices_pmode: ap1(1),en0(1),awdl0(1),llw0(1),utun0(1),utun1(1),utun2(1)
 # Whether the DSI dissector should reassemble messages spanning multiple TCP segments. To use this option, you must also enable "Allow subdissectors to reassemble TCP streams" in the TCP protocol settings.
 # TRUE or FALSE (case-insensitive)
 #dsi.desegment: TRUE
-
-# Semicolon-separated list of private RSA keys used for DTLS decryption. Used by versions of Wireshark prior to 1.6
-# A string
-#dtls.keys_list: 
 
 # redirect dtls debug to file name; leave empty to disable debug, use "-" to redirect output to stderr
 # 
@@ -5560,10 +5556,6 @@ capture.devices_pmode: ap1(1),en0(1),awdl0(1),llw0(1),utun0(1),utun1(1),utun2(1)
 # Whether the TIPC-over-TCP dissector should reassemble messages spanning multiple TCP segments. To use this option, you must also enable "Allow subdissectors to reassemble TCP streams" in the TCP protocol settings.
 # TRUE or FALSE (case-insensitive)
 #tipc.desegment: TRUE
-
-# Semicolon-separated list of private RSA keys used for TLS decryption. Used by versions of Wireshark prior to 1.6
-# A string
-#tls.keys_list: 
 
 # Redirect TLS debug to the file specified. Leave empty to disable debugging or use "-" to redirect output to stderr.
 # A path to a file
