@@ -7,6 +7,7 @@ local function fonts(config)
         { family = 'FiraCode Nerd Font Mono', weight = 'Medium' },
     })
     config.font_size = 23
+    config.adjust_window_size_when_changing_font_size = false
 end
 
 local function colors(config)
