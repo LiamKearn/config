@@ -51,6 +51,9 @@ switch (uname)
         set -Ux LOG_ROOT /Library/Logs
         set -Ux SDKROOT (xcrun --sdk macosx --show-sdk-path)
         set -Ux LIBRARY_PATH "$sdk_root/usr/lib"
+
+        set -Ux VCPKG_ROOT $HOME/vcpkg
+        set -Ux CMAKE_MAKE_PROGRAM Ninja
     case Linux
         set -Ux LOG_HOME $XDG_STATE_HOME
         set -Ux LOG_ROOT /var/log
