@@ -113,7 +113,7 @@ require('lazy').setup('plugins', {
 
 vim.keymap.set('n', '<leader>ll', vim.cmd.Lazy)
 
-vim.cmd.colorscheme('catppuccin')
+vim.cmd.colorscheme('koehler')
 
 -- Monkey Patching, What could go wrong?!
 local nvimSetFnPtr = vim.keymap.set
