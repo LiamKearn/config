@@ -12,6 +12,9 @@ end
 source $XDG_CONFIG_HOME/fish/bindings.fish
 
 fish_add_path /opt/homebrew/{bin,sbin}
+if test -d /opt/homebrew/opt/mysql-client
+    fish_add_path /opt/homebrew/opt/mysql-client/bin
+end
 fish_add_path $XDG_CONFIG_HOME/bin
 fish_add_path $XDG_DATA_HOME/cargo/bin
 fish_add_path $XDG_DATA_HOME/rustup/toolchains/nightly-x86_64-apple-darwin/bin
