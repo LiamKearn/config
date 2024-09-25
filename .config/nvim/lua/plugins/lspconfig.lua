@@ -223,7 +223,8 @@ return {
                     }
                 }
             },
-            jdtls = {}
+            jdtls = {},
+            terraformls = {}
         }
     },
     config = config
