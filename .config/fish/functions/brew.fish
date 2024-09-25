@@ -3,7 +3,9 @@ function brew
         "install" \
         "uninstall" \
         "upgrade" \
-        "update"
+        "update" \
+        "tap" \
+        "untap"
 
     if not contains -- "$argv[1]" $enabled_commands
         command brew $argv
