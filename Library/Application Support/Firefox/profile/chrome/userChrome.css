@@ -1,0 +1,3 @@
+div#vertical-tabs > tabs#tabbrowser-tabs > #newtab-button-container {
+  display: none !important;
+}
