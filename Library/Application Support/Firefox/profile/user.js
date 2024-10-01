@@ -16,3 +16,5 @@ user_pref('browser.ml.chat.shortcuts', false);
 user_pref('browser.toolbars.bookmarks.visibility', 'never');
 user_pref('browser.aboutConfig.showWarning', false);
 user_pref('browser.tabs.closeWindowWithLastTab', false);
+// Allow unsigned extensions (for local loading)
+user_pref('xpinstall.signatures.required', false);
