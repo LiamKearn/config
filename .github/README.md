@@ -9,12 +9,12 @@ Both machines share these dotfiles and config is mostly shared via branching on 
 # Primary software
 - [Shortcat](https://shortcat.app/) (Current favourite)
 - Brew for managing OSX software, My Aptitude use on ubuntu is a mess
-- ARC (mostly because it has no UI)
+- Firefox
 - Rectangle (premium for ubuntu like window dragging)
 - Alt-tab
 - Alfred
 - Janky Borders Borders
-- Dock disabled
+- Dock disabled (auto-hide delay set beyond whats possible in settings)
 - Wezterm
 - [VisiData](https://www.visidata.org/)
 - TMUX
