@@ -56,6 +56,7 @@ abbr -a src 'source $XDG_CONFIG_HOME/fish/config.fish'
 abbr -a tma 'tmux a'
 abbr -a cd- 'cd -'
 abbr -a cd.. 'cd ..'
+abbr -a chmox 'chmod u+x'
 # cd... -> cd ../../, cd.... -> cd ../../../ etc.
 for level in (seq 1 5)
     set dot_count (string repeat -n (math $level + 2) '.')
