@@ -71,8 +71,7 @@ vim.opt.cursorcolumn = true
 -- Filetype mappings.
 vim.g.filetype_ss = 'html'
 
--- Fallback to slate because it's great!
-vim.cmd.colorscheme('slate')
+vim.cmd.colorscheme('koehler')
 
 -- Install lazy.
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -112,8 +111,6 @@ require('lazy').setup('plugins', {
 })
 
 vim.keymap.set('n', '<leader>ll', vim.cmd.Lazy)
-
-vim.cmd.colorscheme('koehler')
 
 -- Monkey Patching, What could go wrong?!
 local nvimSetFnPtr = vim.keymap.set
