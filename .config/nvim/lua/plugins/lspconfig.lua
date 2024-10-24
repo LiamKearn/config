@@ -224,7 +224,8 @@ return {
                 }
             },
             jdtls = {},
-            terraformls = {}
+            terraformls = {},
+            sourcekit = {}
         }
     },
     config = config
