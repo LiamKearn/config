@@ -18,3 +18,6 @@ user_pref('browser.aboutConfig.showWarning', false);
 user_pref('browser.tabs.closeWindowWithLastTab', false);
 // Allow unsigned extensions (for local loading)
 user_pref('xpinstall.signatures.required', false);
+user_pref('browser.urlbar.shortcuts.bookmarks', false);
+user_pref('browser.urlbar.shortcuts.history', false);
+user_pref('browser.urlbar.shortcuts.tabs', false);
