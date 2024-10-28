@@ -216,7 +216,7 @@ return {
 
                     return root_pattern("package.json")(filename)
                 end,
-                single_file = false
+                single_file_support = false,
             },
             texlab = {},
             gopls = {},
