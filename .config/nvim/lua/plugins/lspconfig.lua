@@ -101,7 +101,7 @@ local config = function(_, opts)
             -- Press twice for bottom (weird but works).
             ['<C-g>'] = cmp.mapping.select_prev_item({ count = 9999 }),
 
-            ['<C-u>'] = cmp.mapping.scroll_docs( -4),
+            ['<C-u>'] = cmp.mapping.scroll_docs(-4),
             ['<C-d>'] = cmp.mapping.scroll_docs(4),
 
             ['<C-e>'] = cmp.mapping.abort(),
@@ -117,8 +117,8 @@ local config = function(_, opts)
             end, { 'i', 's' }),
 
             ['<C-b>'] = cmp.mapping(function(fallback)
-                if luasnip.jumpable( -1) then
-                    luasnip.jump( -1)
+                if luasnip.jumpable(-1) then
+                    luasnip.jump(-1)
                 else
                     fallback()
                 end
@@ -206,7 +206,18 @@ return {
             },
             neocmake = {},
             html = {},
-            tsserver = {},
+            ts_ls = {
+                root_dir = function(filename, _)
+                    local root_pattern = require('lspconfig').util.root_pattern
+
+                    if root_pattern("deno.json")(filename) then
+                        return nil
+                    end
+
+                    return root_pattern("package.json")(filename)
+                end,
+                single_file = false
+            },
             texlab = {},
             gopls = {},
             elixirls = {
@@ -225,7 +236,8 @@ return {
             },
             jdtls = {},
             terraformls = {},
-            sourcekit = {}
+            sourcekit = {},
+            denols = {}
         }
     },
     config = config
