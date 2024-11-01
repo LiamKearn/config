@@ -9,6 +9,7 @@
 .config/github-copilot
 .config/fish/private_env.fish
 .config/alfred
+.cfg
 
 # Ignoring homedir files.
 Desktop
