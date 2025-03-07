@@ -21,3 +21,4 @@ user_pref('xpinstall.signatures.required', false);
 user_pref('browser.urlbar.shortcuts.bookmarks', false);
 user_pref('browser.urlbar.shortcuts.history', false);
 user_pref('browser.urlbar.shortcuts.tabs', false);
+user_pref('browser.urlbar.quickactions.enabled', true);
