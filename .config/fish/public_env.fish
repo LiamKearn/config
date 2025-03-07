@@ -52,6 +52,7 @@ switch (uname)
         set -Ux LOG_ROOT /Library/Logs
         set -Ux SDKROOT (xcrun --sdk macosx --show-sdk-path)
         set -Ux LIBRARY_PATH "$sdk_root/usr/lib"
+        set -Ux JAVA_HOME /opt/homebrew/opt/openjdk@21
 
         set -Ux VCPKG_ROOT $HOME/vcpkg
         set -Ux CMAKE_MAKE_PROGRAM Ninja
