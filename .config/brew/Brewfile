@@ -172,6 +172,7 @@ cask "vnc-viewer"
 cask "wezterm@nightly"
 cask "wireshark"
 cask "xquartz"
+cask "zen-browser"
 cask "zoom"
 mas "Amphetamine", id: 937984704
 mas "GarageBand", id: 682658836

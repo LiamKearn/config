@@ -2,13 +2,23 @@
 
 set -ev
 
+for script in ./apple-scripts/*.applescript; do
+    basename=$(basename "$script")
+    basename="${basename%.*}"
+    apppath="${HOME}/Applications/${basename%.*}.app"
+    osacompile -o "$apppath" "$script"
+    if [ "$basename" = "Zen" ]; then
+        cp "/Applications/Zen Browser.app/Contents/Resources/firefox.icns" "$apppath/Contents/Resources/applet.icns"
+    fi
+done
+
 # Setup some directories I use
 mkdir -p $HOME/{.ssh,.run,Health};
 
 # Setup hostnames and restart DNS
 sudo scutil --set HostName "liam.macbook.liamkearn.me" \
-	&& sudo scutil --set ComputerName "Liam's Macbook Pro" \
-	&& sudo dscacheutil -flushcache;
+    && sudo scutil --set ComputerName "Liam's Macbook Pro" \
+    && sudo dscacheutil -flushcache;
 
 # Firewall hates these
 brew analytics off
