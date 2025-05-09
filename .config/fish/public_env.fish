@@ -30,7 +30,7 @@ set -Ux LESS "-RS"
 set -Ux LESSHISTFILE "$XDG_STATE_HOME/less/history"
 set -Ux MYSQL_HISTFILE "$XDG_DATA_HOME/mysql/mysql_history"
 set -Ux HISTFILE "$XDG_DATA_HOME/history"
-set -Ux CC clang
+set -Ux CC gcc-14
 set -Ux CXX clang++
 set -Ux NODE_REPL_HISTORY "$XDG_STATE_HOME/node/repl_history"
 set -Ux GNUPGHOME "$XDG_CONFIG_HOME/gnupg"
