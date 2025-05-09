@@ -4,13 +4,13 @@ return {
         'nvim-lua/plenary.nvim'
     },
     keys = {
-        { '<leader>fq', '<cmd>lua require("telescope.builtin").diagnostics()<cr>' },
-        { '<leader>fk', '<cmd>lua require("telescope.builtin").keymaps()<cr>' },
-        { '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep({layout_strategy="vertical"})<cr>' },
-        { '<leader>fm', '<cmd>lua require("telescope.builtin").man_pages()<cr>' },
-        { '<leader>fs', '<cmd>lua require("telescope.builtin").lsp_document_symbols()<cr>' },
-        { '<leader>FS', '<cmd>lua require("telescope.builtin").lsp_dynamic_workspace_symbols()<cr>' },
-        { '<leader>fr', '<cmd>lua require("telescope.builtin").resume()<cr>' }
+        { '<leader>fq', function () require("telescope.builtin").diagnostics() end },
+        { '<leader>fk', function () require("telescope.builtin").keymaps() end },
+        { '<leader>fg', function () require("telescope.builtin").live_grep() end },
+        { '<leader>fm', function () require('telescope.builtin').man_pages() end },
+        { '<leader>fs', function () require('telescope.builtin').lsp_document_symbols() end },
+        { '<leader>FS', function () require('telescope.builtin').lsp_dynamic_workspace_symbols() end },
+        { '<leader>fr', function () require('telescope.builtin').resume() end }
     },
     opts = {
         defaults = {
