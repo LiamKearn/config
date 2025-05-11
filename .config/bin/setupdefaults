@@ -39,6 +39,9 @@ sudo pmset -c displaysleep 5
 # Sleep the display after 10 minutes (charging)
 sudo pmset -c sleep 10
 
+# How bloody annoying, just default to XDG
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME/hammerspoon/init.lua"
+
 # I'm not actually sure these two are working.
 # toggling them in the UI and doing a:
 #  - `defaults read > before`
