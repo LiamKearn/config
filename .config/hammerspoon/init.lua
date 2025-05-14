@@ -8,7 +8,7 @@ local opts = {
     hs.eventtap.event.types.keyDown
 }
 
-local e = hs.eventtap.new(opts, function(ev)
+Uniqueglobalnamelol = hs.eventtap.new(opts, function(ev)
     local rawFlags = ev:getRawEventData().CGEventData.flags & 0xdffffeff
     if ev:getType() == hs.eventtap.event.types.flagsChanged then
         if rawFlags == 1048592 then
@@ -21,4 +21,4 @@ local e = hs.eventtap.new(opts, function(ev)
     end
 end)
 
-e:start()
+Uniqueglobalnamelol:start()
