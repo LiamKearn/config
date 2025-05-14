@@ -1,6 +1,6 @@
 import sys
 
-if sys.version_info[0] > 3:
+if sys.version_info[0] >= 3:
     import atexit
     import os
     import readline
@@ -15,7 +15,7 @@ if sys.version_info[0] > 3:
     histfile = cache_home / 'python_history'
 
     if not os.path.exists(histfile):
-        exit('[init.py] Exiting: ' + histfile + ' does not exist.')
+        exit('[init.py] Exiting: ' + str(histfile) + ' does not exist.')
 
     readline.read_history_file(histfile)
     readline.set_history_length(MAX_HIST_LEN)
@@ -23,4 +23,4 @@ if sys.version_info[0] > 3:
 
     truthy = partial(filter, None)
 
-    print('[init.py] Utilising ' + histfile + ' for history.')
+    print('[init.py] Utilising ' + str(histfile) + ' for history.')
