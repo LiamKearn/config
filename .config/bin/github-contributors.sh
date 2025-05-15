@@ -37,6 +37,7 @@ path=$(echo "$clean_url" | cut -d/ -f6-)
 # URL encode the path
 encoded_path=$(echo "$path" | urlencode)
 
+echo "Remember that this is limited to the most recent 100 commits"
 # Query GitHub API
 curl -s "https://api.github.com/repos/$owner/$repo/commits?path=$encoded_path&per_page=100" \
   | jq -r '.[].commit.author | "\(.name) <\(.email)>"' \
