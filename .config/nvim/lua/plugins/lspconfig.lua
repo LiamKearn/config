@@ -237,7 +237,8 @@ return {
             jdtls = {},
             terraformls = {},
             sourcekit = {},
-            denols = {}
+            denols = {},
+            ruff_lsp = {}
         }
     },
     config = config
