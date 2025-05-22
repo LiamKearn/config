@@ -186,3 +186,7 @@ mas "Night of the Full Moon", id: 1480322643
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Xcode", id: 497799835
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "vscodevim.vim"
