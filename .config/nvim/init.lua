@@ -71,7 +71,7 @@ vim.opt.cursorcolumn = true
 -- Filetype mappings.
 vim.g.filetype_ss = 'html'
 
-vim.cmd.colorscheme('koehler')
+vim.cmd.colorscheme('retrobox')
 
 -- Install lazy.
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'

@@ -3,7 +3,7 @@ return {
     opts = {
         options = {
             icons_enabled = false,
-            theme = 'ayu_dark',
+            theme = '16color',
             component_separators = '|',
             section_separators = '',
         },

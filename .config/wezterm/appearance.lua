@@ -13,6 +13,8 @@ end
 local function colors(config)
     config.color_scheme = 'Adventure'
     config.colors = {
+        background = '#242424',
+
         tab_bar = {
             background = '#000000',
 
