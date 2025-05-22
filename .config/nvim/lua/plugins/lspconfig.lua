@@ -238,7 +238,7 @@ return {
             terraformls = {},
             sourcekit = {},
             denols = {},
-            ruff_lsp = {}
+            ruff = {}
         }
     },
     config = config
