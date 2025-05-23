@@ -236,7 +236,9 @@ return {
             },
             jdtls = {},
             terraformls = {},
-            sourcekit = {},
+            sourcekit = {
+                filetypes = { "swift", "objective-c", "objective-cpp" }
+            },
             denols = {},
             ruff = {}
         }
