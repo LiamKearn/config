@@ -72,6 +72,7 @@ vim.opt.cursorcolumn = true
 vim.g.filetype_ss = 'html'
 
 vim.cmd.colorscheme('retrobox')
+vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg = 0, bg = "#323232" })
 
 -- Install lazy.
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
