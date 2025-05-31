@@ -12,3 +12,7 @@ user_pref('full-screen-api.ignore-widgets', true);
 user_pref('browser.warnOnQuitShortcut', false);
 user_pref('browser.aboutConfig.showWarning', false);
 
+
+// user_pref('devtools.debugger.remote-enabled', true);
+// user_pref('devtools.chrome.enabled', true);
+
