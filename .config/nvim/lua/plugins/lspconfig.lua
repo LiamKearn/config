@@ -10,9 +10,13 @@ return {
         local default_on_attach = function()
             local bufopts = { noremap = true, silent = true, buffer = true }
 
-            -- TODO: Make diagnostics window focus by default (maybe like done with
-            -- hover or better via opts to open_float if possible).
-            vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, bufopts)
+            -- TODO: Make this faster by setting up leaders properly Currently
+            -- this waits for a second key post leader because I have other
+            -- mappings. Capitalized would fix this.
+            vim.keymap.set('n', '<leader>d', function()
+                vim.diagnostic.open_float()
+                vim.diagnostic.open_float()
+            end, bufopts)
             vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
             vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
             vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist, bufopts)
