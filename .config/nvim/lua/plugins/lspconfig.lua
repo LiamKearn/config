@@ -29,8 +29,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 local config = function(_, opts)
     local lspconfig = require('lspconfig')
+    local util = require('lspconfig.util')
 
-    local defaults = lspconfig.util.default_config
+    local defaults = util.default_config
     defaults.capabilities = vim.tbl_deep_extend(
         'force',
         defaults.capabilities,
@@ -147,6 +148,8 @@ local config = function(_, opts)
     })
 end
 
+local util = require('lspconfig.util')
+
 return {
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -206,18 +209,6 @@ return {
             },
             neocmake = {},
             html = {},
-            ts_ls = {
-                root_dir = function(filename, _)
-                    local root_pattern = require('lspconfig').util.root_pattern
-
-                    if root_pattern("deno.json")(filename) then
-                        return nil
-                    end
-
-                    return root_pattern("package.json")(filename)
-                end,
-                single_file_support = false,
-            },
             texlab = {},
             gopls = {},
             elixirls = {
@@ -239,8 +230,13 @@ return {
             sourcekit = {
                 filetypes = { "swift", "objective-c", "objective-cpp" }
             },
-            denols = {},
-            ruff = {}
+            denols = {
+                root_dir = function(fname)
+                    return util.root_pattern("deno.json", "deno.jsonc", "import_map.json")(fname)
+                end,
+            },
+            ruff = {},
+            ts_ls = {}
         }
     },
     config = config
