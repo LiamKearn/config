@@ -31,25 +31,6 @@ return {
             vim.keymap.set('n', '<leader>FF', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', bufopts)
         end
 
-
-        -- Always open floating windows with a border.
-        local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-        ---@diagnostic disable-next-line: duplicate-set-field Intentional monkey patch.
-        function vim.lsp.util.open_floating_preview(contents, syntax, options, ...)
-            options = options or {}
-            options.border = options.border or {
-                { "╭", "FloatBorder" },
-                { "─", "FloatBorder" },
-                { "╮", "FloatBorder" },
-                { "│", "FloatBorder" },
-                { "╯", "FloatBorder" },
-                { "─", "FloatBorder" },
-                { "╰", "FloatBorder" },
-                { "│", "FloatBorder" },
-            }
-            return orig_util_open_floating_preview(contents, syntax, options, ...)
-        end
-
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = cmp_lsp.default_capabilities(capabilities)
         local with_defaults = function(opts, extended_attach)

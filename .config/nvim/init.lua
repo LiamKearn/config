@@ -64,6 +64,9 @@ vim.opt.colorcolumn = '80'
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+-- Window borders.
+vim.o.winborder = 'rounded'
+
 -- Cursor lines.
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
@@ -73,6 +76,7 @@ vim.g.filetype_ss = 'html'
 
 vim.cmd.colorscheme('retrobox')
 vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg = 0, bg = "#323232" })
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#ffffff", bg = "none", bold = true })
 
 -- Install lazy.
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -177,7 +181,9 @@ vim.keymap.set('n', '<leader>z', function()
 end, { desc = 'Toggle Zen Mode' })
 
 vim.keymap.set('n', '<leader>ws', function()
+    ---@diagnostic disable-next-line: undefined-field
     vim.opt_local.spell = not vim.opt_local.spell:get()
+    ---@diagnostic disable-next-line: undefined-field
     if (vim.opt_local.spell:get()) then
         print('Spell enabled')
     else
@@ -201,4 +207,3 @@ end, { desc = 'Background dark' })
 vim.keymap.set('n', '<leader>bl', function()
     vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
 end, { desc = 'Background light' })
-
