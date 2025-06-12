@@ -28,7 +28,6 @@ return {
             end, bufopts)
             vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
             vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
-            vim.keymap.set('n', '<leader>hh', ':ClangdSwitchSourceHeader<cr>', bufopts)
             vim.keymap.set('n', '<leader>FF', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', bufopts)
         end
 
@@ -53,9 +52,14 @@ return {
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = cmp_lsp.default_capabilities(capabilities)
-        local with_defaults = function(opts)
+        local with_defaults = function(opts, extended_attach)
             opts = opts or {}
-            opts.on_attach = on_attach
+            opts.on_attach = function(client, bufnr)
+                on_attach()
+                if extended_attach then
+                    extended_attach(client, bufnr)
+                end
+            end
             opts.capabilities = capabilities
             return opts
         end
@@ -77,7 +81,10 @@ return {
         }))
         lspconfig['clangd'].setup(with_defaults({
             cmd = { "clangd", "--offset-encoding=utf-16", },
-        }))
+        }), function()
+            vim.keymap.set('n', '<leader>hh', ':ClangdSwitchSourceHeader<cr>',
+                { noremap = true, silent = true, buffer = true })
+        end)
         lspconfig['intelephense'].setup(with_defaults({
             init_options = {
                 licenceKey = os.getenv 'INTELEPHENSE_LICENCE_KEY',
