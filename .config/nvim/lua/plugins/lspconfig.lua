@@ -1,4 +1,3 @@
--- https://gist.github.com/VonHeikemen/8fc2aa6da030757a5612393d0ae060bd
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
     callback = function()
@@ -27,7 +26,61 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 })
 
-local config = function(_, opts)
+local util = require('lspconfig.util')
+
+return {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+        'folke/neodev.nvim'
+    },
+    opts = {
+        servers = {
+            intelephense = {
+                init_options = {
+                    licenceKey = os.getenv 'INTELEPHENSE_LICENCE_KEY',
+                    globalStoragePath = os.getenv('XDG_DATA_HOME') .. '/intelephense'
+                }
+            },
+            clangd = {
+                cmd = {
+                    "clangd",
+                    "--offset-encoding=utf-16",
+                },
+            },
+            rust_analyzer = {},
+            neocmake = {},
+            html = {},
+            texlab = {},
+            gopls = {},
+            elixirls = {
+                cmd = {
+                    "/opt/homebrew/bin/elixir-ls"
+                }
+            },
+            lua_ls = {
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { 'vim' }
+                        }
+                    }
+                }
+            },
+            jdtls = {},
+            terraformls = {},
+            sourcekit = {
+                filetypes = { "swift", "objective-c", "objective-cpp" }
+            },
+            denols = {
+                root_dir = function(fname)
+                    return util.root_pattern("deno.json", "deno.jsonc", "import_map.json")(fname)
+                end,
+            },
+            ruff = {},
+            ts_ls = {}
+        }
+    },
+    config = function(_, opts)
     local lspconfig = require('lspconfig')
     local util = require('lspconfig.util')
 
@@ -38,21 +91,21 @@ local config = function(_, opts)
         require('cmp_nvim_lsp').default_capabilities()
     )
 
-    local border = {
-        { "╭", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "╮", "FloatBorder" },
-        { "│", "FloatBorder" },
-        { "╯", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "╰", "FloatBorder" },
-        { "│", "FloatBorder" },
-    }
-
+    -- Always open floating windows with a border.
     local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+    ---@diagnostic disable-next-line: duplicate-set-field Intentional monkey patch.
     function vim.lsp.util.open_floating_preview(contents, syntax, options, ...)
         options = options or {}
-        options.border = options.border or border
+        options.border = options.border or {
+            { "╭", "FloatBorder" },
+            { "─", "FloatBorder" },
+            { "╮", "FloatBorder" },
+            { "│", "FloatBorder" },
+            { "╯", "FloatBorder" },
+            { "─", "FloatBorder" },
+            { "╰", "FloatBorder" },
+            { "│", "FloatBorder" },
+        }
         return orig_util_open_floating_preview(contents, syntax, options, ...)
     end
 
@@ -147,97 +200,4 @@ local config = function(_, opts)
         },
     })
 end
-
-local util = require('lspconfig.util')
-
-return {
-    'neovim/nvim-lspconfig',
-    dependencies = {
-        'folke/neodev.nvim'
-    },
-    opts = {
-        servers = {
-            intelephense = {
-                init_options = {
-                    licenceKey = os.getenv 'INTELEPHENSE_LICENCE_KEY',
-                    globalStoragePath = os.getenv('XDG_DATA_HOME') .. '/intelephense'
-                }
-            },
-            clangd = {
-                cmd = {
-                    "clangd",
-                    "--offset-encoding=utf-16",
-                },
-            },
-            rust_analyzer = {
-                -- These apply to the default RustSetInlayHints command
-                inlay_hints = {
-                    -- automatically set inlay hints (type hints)
-                    -- default: true
-                    auto = true,
-
-                    -- Only show inlay hints for the current line
-                    only_current_line = false,
-
-                    -- whether to show parameter hints with the inlay hints or not
-                    -- default: true
-                    show_parameter_hints = true,
-
-                    -- prefix for parameter hints
-                    -- default: "<-"
-                    parameter_hints_prefix = "<- ",
-
-                    -- prefix for all the other hints (type, chaining)
-                    -- default: "=>"
-                    other_hints_prefix = "=> ",
-
-                    -- whether to align to the length of the longest line in the file
-                    max_len_align = false,
-
-                    -- padding from the left if max_len_align is true
-                    max_len_align_padding = 1,
-
-                    -- whether to align to the extreme right or not
-                    right_align = false,
-
-                    -- padding from the right if right_align is true
-                    right_align_padding = 7,
-
-                    -- The color of the hints
-                    highlight = "Comment",
-                },
-            },
-            neocmake = {},
-            html = {},
-            texlab = {},
-            gopls = {},
-            elixirls = {
-                cmd = {
-                    "/opt/homebrew/bin/elixir-ls"
-                }
-            },
-            lua_ls = {
-                settings = {
-                    Lua = {
-                        diagnostics = {
-                            globals = { 'vim' }
-                        }
-                    }
-                }
-            },
-            jdtls = {},
-            terraformls = {},
-            sourcekit = {
-                filetypes = { "swift", "objective-c", "objective-cpp" }
-            },
-            denols = {
-                root_dir = function(fname)
-                    return util.root_pattern("deno.json", "deno.jsonc", "import_map.json")(fname)
-                end,
-            },
-            ruff = {},
-            ts_ls = {}
-        }
-    },
-    config = config
 }
