@@ -3,6 +3,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     callback = function()
         local bufopts = { noremap = true, silent = true, buffer = true }
 
+        -- TODO: Make diagnostics window focus by default (maybe like done with
+        -- hover or better via opts to open_float if possible).
         vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, bufopts)
         vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
         vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
@@ -16,9 +18,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.lsp.buf.hover()
             vim.lsp.buf.hover()
         end, bufopts)
-        vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-        vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-        vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
         vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
         vim.keymap.set('n', '<leader>hh', ':ClangdSwitchSourceHeader<cr>', bufopts)
