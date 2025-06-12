@@ -7,7 +7,7 @@ return {
         local luasnip = require('luasnip')
         local util = require('lspconfig.util')
 
-        local on_attach = function()
+        local default_on_attach = function()
             local bufopts = { noremap = true, silent = true, buffer = true }
 
             -- TODO: Make diagnostics window focus by default (maybe like done with
@@ -33,47 +33,51 @@ return {
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = cmp_lsp.default_capabilities(capabilities)
-        local with_defaults = function(opts, extended_attach)
-            opts = opts or {}
-            opts.on_attach = function(client, bufnr)
-                on_attach()
-                if extended_attach then
-                    extended_attach(client, bufnr)
-                end
-            end
-            opts.capabilities = capabilities
-            return opts
+
+        local ls_defaults = function(custom_opts)
+            custom_opts = custom_opts or {}
+            return vim.tbl_deep_extend('force', {
+                on_attach = default_on_attach,
+                capabilities = capabilities,
+            }, custom_opts)
         end
 
-        lspconfig['rust_analyzer'].setup(with_defaults())
-        lspconfig['neocmake'].setup(with_defaults())
-        lspconfig['html'].setup(with_defaults())
-        lspconfig['texlab'].setup(with_defaults())
-        lspconfig['gopls'].setup(with_defaults())
-        lspconfig['jdtls'].setup(with_defaults())
-        lspconfig['terraformls'].setup(with_defaults())
-        lspconfig['ruff'].setup(with_defaults())
-        lspconfig['ts_ls'].setup(with_defaults())
-        lspconfig['sourcekit'].setup(with_defaults({
+        lspconfig['rust_analyzer'].setup(ls_defaults())
+        lspconfig['neocmake'].setup(ls_defaults())
+        lspconfig['html'].setup(ls_defaults())
+        lspconfig['texlab'].setup(ls_defaults())
+        lspconfig['gopls'].setup(ls_defaults())
+        lspconfig['jdtls'].setup(ls_defaults())
+        lspconfig['terraformls'].setup(ls_defaults())
+        lspconfig['ruff'].setup(ls_defaults())
+        lspconfig['ts_ls'].setup(ls_defaults())
+        lspconfig['sourcekit'].setup(ls_defaults({
             filetypes = { "swift", "objective-c", "objective-cpp" }
         }))
-        lspconfig['elixirls'].setup(with_defaults({
+        lspconfig['elixirls'].setup(ls_defaults({
             cmd = { "/opt/homebrew/bin/elixir-ls" }
         }))
-        lspconfig['clangd'].setup(with_defaults({
-            cmd = { "clangd", "--offset-encoding=utf-16", },
+        lspconfig['clangd'].setup(ls_defaults({
+            cmd = { "clangd", },
+            on_attach = function()
+                vim.keymap.set('n', '<leader>hh', ':ClangdSwitchSourceHeader<cr>',
+                    { noremap = true, silent = true, buffer = true })
+                default_on_attach()
+            end,
+            capabilities = {
+                offsetEncoding = { "utf-8" },
+            }
+
         }), function()
-            vim.keymap.set('n', '<leader>hh', ':ClangdSwitchSourceHeader<cr>',
-                { noremap = true, silent = true, buffer = true })
         end)
-        lspconfig['intelephense'].setup(with_defaults({
+        lspconfig['intelephense'].setup(ls_defaults({
             init_options = {
                 licenceKey = os.getenv 'INTELEPHENSE_LICENCE_KEY',
                 globalStoragePath = os.getenv('XDG_DATA_HOME') .. '/intelephense'
             }
         }))
-        lspconfig['lua_ls'].setup(with_defaults())
-        lspconfig['denols'].setup(with_defaults({
+        lspconfig['lua_ls'].setup(ls_defaults())
+        lspconfig['denols'].setup(ls_defaults({
             root_dir = util.root_pattern("deno.json", "deno.jsonc", "import_map.json"),
         }))
 
