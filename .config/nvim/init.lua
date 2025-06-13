@@ -63,9 +63,6 @@ vim.o.winborder = 'rounded'
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 
--- Filetype mappings.
-vim.g.filetype_ss = 'html'
-
 vim.cmd.colorscheme('retrobox')
 vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg = 0, bg = "#323232" })
 vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#ffffff", bg = "none", bold = true })
