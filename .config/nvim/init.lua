@@ -139,7 +139,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
 })
 
-vim.keymap.set('n', 'bda', 'bufdo bd', { commandab = true })
+-- System yank binding.
+vim.keymap.set('n', '<leader>y', function()
+    vim.cmd('call system("pbcopy", @0)')
+end, { silent = true, desc = 'Yank to system clipboard' })
+
 -- Buffer management.
 vim.keymap.set('n', 'bda', 'bufdo bd', { commandab = true })
 vim.keymap.set('n', 'bda!', 'bufdo bd!', { commandab = true })
@@ -153,23 +157,6 @@ vim.keymap.set('n', '<Right>', '<Nop>')
 -- Don't pollute jump list with (what should be) small movements.
 vim.keymap.set('n', '{', ':execute "keepjumps norm! " . v:count1 . "{"<CR>', { silent = true })
 vim.keymap.set('n', '}', ':execute "keepjumps norm! " . v:count1 . "}"<CR>', { silent = true })
-
--- System yank binding.
-vim.keymap.set('n', '<leader>y', function()
-    if (vim.loop.os_uname().sysname == 'Darwin') then
-        vim.cmd('call system("pbcopy", @0)')
-    else
-        local remote_socket = vim.fn.expand('$HOME/.run/clipper.sock')
-        if (vim.loop.fs_stat(remote_socket)) then
-            vim.cmd(string.format('call system("socat - UNIX-CLIENT:%s", @0)', remote_socket))
-        else
-            vim.cmd('call system("clip", @0)')
-        end
-    end
-end, { silent = true, desc = 'Yank to system clipboard' })
-
-
--- TODO: Dry up this seemingly recurring pattern of toggle functions for opts.
 
 -- Focusing toggles.
 vim.keymap.set('n', '<leader>z', function()
