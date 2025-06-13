@@ -64,8 +64,55 @@ vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 
 vim.cmd.colorscheme('retrobox')
+vim.api.nvim_set_hl(0, "Normal", { ctermbg = "NONE", bg = "NONE" })
 vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg = 0, bg = "#323232" })
 vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#ffffff", bg = "none", bold = true })
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function ()
+        vim.g.last_yank_event = vim.v.event
+        vim.hl.on_yank()
+    end,
+    group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
+})
+
+-- System yank binding.
+vim.keymap.set('n', '<leader>y', function()
+    vim.hl.on_yank({
+        higroup = 'DiffText',
+        event = vim.g.last_yank_event,
+    })
+    vim.cmd('call system("pbcopy", @0)')
+end, { silent = true, desc = 'Yank to system clipboard' })
+
+-- Buffer management.
+vim.api.nvim_create_user_command('BufDeleteAll', 'bufdo bd', { desc = 'Delete all buffers' })
+vim.api.nvim_create_user_command('BufDeleteAllForce', 'bufdo bd!', { desc = 'Force delete all buffers' })
+
+-- Map arrow keys to no OP.
+vim.keymap.set('n', '<Up>', '<Nop>')
+vim.keymap.set('n', '<Down>', '<Nop>')
+vim.keymap.set('n', '<Left>', '<Nop>')
+vim.keymap.set('n', '<Right>', '<Nop>')
+
+-- Don't pollute jump list with (what should be) small movements.
+vim.keymap.set('n', '{', ':execute "keepjumps norm! " . v:count1 . "{"<CR>', { silent = true })
+vim.keymap.set('n', '}', ':execute "keepjumps norm! " . v:count1 . "}"<CR>', { silent = true })
+
+-- Focusing toggles.
+vim.keymap.set('n', '<leader>z', function()
+    if (vim.wo.numberwidth == 20) then
+        vim.wo.numberwidth = 4
+    else
+        vim.wo.numberwidth = 20
+    end
+    print((vim.wo.numberwidth == 20 and 'Enabled' or 'Disabled') .. ' Zen mode')
+end, { desc = 'Toggle Zen Mode' })
+
+vim.keymap.set('n', '<leader>ww', function()
+    vim.wo.wrap = not vim.wo.wrap
+    print((vim.wo.wrap and 'Enabled' or 'Disabled') .. ' wrap')
+end, { desc = 'Toggle Wrap' })
 
 -- Install lazy.
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -105,70 +152,3 @@ require('lazy').setup('plugins', {
 })
 
 vim.keymap.set('n', '<leader>ll', vim.cmd.Lazy)
-
--- Monkey Patching, What could go wrong?!
-local nvimSetFnPtr = vim.keymap.set
----@diagnostic disable-next-line: duplicate-set-field Intentional monkey patch.
-vim.keymap.set = function(mode, lhs, rhs, opts)
-    if (opts and opts.commandab ~= nil) then
-        local cmd = 'cnoreabbrev <silent> <expr> %s "%s"'
-
-        vim.cmd(cmd:format(lhs, rhs))
-        return
-    end
-
-    return nvimSetFnPtr(mode, lhs, rhs, opts)
-end
-
-vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
-vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-        vim.highlight.on_yank()
-    end,
-    group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
-})
-
--- System yank binding.
-vim.keymap.set('n', '<leader>y', function()
-    vim.cmd('call system("pbcopy", @0)')
-end, { silent = true, desc = 'Yank to system clipboard' })
-
--- Buffer management.
-vim.keymap.set('n', 'bda', 'bufdo bd', { commandab = true })
-vim.keymap.set('n', 'bda!', 'bufdo bd!', { commandab = true })
-
--- Map arrow keys to no OP.
-vim.keymap.set('n', '<Up>', '<Nop>')
-vim.keymap.set('n', '<Down>', '<Nop>')
-vim.keymap.set('n', '<Left>', '<Nop>')
-vim.keymap.set('n', '<Right>', '<Nop>')
-
--- Don't pollute jump list with (what should be) small movements.
-vim.keymap.set('n', '{', ':execute "keepjumps norm! " . v:count1 . "{"<CR>', { silent = true })
-vim.keymap.set('n', '}', ':execute "keepjumps norm! " . v:count1 . "}"<CR>', { silent = true })
-
--- Focusing toggles.
-vim.keymap.set('n', '<leader>z', function()
-    if (vim.wo.numberwidth == 20) then
-        vim.wo.numberwidth = 4
-    else
-        vim.wo.numberwidth = 20
-    end
-end, { desc = 'Toggle Zen Mode' })
-
-vim.keymap.set('n', '<leader>ww', function()
-    vim.wo.wrap = not vim.wo.wrap
-    if (vim.wo.wrap) then
-        print('Wrap enabled')
-    else
-        print('Wrap disabled')
-    end
-end, { desc = 'Toggle Wrap' })
-
-vim.keymap.set('n', '<leader>bd', function()
-    vim.cmd('highlight Normal guibg=black')
-end, { desc = 'Background dark' })
-
-vim.keymap.set('n', '<leader>bl', function()
-    vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
-end, { desc = 'Background light' })
