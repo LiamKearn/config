@@ -10,9 +10,6 @@ return {
         local default_on_attach = function()
             local bufopts = { noremap = true, silent = true, buffer = true }
 
-            -- TODO: Make this faster by setting up leaders properly Currently
-            -- this waits for a second key post leader because I have other
-            -- mappings. Capitalized would fix this.
             vim.keymap.set('n', '<leader>d', function()
                 vim.diagnostic.open_float()
                 vim.diagnostic.open_float()
