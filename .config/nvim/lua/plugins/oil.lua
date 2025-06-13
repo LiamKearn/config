@@ -1,9 +1,6 @@
 return {
     'stevearc/oil.nvim',
-    cmd = {
-        'O',
-        'Oil',
-    },
+    lazy = false,
     keys = {
         { '<Leader>ee', function() require('oil').open() end, desc = 'Open Oil' }
     },
