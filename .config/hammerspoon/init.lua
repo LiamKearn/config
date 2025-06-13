@@ -15,7 +15,7 @@ Uniqueglobalnamelol = hs.eventtap.new(opts, function(ev)
             hs.application.launchOrFocus("WezTerm")
             return true, {}
         elseif rawFlags == 524352 then
-            hs.application.launchOrFocus("Zen Browser")
+            hs.application.launchOrFocus("Safari")
             return true, {}
         end
     end
