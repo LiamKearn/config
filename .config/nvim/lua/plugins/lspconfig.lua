@@ -1,11 +1,11 @@
 return {
     'neovim/nvim-lspconfig',
+    dependencies = { 'saghen/blink.cmp' },
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
-        local cmp = require('cmp')
-        local cmp_lsp = require('cmp_nvim_lsp')
         local lspconfig = require('lspconfig')
-        local luasnip = require('luasnip')
         local util = require('lspconfig.util')
+        local blink = require('blink.cmp')
 
         local default_on_attach = function()
             local bufopts = { noremap = true, silent = true, buffer = true }
@@ -32,14 +32,11 @@ return {
             vim.keymap.set('n', '<leader>FF', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', bufopts)
         end
 
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = cmp_lsp.default_capabilities(capabilities)
-
         local ls_defaults = function(custom_opts)
             custom_opts = custom_opts or {}
             return vim.tbl_deep_extend('force', {
                 on_attach = default_on_attach,
-                capabilities = capabilities,
+                capabilities = blink.get_lsp_capabilities(),
             }, custom_opts)
         end
 
@@ -81,65 +78,5 @@ return {
         lspconfig['denols'].setup(ls_defaults({
             root_dir = util.root_pattern("deno.json", "deno.jsonc", "import_map.json"),
         }))
-
-        local select_opts = { behavior = cmp.SelectBehavior.Select }
-
-        cmp.setup({
-            snippet = {
-                expand = function(args)
-                    luasnip.lsp_expand(args.body)
-                end
-            },
-            sources = {
-                { name = 'path' },
-                { name = 'nvim_lsp', keyword_length = 1 },
-                { name = 'buffer',   keyword_length = 3 },
-                { name = 'luasnip',  keyword_length = 2 },
-            },
-            window = {
-                documentation = cmp.config.window.bordered()
-            },
-            formatting = {
-                fields = { 'menu', 'abbr', 'kind' },
-                format = function(entry, item)
-                    local menu_icon = {
-                        nvim_lsp = 'λ',
-                        luasnip = '⋗',
-                        buffer = 'Ω',
-                        path = 'TODO'
-                    }
-
-                    item.menu = menu_icon[entry.source.name]
-                    return item
-                end,
-            },
-            mapping = {
-                ['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
-                ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
-
-                ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-                ['<C-d>'] = cmp.mapping.scroll_docs(4),
-
-                ['<Tab>'] = cmp.mapping(function(fallback)
-                    local col = vim.fn.col('.') - 1
-
-                    if cmp.visible() then
-                        cmp.select_next_item(select_opts)
-                    elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-                        fallback()
-                    else
-                        cmp.complete()
-                    end
-                end, { 'i', 's' }),
-
-                ['<S-Tab>'] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_prev_item(select_opts)
-                    else
-                        fallback()
-                    end
-                end, { 'i', 's' }),
-            },
-        })
     end
 }
