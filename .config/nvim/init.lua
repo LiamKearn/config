@@ -69,7 +69,7 @@ vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg = 0, bg = "#323232" })
 vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#ffffff", bg = "none", bold = true })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function ()
+    callback = function()
         vim.g.last_yank_event = vim.v.event
         vim.hl.on_yank()
     end,
@@ -113,6 +113,17 @@ vim.keymap.set('n', '<leader>ww', function()
     vim.wo.wrap = not vim.wo.wrap
     print((vim.wo.wrap and 'Enabled' or 'Disabled') .. ' wrap')
 end, { desc = 'Toggle Wrap' })
+
+-- Used for split/multi-window plugins to lazy load.
+vim.api.nvim_create_autocmd("WinEnter", {
+    callback = function()
+        if #vim.api.nvim_list_wins() > 1 then
+            vim.api.nvim_exec_autocmds("User", { pattern = "MultiWindowInit" })
+            -- Stop further processing of this event
+            return true
+        end
+    end,
+})
 
 -- Install lazy.
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
