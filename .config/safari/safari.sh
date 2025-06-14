@@ -1,7 +1,10 @@
 #!/usr/bin/env sh
 set -ex
 
-# Enable compact tab mode.
+# Show URL on link hover
+defaults write ShowOverlayStatusBar -bool false
+
+# Enable compact tab mode
 defaults write com.apple.Safari ShowStandaloneTabBar -bool false
 
 # WTF IS THIS? no f'ing thank you
