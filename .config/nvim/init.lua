@@ -125,6 +125,70 @@ vim.api.nvim_create_autocmd("WinEnter", {
     end,
 })
 
+local function statusline()
+    function Statusline_visual_selection()
+        local mode = vim.fn.mode()
+        if mode ~= 'v' and mode ~= 'V' and mode ~= '' then
+            return ''
+        end
+        local start_pos = vim.fn.getpos("v")
+        local end_pos = vim.fn.getpos(".")
+
+        if start_pos[2] > end_pos[2] then
+            start_pos[2], end_pos[2] = end_pos[2], start_pos[2]
+        end
+        local lines_selected = end_pos[2] - start_pos[2] + 1
+
+        return string.format(" [%d lines]", lines_selected)
+    end
+
+    function Statusline_get_mode()
+        local text = 'OTHER'
+        local hi = 'Normal'
+
+        local mode = vim.fn.mode()
+        if mode == 'n' then
+            text = 'NORMAL'
+        elseif mode == 'i' then
+            hi = 'DiffAdd'
+            text = 'INSERT'
+        elseif mode == 'v' then
+            hi = 'IncSearch'
+            text = 'VISUAL'
+        elseif mode == 'V' then
+            hi = 'DiffText'
+            text = 'VISUAL LINE'
+        elseif mode == '' then
+            hi = 'PmenuMatch'
+            text = 'VISUAL BLOCK'
+        elseif mode == 't' then
+            hi = 'Question'
+            text = 'TERMINAL'
+        end
+
+        return string.format('%%#%s# %s %%#StatusLine#', hi, text)
+    end
+
+    local mode = '%{%v:lua.Statusline_get_mode()%}'
+    local filename = '%f'
+    local modified = '%m'
+    local split = '%='
+    local selection_lines = '%{v:lua.Statusline_visual_selection()}'
+    local linecol = '%l:%c'
+
+    return string.format(
+        '%s %s %s %s %s %s ',
+        mode,
+        filename,
+        modified,
+        split,
+        selection_lines,
+        linecol
+    )
+end
+
+vim.opt.statusline = statusline()
+
 -- Install lazy.
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
