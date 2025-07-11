@@ -1,29 +1,29 @@
 [credential]
-	helper = store
+    helper = store
 [user]
-	name = LiamKearn
-	email = contact@liamkearn.me
+    name = LiamKearn
+    email = contact@liamkearn.me
 [includeIf "gitdir:/Users/"]
-	path = ~/.config/git/darwin.inc
+    path = ~/.config/git/darwin.inc
 [includeIf "gitdir:/home/"]
-	path = ~/.config/git/linux.inc
+    path = ~/.config/git/linux.inc
 [alias]
-	update = add -u
+    update = add -u
 [alias]
-	ls-pwd = ls-tree --name-only HEAD
+    ls-pwd = ls-tree --name-only HEAD
 [add.interactive]
-	useBuiltin = false
+    useBuiltin = false
 [merge]
-	conflictstyle = diff3
+    conflictstyle = diff3
 [diff]
-	colorMoved = default
+    colorMoved = default
 [commit]
-	gpgsign = true
-	verbose = true
+    gpgsign = true
+    verbose = true
 [diff "ansible-vault"]
-	textconv = ansible-vault view
+    textconv = ansible-vault view
 [core]
-	excludesFile = ~/.config/git/ignore
+    excludesFile = ~/.config/git/ignore
 [url "git@github.com:"]
        insteadOf = git://github.com/
        insteadOf = https://github.com/
