@@ -25,9 +25,7 @@
 [core]
     excludesFile = ~/.config/git/ignore
 [url "git@github.com:"]
-       insteadOf = git://github.com/
-       insteadOf = https://github.com/
-       insteadOf = gh:
-       insteadOf = github:
+    insteadOf = gh:
+    insteadOf = github:
 [url "git@github.com:liamkearn/"]
        insteadOf = my:
