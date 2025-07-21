@@ -3,6 +3,7 @@ local wezterm = require 'wezterm'
 local function fonts(config)
     config.font = wezterm.font_with_fallback({
         -- { family = 'Comic Code Ligatures', weight = 'Medium' },
+        { family = 'ProggyCleanSZ Nerd Font Mono', weight = 'Regular' },
         { family = 'BerkeleyMonoVariable Nerd Font', weight = 'Regular' },
         { family = 'FiraCode Nerd Font Mono', weight = 'Medium' },
     })
@@ -11,9 +12,9 @@ local function fonts(config)
 end
 
 local function colors(config)
-    config.color_scheme = 'Adventure'
+    config.color_scheme = 'Tomorrow'
     config.colors = {
-        background = '#242424',
+        background = '#FFFFFF',
 
         tab_bar = {
             background = '#000000',

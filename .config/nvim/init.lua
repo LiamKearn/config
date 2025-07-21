@@ -63,7 +63,7 @@ vim.o.winborder = 'rounded'
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 
-vim.cmd.colorscheme('retrobox')
+vim.cmd.colorscheme('delek')
 vim.api.nvim_set_hl(0, "Normal", { ctermbg = "NONE", bg = "NONE" })
 vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg = 0, bg = "#323232" })
 vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#ffffff", bg = "none", bold = true })
