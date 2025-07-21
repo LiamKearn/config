@@ -192,6 +192,10 @@ vim.opt.statusline = statusline()
 -- Install lazy.
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
+    local choice = vim.fn.confirm("Lazy is not installed, do you want to try and install and use it?", "&Yes\n&Continue without plugins", 2)
+    if choice ~= 1 then
+        return
+    end
     vim.fn.system({
         'git',
         'clone',
