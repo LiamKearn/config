@@ -8,13 +8,13 @@ gui:
   mainPanelSplitMode: 'vertical' # one of 'horizontal' | 'flexible' | 'vertical'
   language: 'auto' # one of 'auto' | 'en' | 'zh' | 'pl' | 'nl'
   theme:
-    lightTheme: false # For terminals with a light background
+    lightTheme: true # For terminals with a light background
     activeBorderColor:
       - green
       - bold
       # - underline
     inactiveBorderColor:
-      - "#cad3f5"
+      - "#808080"
     optionsTextColor:
       - "#8aadf4"
     selectedLineBgColor:
