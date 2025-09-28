@@ -40,6 +40,58 @@ return {
             }, custom_opts)
         end
 
+        local omni = vim.fn.expand('~/Documents/omnisharp/OmniSharp.dll')
+        lspconfig['omnisharp'].setup(ls_defaults({
+            on_attach = function()
+                default_on_attach()
+                -- Specfic overrides to support decompilation via $metadata$
+                -- from omnisharp_extended plugin
+                vim.keymap.set('n', '<leader>gd',
+                    require('omnisharp_extended').lsp_definition, {
+                        noremap =
+                            true,
+                        silent = true,
+                        buffer = true
+                    })
+                vim.keymap.set('n', '<leader>gt',
+                    require('omnisharp_extended').lsp_type_definition, {
+                        noremap
+                        = true,
+                        silent = true,
+                        buffer = true
+                    })
+                vim.keymap.set('n', '<leader>gr',
+                    require('omnisharp_extended').lsp_references, {
+                        noremap =
+                            true,
+                        silent = true,
+                        buffer = true
+                    })
+                vim.keymap.set('n', '<leader>gi',
+                    require('omnisharp_extended').lsp_implementation, {
+                        noremap
+                        = true,
+                        silent = true,
+                        buffer = true
+                    })
+            end,
+            cmd = {
+                'dotnet',
+                omni,
+                '-z', -- https://github.com/OmniSharp/omnisharp-vscode/pull/4300
+                '--hostPID',
+                tostring(vim.fn.getpid()),
+                'DotNet:enablePackageRestore=false',
+                '--encoding',
+                'utf-8',
+                '--languageserver',
+            },
+            settings = {
+                RoslynExtensionsOptions = {
+                    EnableDecompilationSupport = true,
+                },
+            },
+        }))
         lspconfig['rust_analyzer'].setup(ls_defaults())
         lspconfig['neocmake'].setup(ls_defaults())
         lspconfig['html'].setup(ls_defaults())
