@@ -1,6 +1,6 @@
 return {
     'wincent/command-t',
-    dev = false,
+    dev = true,
     lazy = false,
     keys = {
         {

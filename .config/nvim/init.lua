@@ -51,7 +51,7 @@ vim.opt.listchars = {
 
 -- GUI
 vim.opt.termguicolors = true
-vim.opt.background = 'dark'
+vim.opt.background = 'light'
 vim.opt.colorcolumn = '80'
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -62,11 +62,6 @@ vim.o.winborder = 'rounded'
 -- Cursor lines.
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
-
-vim.cmd.colorscheme('delek')
-vim.api.nvim_set_hl(0, "Normal", { ctermbg = "NONE", bg = "NONE" })
-vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg = 0, bg = "#323232" })
-vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#ffffff", bg = "none", bold = true })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function()
@@ -231,3 +226,9 @@ require('lazy').setup('plugins', {
 })
 
 vim.keymap.set('n', '<leader>ll', vim.cmd.Lazy)
+
+vim.cmd.colorscheme('github_light_high_contrast')
+-- vim.api.nvim_set_hl(0, "Normal", { ctermbg = "NONE", bg = "NONE" })
+vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#e7ecf0" })
+-- vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#ffffff", bg = "none", bold = true })
+
