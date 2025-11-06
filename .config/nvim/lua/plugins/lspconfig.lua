@@ -41,6 +41,10 @@ return {
         end
 
         local omni = vim.fn.expand('~/Documents/omnisharp/OmniSharp.dll')
+
+
+        -- TODO: Seems each .setup is evaluated regardless of filetype / what
+        -- not?
         lspconfig['omnisharp'].setup(ls_defaults({
             on_attach = function()
                 default_on_attach()

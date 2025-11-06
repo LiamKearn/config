@@ -77,7 +77,7 @@ vim.keymap.set('n', '<leader>y', function()
         higroup = 'DiffText',
         event = vim.g.last_yank_event,
     })
-    vim.cmd('call system("pbcopy", @0)')
+    vim.fn.setreg('+', vim.g.last_yank_event.regcontents);
 end, { silent = true, desc = 'Yank to system clipboard' })
 
 -- Buffer management.
