@@ -70,6 +70,7 @@ git:
     - git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
 os:
   open: 'nvim'
+  openLink: "^open {{link}}"
   editPreset: 'nvim'
   editAtLine: 'nvim +{{line}} -- {{filename}}'
 refresher:
