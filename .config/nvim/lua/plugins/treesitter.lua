@@ -11,6 +11,18 @@ return {
         require('nvim-treesitter.configs').setup({
             indent = { enable = true },
             highlight = { enable = true },
+            textobjects = {
+                move = {
+                    enable = true,
+                    set_jumps = true,
+                    goto_next_start = {
+                        ["]]"] = "@function.outer",
+                    },
+                    goto_previous_start = {
+                        ["[["] = "@function.outer",
+                    },
+                },
+            },
             incremental_selection = {
                 enable = true,
                 keymaps = {
