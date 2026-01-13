@@ -52,6 +52,14 @@ alias config = git --git-dir=($env.HOME)/.cfg/ --work-tree=($env.HOME)
 alias fg = job unfreeze
 
 # ----------------------
+#         OP
+# ----------------------
+$env.OP_PLUGIN_ALIASES_SOURCED = 1
+
+alias aws = op plugin run -- aws
+alias cdk = op plugin run -- cdk
+
+# ----------------------
 #         PROGRAMS
 # ----------------------
 alias vi = nvim
