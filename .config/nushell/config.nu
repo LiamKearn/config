@@ -206,6 +206,22 @@ load-env {
 
 $env.GPG_TTY = (tty)
 
+
+def --env aws-mfa [
+    device: string # ARN of the MFA device
+    code: string   # MFA code
+] {
+    let res = ^aws sts get-session-token --serial-number $device --token-code $code | from json
+
+    load-env {
+        "AWS_ACCESS_KEY_ID": $res.Credentials.AccessKeyId
+        "AWS_SECRET_ACCESS_KEY": $res.Credentials.SecretAccessKey
+        "AWS_SESSION_TOKEN": $res.Credentials.SessionToken
+    }
+
+    return "AWS temporary credentials set in environment variables."
+}
+
 def --wrapped brew [...args] {
     use std/log
 
