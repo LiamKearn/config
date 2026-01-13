@@ -77,6 +77,7 @@ alias l = ls
 alias cf = cd ~/.config
 alias ncf = cd ~/.config/nvim
 alias sc = cd ~/Source
+alias down = cd ~/Downloads
 
 alias cd- = cd -
 alias cd.. = cd ..
