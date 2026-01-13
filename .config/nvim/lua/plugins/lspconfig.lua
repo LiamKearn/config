@@ -101,6 +101,7 @@ return {
         lspconfig['html'].setup(ls_defaults())
         lspconfig['texlab'].setup(ls_defaults())
         lspconfig['nushell'].setup(ls_defaults())
+        lspconfig['shopify_theme_ls'].setup(ls_defaults())
         lspconfig['gopls'].setup(ls_defaults())
         lspconfig['jdtls'].setup(ls_defaults())
         lspconfig['terraformls'].setup(ls_defaults())
