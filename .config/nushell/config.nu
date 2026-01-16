@@ -225,7 +225,7 @@ def aws-instance-picker []: nothing -> string {
         | each {|$inst| values | str join "\t"}
         | str join "\n"
         | fzf
-            --preview $'aws ec2 describe-instances --region ($region) --instance-ids {1}'
+            --preview $'bkt --ttl=20s -- aws ec2 describe-instances --region ($region) --instance-ids {1}'
             --preview-window 'top:85%'
             --delimiter "\t"
             -n 1,2
