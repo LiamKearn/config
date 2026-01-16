@@ -207,6 +207,34 @@ load-env {
 $env.GPG_TTY = (tty)
 
 
+def aws-instance-picker []: nothing -> string {
+    let region = (
+        aws ec2 describe-regions
+            --query 'Regions[].RegionName'
+        | from json
+        | str join "\n"
+        | fzf
+    )
+
+    let instance_id = (
+        aws ec2 --region $region describe-instances --query 'Reservations[].Instances[].{
+            InstanceId: InstanceId,
+            Name: Tags[?Key==`Name`].Value | [0]
+        }'
+        | from json
+        | each {|$inst| values | str join "\t"}
+        | str join "\n"
+        | fzf
+            --preview $'aws ec2 describe-instances --region ($region) --instance-ids {1}'
+            --preview-window 'top:85%'
+            --delimiter "\t"
+            -n 1,2
+            --accept-nth 1
+    )
+
+    return $instance_id
+}
+
 def --env aws-mfa [
     device: string # ARN of the MFA device
     code: string   # MFA code
