@@ -1,6 +1,23 @@
 #!/usr/bin/env sh
 set -ex
 
+# User styles
+defaults write com.apple.Safari UserStyleSheetEnabled -bool true
+defaults write com.apple.Safari UserStyleSheetLocationURLString -string "$(readlink -f $HOME/.config/safari/user.css)"
+
+# I don't use apple passwords / autofill stuff.
+defaults write com.apple.Safari AutoFillPreferences -int 0
+defaults write com.apple.Safari AutoFillPasswords -bool false
+
+# Disable autofill for names and addresses
+defaults write com.apple.Safari AutoFillFromAddressBook -bool false
+
+# Disable autofill for credit cards
+defaults write com.apple.Safari AutoFillCreditCardData -bool false
+
+# Disable autofill for other forms
+defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
+
 # Show URL on link hover
 defaults write ShowOverlayStatusBar -bool false
 

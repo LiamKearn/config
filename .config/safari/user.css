@@ -1,0 +1,3 @@
+body.d2l-body div.d2l-page-message-container:has(div.d2l-pt-browser-upgrade) {
+    display: none !important;
+}
