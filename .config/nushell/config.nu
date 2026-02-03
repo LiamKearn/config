@@ -207,7 +207,9 @@ load-env {
 $env.GPG_TTY = (tty)
 
 
-def aws-instance-picker []: nothing -> string {
+def aws-instance-picker [
+    --running
+]: nothing -> string {
     let region = (
         aws ec2 describe-regions
             --query 'Regions[].RegionName'
@@ -216,11 +218,27 @@ def aws-instance-picker []: nothing -> string {
         | fzf
     )
 
-    let instance_id = (
-        aws ec2 --region $region describe-instances --query 'Reservations[].Instances[].{
+    mut instance_args = [
+        "ec2"
+        "describe-instances"
+        "--region"
+        $region
+        --query
+        'Reservations[].Instances[].{
             InstanceId: InstanceId,
             Name: Tags[?Key==`Name`].Value | [0]
         }'
+    ]
+
+    if $running {
+        $instance_args = $instance_args | append [
+            "--filters"
+            "Name=instance-state-name,Values=running"
+        ]
+    }
+
+    let instance_id = (
+        aws ...$instance_args
         | from json
         | each {|$inst| values | str join "\t"}
         | str join "\n"
