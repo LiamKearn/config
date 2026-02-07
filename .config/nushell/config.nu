@@ -306,16 +306,12 @@ def --wrapped brew [...args] {
 
 # Quick Look a specified file or directory
 def ql [
-    path: path # Path to file or directory to quick look
+    ...paths: path # Path to file or directory to quick look
 ] {
     use std/log
     use std null-device
 
-    if ($path | str trim) == "" {
-        log error "No arguments given"
-    }
-
-    ^qlmanage -p $path o+e> (null-device)
+    ^qlmanage -p ...$paths o+e> (null-device)
 }
 
 # ctrl-s to complete word and move past it.
