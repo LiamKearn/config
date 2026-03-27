@@ -5,9 +5,9 @@ set -ex
 defaults write com.apple.Safari UserStyleSheetEnabled -bool true
 defaults write com.apple.Safari UserStyleSheetLocationURLString -string "$(readlink -f $HOME/.config/safari/user.css)"
 
-# I don't use apple passwords / autofill stuff.
-defaults write com.apple.Safari AutoFillPreferences -int 0
-defaults write com.apple.Safari AutoFillPasswords -bool false
+# Use apple passwords / autofill stuff.
+defaults write com.apple.Safari AutoFillPreferences -int 1
+defaults write com.apple.Safari AutoFillPasswords -bool true
 
 # Disable autofill for names and addresses
 defaults write com.apple.Safari AutoFillFromAddressBook -bool false
