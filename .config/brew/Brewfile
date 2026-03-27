@@ -193,7 +193,7 @@ cask "tableplus"
 cask "temurin@8"
 cask "tunnelblick"
 cask "unity-hub"
-cask "vimari"
+cask "vladdoster/formulae/vimari"
 cask "visual-studio"
 cask "visual-studio-code"
 cask "vlc"
@@ -201,7 +201,6 @@ cask "vnc-viewer"
 cask "wireshark-app"
 cask "xquartz"
 cask "zoom"
-mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
