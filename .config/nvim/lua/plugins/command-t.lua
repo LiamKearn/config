@@ -19,7 +19,7 @@ return {
     build = function(opts)
         local lazypath = vim.fn.stdpath('data') .. '/lazy/command-t/lua/wincent/commandt/lib'
         if (opts.dev ~= nil and opts.dev) then
-            lazypath = vim.fn.expand('$HOME/Projects') .. '/command-t/lua/wincent/commandt/lib'
+            lazypath = vim.fn.expand('$HOME/Source') .. '/command-t/lua/wincent/commandt/lib'
         end
         local out = vim.fn.system({
             'make',
