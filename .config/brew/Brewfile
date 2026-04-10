@@ -95,6 +95,7 @@ brew "mysql-client"
 brew "neovim", args: ["HEAD"]
 brew "netcat"
 brew "ninja"
+brew "node@24"
 brew "nushell", args: ["HEAD"]
 brew "openconnect"
 brew "openjdk@11"
