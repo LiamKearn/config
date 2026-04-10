@@ -1,1 +1,6 @@
-:set ignorecase
+:set ignorecase smartcase
+:set hlsearch
+:set incsearch
+:set scrolloff=8
+:set sidescrolloff=16
+:nnoremap <Esc> :nohlsearch<CR>
