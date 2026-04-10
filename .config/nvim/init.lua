@@ -232,3 +232,38 @@ vim.cmd.colorscheme('github_light_high_contrast')
 vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#e7ecf0" })
 -- vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#ffffff", bg = "none", bold = true })
 
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(event)
+        local buffer = event.buf
+        local bufopts = { noremap = true, silent = true, buffer = true }
+        vim.keymap.set('n', '<leader>d', function()
+            print("TODO: FIXME")
+            vim.diagnostic.open_float()
+            vim.diagnostic.open_float()
+        end, bufopts)
+        vim.keymap.set('n', '<c-space>', function() vim.lsp.buf.selection_range(1) end, bufopts)
+        vim.keymap.set('x', '<bs>', function() vim.lsp.buf.selection_range(-1) end, bufopts)
+        vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1 }) end, bufopts)
+        vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1 }) end, bufopts)
+        vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist, bufopts)
+        vim.keymap.set('n', '<leader>GD', vim.lsp.buf.declaration, bufopts)
+        vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, bufopts)
+        vim.keymap.set('n', '<leader>gr', function() vim.lsp.buf.references({ includeDeclaration = false }) end,
+            bufopts)
+        vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts)
+        vim.keymap.set('n', '<leader>gt', vim.lsp.buf.type_definition, bufopts)
+        vim.keymap.set('n', 'K', function()
+            vim.lsp.buf.hover()
+            vim.lsp.buf.hover()
+            -- TODO: go down one line to prevent being in the ``` backticks
+            -- Something better than this stupid AI hack:
+            -- vim.defer_fn(function()
+            --     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Down>', true, false, true), 'n', true)
+            -- end, 400)
+        end, bufopts)
+        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
+        vim.keymap.set('n', '<leader>FF', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', bufopts)
+    end,
+})
+        
