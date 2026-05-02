@@ -1,7 +1,7 @@
 # I know some of these are explict defaults.
 
 if status --is-interactive
-    set GPG_TTY (tty)
+    set -x GPG_TTY (tty)
 end
 
 # ----------------------
@@ -121,5 +121,3 @@ set -Ux NVM_DIR "$XDG_DATA_HOME/nvm"
 
 # NPM
 set -Ux NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
-
-set -Ux GPG_TTY (tty)

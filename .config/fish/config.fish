@@ -48,8 +48,8 @@ switch (uname)
         fish_add_path $PNPM_HOME
 end
 
-alias sign='set GPG_TTY (tty) && echo "" | gpg --sign -u "LiamKearn" > /dev/null'
-alias lzg 'set GPG_TTY (tty) && lazygit'
+alias sign='echo "" | gpg --sign -u "LiamKearn" > /dev/null'
+alias lzg 'lazygit'
 alias lzgc 'lzg --git-dir=$HOME/.cfg --work-tree=$HOME'
 abbr -a lzd 'lazydocker'
 abbr -a src 'source $XDG_CONFIG_HOME/fish/config.fish'
