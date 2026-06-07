@@ -1,11 +1,10 @@
 let mapleader=' '
 
 :set ignorecase smartcase
-:set hlsearch
+:set nohlsearch
 :set incsearch
 :set scrolloff=8
 :set sidescrolloff=16
-:nnoremap <Esc> :nohlsearch<CR>
 :nnoremap ]d :action GotoNextError<CR>
 :nnoremap [d :action GotoPreviousError<CR>
 :nnoremap <leader>gt :action GotoTypeDeclaration<CR>
