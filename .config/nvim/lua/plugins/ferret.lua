@@ -1,3 +1,0 @@
-return {
-    'wincent/ferret',
-}

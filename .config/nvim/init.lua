@@ -184,60 +184,70 @@ end
 
 vim.opt.statusline = statusline()
 
--- Install lazy.
-local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
-    local choice = vim.fn.confirm("Lazy is not installed, do you want to try and install and use it?", "&Yes\n&Continue without plugins", 2)
-    if choice ~= 1 then
-        return
-    end
-    vim.fn.system({
-        'git',
-        'clone',
-        '--filter=blob:none',
-        'https://github.com/folke/lazy.nvim.git',
-        '--branch=stable',
-        lazypath,
-    })
-end
-vim.opt.rtp:prepend(lazypath)
+-- Install and setup plugins. This file only contains plugin management, neovim
+-- config and the plugin configuration in lives in `plugin/` instead.
+vim.api.nvim_create_autocmd('PackChanged', {
+    callback = function(ev)
+        local name, kind = ev.data.spec.name, ev.data.kind
 
-require('lazy').setup('plugins', {
-    change_detection = {
-        enabled = true,
-        notify = false,
-    },
-    dev = {
-        path = vim.fn.expand('$HOME/Source'),
-        fallback = true,
-    },
-    ui = {
-        border = {
-            { "╭" },
-            { "─" },
-            { "╮" },
-            { "│" },
-            { "╯" },
-            { "─" },
-            { "╰" },
-            { "│" },
-        }
-    }
+        -- Build treesitter parsers from their grammars.
+        if name == 'nvim-treesitter' and kind == 'update' then
+            if not ev.data.active then vim.cmd.packadd('nvim-treesitter') end
+            vim.cmd('TSUpdate')
+        end
+
+        -- Command-t has a native c library used for searching that needs building.
+        if (kind == 'update' or kind == 'install') and name == 'command-t' then
+            print('Building command-t')
+
+            local out = vim.fn.system({
+                'make',
+                '-C',
+                vim.fn.stdpath('data') .. '/site/pack/core/opt/command-t/lua/wincent/commandt/lib'
+            })
+
+            if (vim.v.shell_error ~= 0) then
+                print(out)
+                print('Failed to build')
+                return
+            end
+
+            print('Built command-t')
+        end
+
+        -- blink.cmp has a native rust library which can be built via lua.
+        if (kind == 'update' or kind == 'install') and name == 'blink.cmp' then
+            if not ev.data.active then
+                vim.cmd.packadd('blink.lib')
+                vim.cmd.packadd('blink.cmp')
+            end
+            require('blink.cmp').build():pwait()
+        end
+    end
 })
 
-vim.keymap.set('n', '<leader>ll', vim.cmd.Lazy)
+vim.pack.add({
+ 'https://github.com/saghen/blink.lib',
+  'https://github.com/saghen/blink.cmp',
+  'https://github.com/wincent/command-t',
+  'https://github.com/zbirenbaum/copilot.lua',
+  'https://github.com/wincent/ferret',
+  'https://github.com/neovim/nvim-lspconfig',
+  'https://github.com/stevearc/oil.nvim',
+  'https://github.com/nvim-lua/plenary.nvim',
+  'https://github.com/nvim-telescope/telescope.nvim',
+  'https://github.com/nvim-treesitter/nvim-treesitter',
+})
 
-vim.cmd.colorscheme('github_light_high_contrast')
--- vim.api.nvim_set_hl(0, "Normal", { ctermbg = "NONE", bg = "NONE" })
+-- TODO:
+-- vim.cmd.colorscheme('github_light_high_contrast')
 vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#e7ecf0" })
--- vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#ffffff", bg = "none", bold = true })
 
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(event)
         local buffer = event.buf
         local bufopts = { noremap = true, silent = true, buffer = true }
         vim.keymap.set('n', '<leader>d', function()
-            print("TODO: FIXME")
             vim.diagnostic.open_float()
             vim.diagnostic.open_float()
         end, bufopts)
@@ -266,4 +276,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<leader>FF', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', bufopts)
     end,
 })
-        
