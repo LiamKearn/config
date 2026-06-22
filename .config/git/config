@@ -22,6 +22,8 @@
     verbose = true
 [diff "ansible-vault"]
     textconv = ansible-vault view
+[diff "b64"]
+    textconv = base64 -d -i
 [core]
     excludesFile = ~/.config/git/ignore
 [url "git@github.com:"]
