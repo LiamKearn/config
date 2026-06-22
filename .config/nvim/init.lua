@@ -51,7 +51,7 @@ vim.opt.listchars = {
 
 -- GUI
 vim.opt.termguicolors = true
-vim.opt.background = 'light'
+vim.opt.background = 'dark'
 vim.opt.colorcolumn = '80'
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -227,6 +227,7 @@ vim.api.nvim_create_autocmd('PackChanged', {
 })
 
 vim.pack.add({
+ 'https://github.com/sainnhe/gruvbox-material',
  'https://github.com/saghen/blink.lib',
   'https://github.com/saghen/blink.cmp',
   'https://github.com/wincent/command-t',
@@ -239,9 +240,9 @@ vim.pack.add({
   'https://github.com/nvim-treesitter/nvim-treesitter',
 })
 
--- TODO:
--- vim.cmd.colorscheme('github_light_high_contrast')
-vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#e7ecf0" })
+vim.cmd.colorscheme('gruvbox-material')
+vim.g.gruvbox_material_background = "medium"
+vim.g.gruvbox_material_foreground = "material"
 
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(event)
