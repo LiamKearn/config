@@ -79,8 +79,8 @@ set -Ux AWS_PROFILE personal
 #        OTHER
 # ----------------------
 
-# Use node 20 by default.
-set -U nvm_default_version 20
+# Use node 24 by default.
+set -U nvm_default_version 24
 
 # Always install yarn when I install new versions of node.
 set -U nvm_default_packages yarn pnpm sass aws-cdk
