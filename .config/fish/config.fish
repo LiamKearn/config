@@ -1,7 +1,7 @@
 if not status --is-interactive
     # SOS.
-    alias vi nvim
-    alias vim nvim
+    alias vi hx
+    alias vim hx
     exit
 end
 
@@ -25,8 +25,8 @@ fish_add_path $HOME/.docker/bin
 
 switch (uname)
     case Darwin
-        alias todo="vi $HOME/Documents/todo.md"
-        alias todop="vi $HOME/Documents/todo-personal.md"
+        alias todo="hx $HOME/Documents/todo.md"
+        alias todop="hx $HOME/Documents/todo-personal.md"
         alias qtodo="ql $HOME/Documents/todo.md"
         alias readlink='greadlink'
         alias sed='gsed'
@@ -77,10 +77,10 @@ alias ll='eza --grid -a --group-directories-first --icons -s Ext'
 alias ls='eza --long --octal-permissions --no-permissions --no-time --no-filesize --header --group'
 alias ac="AWS_CLI_AUTO_PROMPT=on aws --cli-auto-prompt"
 alias pn="pnpm"
-alias vi='nvim'
-alias vim='nvim'
-alias vic='nvim $XDG_CONFIG_HOME/fish/config.fish'
-alias vie='nvim $XDG_CONFIG_HOME/fish/public_env.fish'
+alias vi='hx'
+alias vim='hx'
+alias vic='hx $XDG_CONFIG_HOME/fish/config.fish'
+alias vie='hx $XDG_CONFIG_HOME/fish/public_env.fish'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias rg='rg --no-messages'
 alias htop="sudo htop"
@@ -95,7 +95,6 @@ alias pd='popd'
 alias fic='cd $XDG_CONFIG_HOME/fish'
 alias cf='cd $XDG_CONFIG_HOME'
 alias sc='cd $HOME/Source'
-alias ncf='cd $XDG_CONFIG_HOME/nvim'
 alias doc='cd $HOME/Documents'
 alias down='cd $HOME/Downloads'
 alias :q='exit'
