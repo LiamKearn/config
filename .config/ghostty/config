@@ -1,0 +1,24 @@
+# Needed because the smcup codes in xterm-color for alt screen don't merge
+# scrollback resulting in ctrl-z from neovim removing prior output.
+# https://ghostty.org/docs/config/reference#term
+term=ghostty
+
+cursor-style = block
+macos-option-as-alt = true
+cursor-style-blink = false
+shell-integration-features = no-cursor
+shell-integration-features = false
+window-decoration = none
+macos-titlebar-style = hidden
+# background = FFFFFF
+# foreground = 000000
+font-size = 23
+font-family = "Px437 IBM VGA 9x16"
+window-height = 23
+window-width = 81
+window-padding-x = 10
+window-padding-y = 10
+window-padding-color = background
+window-padding-color = extend
+keybind = unconsumed:control+enter=text:\x0D
+theme = dark:Apple System Colors,light:Github-Light-High-Contrast

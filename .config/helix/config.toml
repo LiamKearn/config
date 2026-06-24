@@ -2,7 +2,26 @@ theme = "gruvbox_material_dark_medium"
 
 [editor]
 line-number = "relative"
-# mouse = false
+rulers = [80]
+scrolloff = 8
+cursorline = true
+cursorcolumn = true
+auto-format = false
+color-modes = true
+
+[editor.cursor-shape]
+insert = "underline"
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+nbsp = "all"
+nnbsp = "all"
+newline = "none"
+
+[editor.whitespace.characters]
+tab = '▷'
+nbsp = '⦸'
 
 [editor.file-picker]
 hidden = false

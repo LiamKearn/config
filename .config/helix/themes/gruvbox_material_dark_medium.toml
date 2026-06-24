@@ -1,3 +1,4 @@
+# Modified with personal touches, see commit history.
 # Thanks to CptPotato for the theme!
 # SEE: https://github.com/CptPotato/helix-themes/tree/main
 "type" = "yellow"
@@ -76,6 +77,7 @@
 "ui.virtual.indent-guide" = { fg = "bg4" }
 "ui.virtual.ruler" = { bg = "bg3" }
 "ui.virtual.inlay-hint" = "grey0" 
+"ui.virtual.jump-label" = "orange"
 
 "hint" = "blue"
 "info" = "aqua"
