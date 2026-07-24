@@ -44,9 +44,9 @@
 "markup.quote" = "grey2"
 "markup.raw" = "green"
 
-"diff.plus" = "green"
-"diff.delta" = "orange"
-"diff.minus" = "red"
+"diff.plus" = "bg0"
+"diff.delta" = "bg0"
+"diff.minus" = "bg0"
 
 "ui.background" = { bg = "bg0" }
 "ui.background.separator" = "grey0"
