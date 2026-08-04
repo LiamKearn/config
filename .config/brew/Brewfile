@@ -58,6 +58,8 @@ brew "libssh2"
 brew "freetds"
 # Dependency Manager for PHP
 brew "composer"
+# Manage Apple Container with Docker Compose files
+brew "container-compose"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Static analysis of C and C++ code
@@ -156,10 +158,10 @@ brew "lazygit", args: ["HEAD"]
 brew "libqalculate"
 # Language Server for the Lua language
 brew "lua-language-server"
+# Text-based web browser
+brew "lynx"
 # Apple LZFSE compression library and command-line tool
 brew "lzfse"
-# Drop-in replacement for MySQL
-brew "mariadb"
 # Mac App Store command-line interface
 brew "mas"
 # Sign files & verify signatures. Works with signify in OpenBSD
@@ -173,11 +175,15 @@ brew "msmtp"
 # Mongrel of mail user agents (part elm, pine, mush, mh, etc.)
 brew "mutt"
 # Open source relational database management system
+brew "mysql"
+# Open source relational database management system
 brew "mysql-client"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Utility for managing network connections
 brew "netcat"
+# Statically typed compiled systems programming language
+brew "nim"
 # Small build system for use with gyp or CMake
 brew "ninja"
 # Open-source, cross-platform JavaScript runtime environment
@@ -195,7 +201,7 @@ brew "openjdk@21", link: true
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # General-purpose scripting language
-brew "php@8.2", link: true
+brew "php@8.2"
 # PHP Installer for Extensions
 brew "pie"
 # Pinentry for GPG on Mac
@@ -264,6 +270,8 @@ brew "yara"
 brew "ykman"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
+# Programming language designed for robustness, optimality, and clarity
+brew "zig"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Command-line interface for 1Password
@@ -343,6 +351,8 @@ cask "microsoft-word"
 cask "mono-mdk-for-visual-studio"
 # Open-source software for live streaming and screen recording
 cask "obs"
+# Replacement for Docker Desktop
+cask "orbstack"
 # PHP IDE by JetBrains
 cask "phpstorm"
 # Command-line shell and scripting language
@@ -395,6 +405,8 @@ cask "visual-studio-code"
 cask "vlc"
 # Remote desktop application focusing on security
 cask "vnc-viewer"
+# JavaScript IDE
+cask "webstorm"
 # Network protocol analyzer
 cask "wireshark-app"
 # Open-source version of the X.Org X Window System
@@ -426,4 +438,5 @@ vscode "visualstudiotoolsforunity.vstuc"
 vscode "vscodevim.vim"
 go "github.com/jesseduffield/lazygit"
 cargo "cargo-expand"
+cargo "helix-term"
 npm "corepack"
