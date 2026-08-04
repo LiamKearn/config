@@ -18,3 +18,12 @@ name = "binary"
 [language.debugger.templates.args]
 program = "{0}"
 runInTerminal = false
+
+[[language]]
+name = "javascript"
+formatter = { command = "npx", args = ["prettier", "%{buffer_name}"] }
+
+[[language]]
+name = "jsx"
+formatter = { command = "npx", args = ["prettier", "--stdin-filepath", "%{buffer_name}"] }
+
