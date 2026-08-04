@@ -231,7 +231,6 @@ vim.pack.add({
  'https://github.com/saghen/blink.lib',
   'https://github.com/saghen/blink.cmp',
   'https://github.com/wincent/command-t',
-  'https://github.com/zbirenbaum/copilot.lua',
   'https://github.com/wincent/ferret',
   'https://github.com/neovim/nvim-lspconfig',
   'https://github.com/stevearc/oil.nvim',
