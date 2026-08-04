@@ -31,3 +31,8 @@ space = {
   f = "file_picker_in_current_directory",
   F = "file_picker"
 }
+esc = "collapse_selection"
+
+[keys.insert]
+"C-space" = "completion"
+
