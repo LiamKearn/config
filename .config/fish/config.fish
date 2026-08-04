@@ -49,9 +49,9 @@ switch (uname)
 end
 
 alias sign='echo "" | gpg --sign -u "LiamKearn" > /dev/null'
-alias lzg 'lazygit'
+alias lzg lazygit
 alias lzgc 'lzg --git-dir=$HOME/.cfg --work-tree=$HOME'
-abbr -a lzd 'lazydocker'
+abbr -a lzd lazydocker
 abbr -a src 'source $XDG_CONFIG_HOME/fish/config.fish'
 abbr -a tma 'tmux a'
 abbr -a cd- 'cd -'
