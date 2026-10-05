@@ -265,11 +265,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'K', function()
             vim.lsp.buf.hover()
             vim.lsp.buf.hover()
-            -- TODO: go down one line to prevent being in the ``` backticks
-            -- Something better than this stupid AI hack:
-            -- vim.defer_fn(function()
-            --     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Down>', true, false, true), 'n', true)
-            -- end, 400)
         end, bufopts)
         vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
