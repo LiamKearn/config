@@ -249,6 +249,13 @@ vim.cmd.colorscheme('gruvbox-material')
 vim.g.gruvbox_material_background = "medium"
 vim.g.gruvbox_material_foreground = "material"
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'markdown' },
+  callback = function()
+    vim.api.nvim_set_option_value('conceallevel', 0, { win = vim.api.nvim_get_current_win() })
+  end,
+})
+
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(event)
         local buffer = event.buf
