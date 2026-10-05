@@ -1,7 +1,7 @@
 if not status --is-interactive
     # SOS.
-    alias vi hx
-    alias vim hx
+    alias vi nvim
+    alias vim nvim
     exit
 end
 
@@ -77,10 +77,10 @@ alias ll='eza --grid -a --group-directories-first --icons -s Ext'
 alias ls='eza --long --octal-permissions --no-permissions --no-time --no-filesize --header --group'
 alias ac="AWS_CLI_AUTO_PROMPT=on aws --cli-auto-prompt"
 alias pn="pnpm"
-alias vi='hx'
-alias vim='hx'
-alias vic='hx $XDG_CONFIG_HOME/fish/config.fish'
-alias vie='hx $XDG_CONFIG_HOME/fish/public_env.fish'
+alias vi='nvim'
+alias vim='nvim'
+alias vic='nvim $XDG_CONFIG_HOME/fish/config.fish'
+alias vie='nvim $XDG_CONFIG_HOME/fish/public_env.fish'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias rg='rg --no-messages'
 alias htop="sudo htop"
