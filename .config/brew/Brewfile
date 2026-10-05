@@ -1,4 +1,5 @@
 tap "1password/tap"
+tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git"
 tap "cargo-lambda/tap"
 tap "ddev/ddev"
 tap "felixkratz/formulae"
@@ -7,18 +8,17 @@ tap "homebrew/bundle"
 tap "homebrew/services"
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazygit"
-tap "koekeishiya/formulae"
 tap "lkrms/misc"
 tap "mach-kernel/pkgs"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "oven-sh/bun"
 tap "qmk/qmk"
-tap "saulpw/vd"
-tap "shivammathur/php"
+tap "shivammathur/php", trusted: { formulae: ["php"] }
 tap "skiptools/skip"
 tap "smittytone/smittytone"
 tap "superbrothers/opener"
+tap "visidata/vd", "https://github.com/visidata/homebrew-vd.git"
 tap "vladdoster/formulae"
 # Core application library for C
 brew "glib"
@@ -68,6 +68,8 @@ brew "cppcheck"
 brew "dbus"
 # Secure runtime for JavaScript and TypeScript
 brew "deno"
+# Diff that understands syntax
+brew "difftastic"
 # Convert text between DOS, UNIX, and Mac formats
 brew "dos2unix"
 # .NET Core
@@ -91,7 +93,7 @@ brew "openjpeg"
 # Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
 # Open-source, cross-platform JavaScript runtime environment
-brew "node"
+brew "node", link: false
 # Firebase command-line tools
 brew "firebase-cli"
 # User-friendly command-line shell for UNIX-like operating systems
@@ -110,6 +112,8 @@ brew "gawk"
 brew "gcc"
 # GNU debugger
 brew "gdb"
+# GitHub command-line tool
+brew "gh"
 # Interpreter for PostScript and PDF
 brew "ghostscript"
 # Distributed revision control system
@@ -144,6 +148,8 @@ brew "imagemagick"
 brew "imapsync"
 # GNU utilities for networking
 brew "inetutils"
+# CLI tool for searching and downloading app packages from the iOS App Store
+brew "ipatool"
 # Tool to measure maximum TCP and UDP bandwidth
 brew "iperf"
 # Java language specific implementation of the Language Server Protocol
@@ -166,6 +172,8 @@ brew "lzfse"
 brew "mas"
 # Sign files & verify signatures. Works with signify in OpenBSD
 brew "minisign"
+# MongoDB Shell to connect, configure, query, and work with your MongoDB database
+brew "mongosh"
 # Collection of tools that nobody wrote when UNIX was young
 brew "moreutils"
 # Remote terminal application
@@ -206,6 +214,10 @@ brew "php@8.2"
 brew "pie"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
+# Fast, disk space efficient package manager
+brew "pnpm"
+# Object-relational database system
+brew "postgresql@18", restart_service: :changed, link: true
 # Command-line shell and scripting language
 brew "powershell", link: false
 # Show ps output as a tree
@@ -252,6 +264,8 @@ brew "tree"
 brew "typescript-language-server"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
+# Terminal spreadsheet multitool for discovering and arranging data
+brew "visidata"
 # Language servers for HTML, CSS, JavaScript, and JSON extracted from vscode
 brew "vscode-langservers-extracted"
 # Sends magic packets to wake up network-devices
@@ -286,7 +300,6 @@ cask "android-commandlinetools"
 cask "android-platform-tools"
 # Tools for building Android applications
 cask "android-studio"
-# Two-factor authentication software
 cask "authy"
 # Online gaming platform
 cask "battle-net"
@@ -296,7 +309,6 @@ cask "bettertouchtool"
 cask "chromium"
 # Productivity platform for tasks, docs, goals, and chat
 cask "clickup"
-# Create and run Linux containers using lightweight virtual machines
 cask "container"
 # Tool to run Windows software
 cask "crossover"
@@ -347,7 +359,6 @@ cask "microsoft-remote-desktop"
 cask "microsoft-teams"
 # Word processor
 cask "microsoft-word"
-# Open source implementation of Microsoft's .NET Framework
 cask "mono-mdk-for-visual-studio"
 # Open-source software for live streaming and screen recording
 cask "obs"
@@ -355,7 +366,6 @@ cask "obs"
 cask "orbstack"
 # PHP IDE by JetBrains
 cask "phpstorm"
-# Command-line shell and scripting language
 cask "powershell"
 # Minecraft launcher
 cask "prismlauncher"
@@ -363,6 +373,8 @@ cask "prismlauncher"
 cask "qmk-toolbox"
 # Quick Look plugin for JSON files
 cask "quicklook-json"
+# Remote desktop application focusing on security
+cask "realvnc-connect-viewer"
 # Window snapping tool
 cask "rectangle-pro"
 # Powerful runtime view debugging for iOS developers
@@ -393,24 +405,17 @@ cask "temurin@8"
 cask "tunnelblick"
 # Management tool for Unity
 cask "unity-hub"
-# A macOS command line tool you can use to reveal a file's Uniform Type Identifier (UTI)
-cask "smittytone/smittytone/utitool"
-# Safari port of vimium
-cask "vladdoster/formulae/vimari"
-# Integrated development environment
+cask "utitool"
+cask "vimari"
 cask "visual-studio"
 # Open-source code editor
 cask "visual-studio-code"
 # Multimedia player
 cask "vlc"
-# Remote desktop application focusing on security
-cask "vnc-viewer"
 # JavaScript IDE
 cask "webstorm"
 # Network protocol analyzer
 cask "wireshark-app"
-# Open-source version of the X.Org X Window System
-cask "xquartz"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Amphetamine", id: 937984704
@@ -439,4 +444,8 @@ vscode "vscodevim.vim"
 go "github.com/jesseduffield/lazygit"
 cargo "cargo-expand"
 cargo "helix-term"
+npm "aws-cdk"
 npm "corepack"
+npm "pnpm"
+npm "sass"
+npm "yarn"
