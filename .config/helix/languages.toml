@@ -21,7 +21,8 @@ runInTerminal = false
 
 [[language]]
 name = "javascript"
-formatter = { command = "npx", args = ["prettier", "%{buffer_name}"] }
+file-types = ["js", "mjs"]
+formatter = { command = "npx", args = ["prettier", "--stdin-filepath", "%{buffer_name}"] }
 
 [[language]]
 name = "jsx"
