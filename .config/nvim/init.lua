@@ -94,6 +94,12 @@ vim.keymap.set('n', '<Right>', '<Nop>')
 vim.keymap.set('n', '{', ':execute "keepjumps norm! " . v:count1 . "{"<CR>', { silent = true })
 vim.keymap.set('n', '}', ':execute "keepjumps norm! " . v:count1 . "}"<CR>', { silent = true })
 
+-- I used to have this setup with treesitter and used it a bunch, treesitter updated and I never bothered setting it up again.
+-- After using helix and realising I should just use alt binds I'm in love!
+vim.keymap.set('n', '<A-o>', 'van', { remap = true })
+vim.keymap.set('v', '<A-o>', 'an', { remap = true })
+vim.keymap.set('v', '<A-i>', 'in', { remap = true })
+
 -- Focusing toggles.
 vim.keymap.set('n', '<leader>z', function()
     if (vim.wo.numberwidth == 20) then
