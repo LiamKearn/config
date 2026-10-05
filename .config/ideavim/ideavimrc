@@ -1,5 +1,6 @@
 let mapleader=' '
 
+:set idearefactormode=keep
 :set ignorecase smartcase
 :set nohlsearch
 :set incsearch
@@ -8,4 +9,8 @@ let mapleader=' '
 :nnoremap ]d :action GotoNextError<CR>
 :nnoremap [d :action GotoPreviousError<CR>
 :nnoremap <leader>gt :action GotoTypeDeclaration<CR>
+
+:nnoremap <M-o> :action EditorSelectWord<CR>
+:xnoremap <M-o> :action EditorSelectWord<CR>
+:xnoremap <M-i> :action EditorUnSelectWord<CR>
 
